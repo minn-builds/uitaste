@@ -39,7 +39,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 
 ## Phase 3: Linter
 
-- [ ] T3.1 · Lint engine · M · T1.1
+- [x] T3.1 · Lint engine · M · T1.1
   - Parse .tsx/.jsx/.css/.html (oxc-parser or @babel/parser for JSX className strings; postcss for CSS)
   - Rule interface `{id, severity, check(file, ctx) => Finding[]}`, reporters: pretty + JSON
   - Accept: tests with fixture files

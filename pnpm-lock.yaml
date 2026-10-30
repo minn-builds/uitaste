@@ -214,6 +214,16 @@ importers:
         version: 8.3.5(@types/node@20.19.43)(esbuild@0.27.7)(jiti@2.7.0)(yaml@2.9.1)
 
   packages/cli:
+    dependencies:
+      '@tastekit/core':
+        specifier: workspace:*
+        version: link:../core
+      citty:
+        specifier: ^0.2.2
+        version: 0.2.2
+      zod:
+        specifier: ^4.6.7
+        version: 4.6.7
     devDependencies:
       tsup:
         specifier: ^8.5.1
@@ -225,9 +235,6 @@ importers:
   packages/core:
     dependencies:
       '@babel/parser':
-        specifier: ^7.29.11
-        version: 7.29.11
-      '@babel/types':
         specifier: ^7.29.11
         version: 7.29.11
       '@tastekit/presets':
@@ -246,6 +253,9 @@ importers:
         specifier: ^4.6.7
         version: 4.6.7
     devDependencies:
+      '@babel/types':
+        specifier: ^7.29.11
+        version: 7.29.11
       '@types/culori':
         specifier: ^4.0.1
         version: 4.0.1
@@ -1092,6 +1102,9 @@ packages:
   chokidar@4.0.3:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
     engines: {node: '>= 14.16.0'}
+
+  citty@0.2.2:
+    resolution: {integrity: sha512-+6vJA3L98yv+IdfKGZHBNiGW5KHn22e/JwID0Strsz8h4S/csAu/OuICwxrg44k5MRiZHWIo8XXuJgQTriRP4w==}
 
   commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
@@ -2260,6 +2273,8 @@ snapshots:
   chokidar@4.0.3:
     dependencies:
       readdirp: 4.1.2
+
+  citty@0.2.2: {}
 
   commander@4.1.1: {}
 

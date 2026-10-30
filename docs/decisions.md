@@ -11,3 +11,5 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · zod 4 in core for preset + token schemas · Runtime validation with readable errors and inferred TS types from one source
 - 2026-10-30 · culori 4 + @types/culori in core for the token generator · Parse seeds, OKLCH conversion, sRGB gamut mapping (clampChroma) and WCAG contrast in one small dependency
 - 2026-10-30 · @changesets/cli for versioning + changelogs · Standard release flow for pnpm monorepos; human runs publish
+- 2026-10-30 · Lint parsers: @babel/parser 7 (+ @babel/types for AST types) for JSX/TSX, postcss for CSS, parse5 for HTML · Pure JS (no native binaries), precise source offsets, battle-tested; Babel 8 needs Node 22 so pinned to 7
+- 2026-10-30 · citty 0.2 + zod in packages/cli · citty is the CLI framework chosen in the stack (tiny, typed subcommands); zod validates CLI args
