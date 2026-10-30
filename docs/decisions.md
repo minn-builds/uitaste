@@ -8,3 +8,4 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · Biome instead of ESLint + Prettier · One fast tool and one config; hooks stay cheap
 - 2026-10-30 · Core logic only in `packages/core` · CLI, MCP and skill stay thin and consistent
 - 2026-10-30 · Scaffold deps: turbo, tsup 8, vitest 4, TypeScript 5.9, Vite 8 + React 19 + Tailwind v4 (`@tailwindcss/vite`) · vitest 5 / tsup 9 need Node 22 (we support 20); tsup 8 dts breaks on TS 6 (`baseUrl` deprecation) and TS 7 has no JS API
+- 2026-10-30 · zod 4 in core for preset + token schemas · Runtime validation with readable errors and inferred TS types from one source
