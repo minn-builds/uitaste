@@ -93,7 +93,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 ## Phase 8: Launch
 
 - [ ] T8.1 · Release 0.1.0 · S · all above (use `/ship`)
-- [ ] T8.2 · Launch posts · S · T8.1
+- [x] T8.2 · Launch posts · S · T8.1
   - Draft X thread, r/ClaudeAI + r/webdev posts, Show HN. Lead with before/after images.
 
 ## Later (only after traction)
