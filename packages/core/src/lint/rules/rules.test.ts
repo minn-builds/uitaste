@@ -6,12 +6,12 @@ import { editorial } from "../../generator/fixtures.js";
 import { generateTokens } from "../../generator/generate.js";
 import type { Tokens } from "../../schema/tokens.js";
 import { lintSources } from "../engine.js";
-import { aiTellRules, recommendedRules } from "./index.js";
+import { aiTellRules, recommendedRules, tokenRules } from "./index.js";
 
 const dir = join(fileURLToPath(new URL(".", import.meta.url)), "..", "__fixtures__", "rules");
 
 function run(ruleId: string, name: string, tokens?: Tokens) {
-  const rule = aiTellRules.find((r) => r.id === ruleId);
+  const rule = [...aiTellRules, ...tokenRules].find((r) => r.id === ruleId);
   if (!rule) throw new Error(`no rule ${ruleId}`);
   const source = readFileSync(join(dir, name), "utf8");
   const report = lintSources([{ path: name, source }], {
@@ -32,6 +32,13 @@ const cases: { rule: string; ext: string; failCount: number }[] = [
   { rule: "no-emoji-icons", ext: "tsx", failCount: 2 },
   { rule: "no-shadow-everywhere", ext: "tsx", failCount: 1 },
   { rule: "no-shadow-everywhere", ext: "css", failCount: 1 },
+  { rule: "no-hardcoded-color", ext: "tsx", failCount: 5 },
+  { rule: "no-hardcoded-color", ext: "css", failCount: 2 },
+  { rule: "no-arbitrary-values", ext: "tsx", failCount: 4 },
+  { rule: "max-radius-variants", ext: "tsx", failCount: 1 },
+  { rule: "max-radius-variants", ext: "css", failCount: 1 },
+  { rule: "font-from-tokens", ext: "tsx", failCount: 3 },
+  { rule: "font-from-tokens", ext: "css", failCount: 1 },
 ];
 
 describe("AI-tell rules", () => {
@@ -59,8 +66,62 @@ describe("AI-tell rules", () => {
     expect(lintSources(src, { rules: rule }).summary.warnings).toBe(0);
   });
 
+  it("max-radius-variants counts across files and ignores the generated tokens file", () => {
+    const rule = tokenRules.filter((r) => r.id === "max-radius-variants");
+    const src = (n: string, c: string) => ({
+      path: n,
+      source: `export const A = () => <i className="${c}" />;`,
+    });
+    const report = lintSources(
+      [src("a.tsx", "rounded-sm rounded-md"), src("b.tsx", "rounded-lg rounded-xl")],
+      { rules: rule },
+    );
+    expect(report.summary.errors).toBe(1);
+    const ok = lintSources([src("a.tsx", "rounded-sm rounded-md"), src("b.tsx", "rounded-lg")], {
+      rules: rule,
+    });
+    expect(ok.summary.errors).toBe(0);
+  });
+
+  it("max-radius-variants uses a start-of-file loc when the extra use is in another file", () => {
+    const rule = tokenRules.filter((r) => r.id === "max-radius-variants");
+    const src = (n: string, c: string) => ({
+      path: n,
+      source: `export const A = () => <i className="${c}" />;`,
+    });
+    const report = lintSources(
+      [src("a.tsx", "rounded-sm rounded-md"), src("b.tsx", "rounded-lg rounded-xl")],
+      { rules: rule },
+    );
+    const f = report.files[0]?.findings[0];
+    expect(f?.loc.start.offset).toBe(0);
+    expect(f?.message).toContain("b.tsx");
+  });
+
+  it("color rule ignores url() contents", () => {
+    const rule = tokenRules.filter((r) => r.id === "no-hardcoded-color");
+    const source =
+      'export const A = () => <i className="bg-[url(/tan.png)]" style={{ fill: "url(#a1)" }} />;';
+    expect(lintSources([{ path: "a.tsx", source }], { rules: rule }).summary.errors).toBe(0);
+  });
+
+  it("no-hardcoded-color skips generated token css", () => {
+    const rule = tokenRules.filter((r) => r.id === "no-hardcoded-color");
+    const css = {
+      path: "src/tokens.generated.css",
+      source: ":root { --tk-x: oklch(0.5 0.1 20); }",
+    };
+    expect(lintSources([css], { rules: rule }).summary.errors).toBe(0);
+  });
+
   it("ships unique ids and a recommended set containing every AI-tell rule", () => {
     expect(new Set(aiTellRules.map((r) => r.id)).size).toBe(6);
-    for (const r of aiTellRules) expect(recommendedRules).toContain(r);
+    for (const r of [...aiTellRules, ...tokenRules]) expect(recommendedRules).toContain(r);
+    expect(tokenRules.map((r) => r.id)).toEqual([
+      "no-hardcoded-color",
+      "no-arbitrary-values",
+      "max-radius-variants",
+      "font-from-tokens",
+    ]);
   });
 });

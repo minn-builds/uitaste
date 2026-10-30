@@ -1,4 +1,4 @@
-import { converter, parse } from "culori";
+import { colorsNamed, converter, parse } from "culori";
 import type { StyleDeclaration } from "../types.js";
 
 const toOklch = converter("oklch");
@@ -42,4 +42,33 @@ export function firstFamily(stack: string): string {
 /** Matches the generic fonts agents default to. */
 export function isDefaultFont(family: string): boolean {
   return /^(inter(?: variable| var)?|roboto|arial)$/.test(family.toLowerCase());
+}
+
+/** Generated token stylesheets may define raw colors; token rules skip them. */
+export function isGeneratedTokensFile(path: string): boolean {
+  return /(?:^|[\\/])(?:tokens\.generated|tastekit\.tokens)\.css$/.test(path);
+}
+
+/** Keywords that are never a hardcoded color. */
+export const COLOR_KEYWORDS = /^(transparent|currentcolor|inherit|initial|unset|revert|none)$/i;
+
+const NAMED_COLORS = Object.keys(colorsNamed).filter((n) => n !== "transparent");
+const NAMED_RE = new RegExp(`\\b(?:${NAMED_COLORS.join("|")})\\b`, "i");
+const FUNC_OR_HEX_RE =
+  /#[0-9a-f]{3,8}\b|\b(?:oklch|oklab|lch|lab|rgba?|hsla?|hwb|color)\([^()]*\)/gi;
+
+/** CSS properties whose values may be a bare named color (`red`, `white`). */
+export const COLOR_PROPS =
+  /^(?:color|background(?:-color|-image)?|border(?:-[a-z]+)*-color|border|border-(?:top|right|bottom|left|block|inline)(?:-[a-z]+)?|outline(?:-color)?|fill|stroke|caret-color|accent-color|text-decoration(?:-color)?|box-shadow|text-shadow|column-rule(?:-color)?|--.+)$/;
+
+/** Raw color literals in a CSS value, ignoring anything inside `var(...)`. Named colors only when `allowNamed`. */
+export function hardcodedColors(rawValue: string, allowNamed: boolean): string[] {
+  const value = rawValue.replace(/url\((?:[^()]|\([^()]*\))*\)/gi, " ");
+  const found: string[] = value.match(FUNC_OR_HEX_RE) ?? [];
+  if (allowNamed) {
+    const stripped = value.replace(FUNC_OR_HEX_RE, " ").replace(/var\([^()]*\)/g, " ");
+    const re = new RegExp(NAMED_RE.source, "gi");
+    for (const m of stripped.matchAll(re)) found.push(m[0]);
+  }
+  return found;
 }
