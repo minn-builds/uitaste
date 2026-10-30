@@ -61,7 +61,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [ ] T4.2 · `tastekit lint` · S · T3.2, T3.3
   - Globs, `--json`, exit codes 0/1, reads config
 - [x] T4.3 · `tastekit preset list|show` · S · T2.1
-- [ ] T4.4 · CLI tests resolve `@tastekit/core` from source · S · T4.3
+- [x] T4.4 · CLI tests resolve `@tastekit/core` from source · S · T4.3
   - Alias `@tastekit/core` to `packages/core/src` in `packages/cli/vitest.config.ts` so tests don't run against a stale dist
   - Accept: a core change shows up in CLI tests without rebuilding core
 

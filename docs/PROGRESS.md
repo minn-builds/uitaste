@@ -9,3 +9,4 @@
 - T1.3 · emitters: toCssVars, toTailwindTheme (@theme + @theme inline, dark via .dark/prefers-color-scheme), toJson; playground token-proof page via Vite plugin · critic 2.9 → fixes applied (1 round)
 - T1.4 · firstLegible nudges lightness until AA passes (throws if impossible); #000/#fff seeds tested
 - T3.2 · six AI-tell lint rules (default display font, purple gradient, gradient hero text, uniform card grid, emoji icons, shadow everywhere), tuned for low false positives
+- T4.4 · CLI vitest aliases @tastekit/core to src; turbo test depends on own build for the e2e
