@@ -36,7 +36,7 @@ export const noGradientTextHero: Rule = {
   check(file) {
     const findings: Finding[] = [];
     const hint =
-      "Set the headline in a solid text color from the tokens (`text-foreground` or the accent) and let type size and weight carry emphasis.";
+      "Set the headline in a solid text color from the tokens (`text-fg` or `text-accent`) and let type size and weight carry emphasis.";
 
     for (const el of file.elements) {
       const utilities = new Set(el.classes.map((c) => c.utility));

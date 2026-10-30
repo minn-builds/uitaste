@@ -13,6 +13,7 @@ import {
   mergeOverrides,
   planInit,
   readConfig,
+  readSkillBundle,
   reuseConfigPaths,
   type TokenOverrides,
   TokenOverridesSchema,
@@ -104,9 +105,10 @@ export async function runInit(input: unknown, io: Io = stdio): Promise<number> {
     const { detection, tokensCssPath } = reuseConfigPaths(cwd, existing, detectProject(cwd));
     const tokensCss = detection.tailwind ? toTailwindTheme(tokens) : toCssVars(tokens);
     const globalAbs = detection.globalCss ? join(cwd, detection.globalCss) : null;
-    const skillFile = join(skillRoot(), "SKILL.md");
-    const skillMd = existsSync(skillFile) ? readFileSync(skillFile, "utf8") : null;
-    if (skillMd === null) io.err(`warning: ${skillFile} not found; skill not installed`);
+    const root = skillRoot();
+    const { skillMd, files: skillFiles } = readSkillBundle(root);
+    if (skillMd === null)
+      io.err(`warning: ${join(root, "SKILL.md")} not found; skill not installed`);
     const plan = planInit({
       preset: presetId,
       ...(tokensCssPath ? { tokensCssPath } : {}),
@@ -116,6 +118,7 @@ export async function runInit(input: unknown, io: Io = stdio): Promise<number> {
       tokensCss,
       globalCssContent: globalAbs ? readFileSync(globalAbs, "utf8") : null,
       skillMd,
+      skillFiles,
       rulesMd: rules,
       cursor: existsSync(join(cwd, ".cursor")),
     });

@@ -32,3 +32,4 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · @fontsource/archivo-black in playground · OFL self-hosted chunky display face for the brutal preset; no runtime font network calls
 - 2026-10-30 · @fontsource/atkinson-hyperlegible in playground · OFL self-hosted body face for the brutal preset, chosen so the loud direction stays legible
 - 2026-10-30 · @fontsource/space-mono in playground · OFL self-hosted mono for the brutal preset's labels and data
+- 2026-10-30 · init installs the whole skill bundle (SKILL.md + reference/*) and the chosen preset's rules at a fixed `reference/preset.md` · SKILL.md can name the file without knowing the preset id; switching presets overwrites it (old `reference/presets/<id>/rules.md` from pre-release inits is left in place)

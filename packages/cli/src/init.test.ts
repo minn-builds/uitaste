@@ -1,4 +1,4 @@
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execa } from "execa";
@@ -104,6 +104,10 @@ describe("tastekit init (e2e, minimal Vite app fixture)", () => {
     expect(readFileSync(join(app, ".claude/skills/tastekit/SKILL.md"), "utf8")).toContain(
       "tastekit",
     );
+    const skillDir = join(app, ".claude/skills/tastekit");
+    expect(readFileSync(join(skillDir, "reference/preset.md"), "utf8")).toContain("Demo rules");
+    expect(existsSync(join(skillDir, "reference/rubric.md"))).toBe(true);
+    expect(existsSync(join(skillDir, "reference/lint-rules.md"))).toBe(true);
 
     writeFileSync(join(app, "src/style.css"), `${css}/* user edit */\n`);
     const second = await run();

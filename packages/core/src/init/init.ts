@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, isAbsolute, join, posix, relative, sep } from "node:path";
 import { z } from "zod";
 import { type TokenOverrides, TokenOverridesSchema } from "../generator/generate.js";
@@ -7,6 +7,10 @@ import { type ShootConfig, ShootConfigSchema } from "../shoot/options.js";
 
 export const CONFIG_FILE = "tastekit.config.json";
 export const TOKENS_FILE = "tastekit.tokens.css";
+/** Where `init` installs the agent skill, project-relative. */
+export const SKILL_DIR = ".claude/skills/tastekit";
+/** Skill-relative path of the active preset's rules, copied from the preset at init. */
+export const PRESET_RULES_FILE = "reference/preset.md";
 
 export const FrameworkSchema = z.enum(["vite", "next", "plain"]);
 export type Framework = z.infer<typeof FrameworkSchema>;
@@ -138,6 +142,8 @@ export interface PlanInput {
   /** Current content of the global CSS, if any. */
   globalCssContent?: string | null;
   skillMd: string | null;
+  /** Extra skill files (skill-relative POSIX paths, e.g. `reference/rubric.md`), see {@link readSkillBundle}. */
+  skillFiles?: readonly FileOp[];
   rulesMd: string;
   cursor: boolean;
 }
@@ -152,6 +158,34 @@ const HEADER =
 
 function stripFrontmatter(md: string): string {
   return md.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "").replace(/^\s*\n/, "");
+}
+
+/** Installed copy of a preset's rules.md, tagged with the preset id so agents know which preset it is. */
+export function presetRulesDoc(preset: string, rulesMd: string): string {
+  const head = `<!-- tastekit preset: ${preset}. Copied from the preset by \`tastekit init\`; re-run init to update. -->\n\n`;
+  return head + (rulesMd.endsWith("\n") ? rulesMd : `${rulesMd}\n`);
+}
+
+/**
+ * Read the shipped skill package: `SKILL.md` (null when missing) plus every file under
+ * `reference/`, as skill-relative POSIX paths sorted for stable output.
+ */
+export function readSkillBundle(skillRoot: string): { skillMd: string | null; files: FileOp[] } {
+  const skillFile = join(skillRoot, "SKILL.md");
+  const skillMd = existsSync(skillFile) ? readFileSync(skillFile, "utf8") : null;
+  const files: FileOp[] = [];
+  const walk = (rel: string) => {
+    const abs = join(skillRoot, ...rel.split("/"));
+    if (!existsSync(abs)) return;
+    for (const name of readdirSync(abs).sort()) {
+      const child = `${rel}/${name}`;
+      const childAbs = join(abs, name);
+      if (statSync(childAbs).isDirectory()) walk(child);
+      else files.push({ path: child, content: readFileSync(childAbs, "utf8") });
+    }
+  };
+  walk("reference");
+  return { skillMd, files };
 }
 
 /** Pure planning step: which files `init` writes. The caller applies them with `applyOps`. */
@@ -181,13 +215,18 @@ export function planInit(input: PlanInput): InitPlan {
     if (patched !== input.globalCssContent) ops.push({ path: d.globalCss, content: patched });
   }
   if (input.skillMd) {
-    ops.push({ path: ".claude/skills/tastekit/SKILL.md", content: input.skillMd });
+    ops.push({ path: `${SKILL_DIR}/SKILL.md`, content: input.skillMd });
+    for (const f of input.skillFiles ?? []) {
+      if (f.path === PRESET_RULES_FILE || !isInsideProject(f.path)) continue;
+      ops.push({ path: `${SKILL_DIR}/${posix.normalize(f.path)}`, content: f.content });
+    }
     ops.push({
-      path: `.claude/skills/tastekit/reference/presets/${input.preset}/rules.md`,
-      content: input.rulesMd,
+      path: `${SKILL_DIR}/${PRESET_RULES_FILE}`,
+      content: presetRulesDoc(input.preset, input.rulesMd),
     });
     if (input.cursor) {
-      const body = `${stripFrontmatter(input.skillMd).trimEnd()}\n\n---\n\n${input.rulesMd}`;
+      const note = `Reference files (rubric, lint fixes, tokens) live in \`${SKILL_DIR}/reference/\`.`;
+      const body = `${stripFrontmatter(input.skillMd).trimEnd()}\n\n${note}\n\n---\n\n${input.rulesMd}`;
       ops.push({
         path: ".cursor/rules/tastekit.mdc",
         content: `---\ndescription: tastekit design rules; apply when building or restyling UI\nalwaysApply: false\n---\n\n${body}`,

@@ -8,9 +8,12 @@ import {
   detectProject,
   FontFamilyInputSchema,
   mergeOverrides,
+  PRESET_RULES_FILE,
   patchCssImport,
   planInit,
+  presetRulesDoc,
   readConfig,
+  readSkillBundle,
   reuseConfigPaths,
   TastekitConfigSchema,
 } from "./init.js";
@@ -96,7 +99,7 @@ describe("planInit + applyOps", () => {
       "src/tastekit.tokens.css",
       "src/index.css",
       ".claude/skills/tastekit/SKILL.md",
-      ".claude/skills/tastekit/reference/presets/demo/rules.md",
+      ".claude/skills/tastekit/reference/preset.md",
       ".cursor/rules/tastekit.mdc",
     ]);
     expect(applyOps(dir, plan.ops)).toHaveLength(6);
@@ -105,6 +108,49 @@ describe("planInit + applyOps", () => {
     const again = planInit({ ...input, globalCssContent: css });
     expect(applyOps(dir, again.ops)).toEqual([]);
   });
+  it("copies skill reference files and the preset rules into reference/preset.md", () => {
+    const plan = planInit({
+      ...input,
+      cursor: false,
+      skillFiles: [
+        { path: "reference/rubric.md", content: "# Rubric\n" },
+        { path: "reference/lint-rules.md", content: "# Lint\n" },
+        { path: "../escape.md", content: "nope" },
+        { path: PRESET_RULES_FILE, content: "shipped placeholder" },
+      ],
+    });
+    const byPath = new Map(plan.ops.map((o) => [o.path, o.content]));
+    expect([...byPath.keys()].filter((p) => p.startsWith(".claude/"))).toEqual([
+      ".claude/skills/tastekit/SKILL.md",
+      ".claude/skills/tastekit/reference/rubric.md",
+      ".claude/skills/tastekit/reference/lint-rules.md",
+      ".claude/skills/tastekit/reference/preset.md",
+    ]);
+    const rules = byPath.get(".claude/skills/tastekit/reference/preset.md");
+    expect(rules).toBe(presetRulesDoc("demo", "# Rules\n"));
+    expect(rules).toContain("tastekit preset: demo");
+    expect(rules?.endsWith("# Rules\n")).toBe(true);
+  });
+  it("re-init with another preset overwrites reference/preset.md", () => {
+    const dir = proj({ "src/index.css": "body{}\n" });
+    applyOps(dir, planInit(input).ops);
+    const css = readFileSync(join(dir, "src/index.css"), "utf8");
+    const next = planInit({
+      ...input,
+      preset: "other",
+      rulesMd: "# Other\n",
+      globalCssContent: css,
+    });
+    expect(applyOps(dir, next.ops)).toContain(".claude/skills/tastekit/reference/preset.md");
+    expect(
+      readFileSync(join(dir, ".claude/skills/tastekit/reference/preset.md"), "utf8"),
+    ).toContain("# Other");
+  });
+  it("cursor rule points at the installed reference dir", () => {
+    const mdc = planInit(input).ops.find((o) => o.path === ".cursor/rules/tastekit.mdc");
+    expect(mdc?.content).toContain(".claude/skills/tastekit/reference/");
+    expect(mdc?.content).not.toContain("name: tastekit");
+  });
   it("skips skill without source and cursor when disabled", () => {
     const plan = planInit({ ...input, skillMd: null, cursor: false });
     expect(plan.ops.map((o) => o.path)).toEqual([
@@ -112,6 +158,40 @@ describe("planInit + applyOps", () => {
       "src/tastekit.tokens.css",
       "src/index.css",
     ]);
+  });
+});
+
+describe("presetRulesDoc", () => {
+  it("adds a trailing newline when missing", () => {
+    expect(presetRulesDoc("x", "# R")).toMatch(/# R\n$/);
+  });
+});
+
+describe("readSkillBundle", () => {
+  it("reads SKILL.md and reference files recursively, sorted", () => {
+    const dir = proj({
+      "SKILL.md": "# S\n",
+      "reference/rubric.md": "r",
+      "reference/a/deep.md": "d",
+      "package.json": "{}",
+    });
+    expect(readSkillBundle(dir)).toEqual({
+      skillMd: "# S\n",
+      files: [
+        { path: "reference/a/deep.md", content: "d" },
+        { path: "reference/rubric.md", content: "r" },
+      ],
+    });
+  });
+  it("returns null skill and no files for an empty dir", () => {
+    expect(readSkillBundle(proj({}))).toEqual({ skillMd: null, files: [] });
+  });
+  it("bundles the shipped skill package", () => {
+    const shipped = join(import.meta.dirname, "..", "..", "..", "skill");
+    const { skillMd, files } = readSkillBundle(shipped);
+    expect(skillMd).toMatch(/^---\n\n?name: tastekit\n/);
+    expect(files.map((f) => f.path)).toContain("reference/rubric.md");
+    expect(files.map((f) => f.path)).not.toContain(PRESET_RULES_FILE);
   });
 });
 
