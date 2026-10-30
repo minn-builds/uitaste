@@ -1,11 +1,14 @@
-import { resolve } from "node:path";
+import { createRequire } from "node:module";
+import { dirname, resolve } from "node:path";
 import {
+  agentHandoff,
   type BrowserLike,
   defaultOutDir,
   type Manifest,
   parseBreakpoints,
   parseList,
   readConfig,
+  rubricPath,
   runShoot,
   type ShootOptionsInput,
   ShootOptionsSchema,
@@ -31,6 +34,11 @@ const stdio: Io = {
 export const PLAYWRIGHT_HELP =
   "Playwright is required for `tastekit shoot`. Install it and its browser:\n" +
   "  npm i -D playwright && npx playwright install chromium";
+
+function skillRoot(): string {
+  const require = createRequire(import.meta.url);
+  return dirname(require.resolve("@tastekit/skill/package.json"));
+}
 
 /** Launches headless chromium; the caller closes it. */
 export type Launcher = () => Promise<BrowserLike & { close(): Promise<void> }>;
@@ -107,6 +115,7 @@ export async function runShootCommand(
       io.out(
         `${manifest.summary.ok}/${manifest.summary.total} shots -> ${manifest.outDir}/manifest.json`,
       );
+      io.out(agentHandoff(manifest.outDir, rubricPath(skillRoot())));
     }
     return manifest.summary.failed > 0 ? 1 : 0;
   } catch (e) {

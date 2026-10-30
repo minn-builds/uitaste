@@ -70,7 +70,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [x] T5.1 · `tastekit shoot` · M · T4.1
   - Playwright: routes × breakpoints (390/768/1440), full-page PNG, wait for fonts + network idle, output manifest JSON with paths
   - Accept: e2e against playground dev server
-- [ ] T5.2 · Rubric packaging · S · T5.1
+- [x] T5.2 · Rubric packaging · S · T5.1
   - Ship `docs/design-rubric.md` as `packages/skill/reference/rubric.md`; `shoot` prints the rubric path + manifest for the agent
 
 ## Phase 6: Agent integration
