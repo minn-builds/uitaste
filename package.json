@@ -1,0 +1,24 @@
+{
+  "name": "tastekit-monorepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run //#lint:biome",
+    "format": "biome check --write .",
+    "lint:biome": "biome check ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.4",
+    "@types/node": "^20.19.43",
+    "turbo": "^2.11.10",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12"
+  }
+}

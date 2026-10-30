@@ -1,0 +1,11 @@
+{
+  "name": "@tastekit/presets",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "*/preset.json",
+    "*/rules.md",
+    "*/examples"
+  ]
+}

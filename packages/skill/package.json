@@ -1,0 +1,10 @@
+{
+  "name": "@tastekit/skill",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "SKILL.md",
+    "reference"
+  ]
+}

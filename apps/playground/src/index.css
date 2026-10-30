@@ -1,0 +1,2 @@
+/* Preset tokens get imported here once emitters exist (T1.3). No hardcoded design values. */
+@import "tailwindcss";

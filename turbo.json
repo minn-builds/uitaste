@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "//#lint:biome": {
+      "inputs": ["$TURBO_ROOT$/**", "!**/node_modules/**", "!**/dist/**"],
+      "outputs": []
+    }
+  }
+}
