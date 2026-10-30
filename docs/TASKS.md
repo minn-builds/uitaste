@@ -26,7 +26,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [x] T1.3 · Emitters · S · T1.2
   - `toCssVars(tokens)`, `toTailwindTheme(tokens)` (v4 `@theme` block), `toJson(tokens)`
   - Accept: snapshot tests; playground imports emitted CSS and renders
-- [ ] T1.4 · Generator: `firstLegible` fallback guarantees AA · S · T1.2
+- [x] T1.4 · Generator: `firstLegible` fallback guarantees AA · S · T1.2
   - Today it silently returns the last candidate when none passes; instead adjust lightness until AA passes (or throw)
   - Accept: test with a no-pass candidate list yields a color that clears AA on every background
 

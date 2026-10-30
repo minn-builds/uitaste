@@ -107,15 +107,31 @@ export function pickForeground(bg: Oklch, candidates: readonly Oklch[]): Oklch {
   return byContrast([WHITE, BLACK]) ?? BLACK;
 }
 
+const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
+
 /**
- * Returns the first candidate that clears AA against every background, or the last candidate
- * if none does. Order candidates from most subtle to strongest.
+ * Returns the first candidate that clears AA against every background. If none does, the last
+ * candidate (the strongest) is nudged in lightness, keeping hue and chroma where the gamut allows,
+ * until it clears AA; the smallest nudge wins. Throws if no color can clear AA on all backgrounds.
+ * Order candidates from most subtle to strongest.
  */
 export function firstLegible(backgrounds: readonly Oklch[], candidates: readonly Oklch[]): Oklch {
-  const pass = candidates.find((fg) =>
-    backgrounds.every((bg) => contrastRatio(fg, bg) >= AA_CONTRAST),
-  );
-  const fallback = candidates[candidates.length - 1];
-  if (!fallback) throw new Error("firstLegible needs at least one candidate");
-  return pass ?? fallback;
+  const legible = (fg: Oklch) => backgrounds.every((bg) => contrastRatio(fg, bg) >= AA_CONTRAST);
+  const pass = candidates.find(legible);
+  if (pass) return pass;
+  const last = candidates[candidates.length - 1];
+  if (!last) throw new Error("firstLegible needs at least one candidate");
+
+  const search = (direction: 1 | -1): Oklch | undefined => {
+    for (let l = clamp01(last.l); l >= 0 && l <= 1; l = round(l + direction * 0.005, 3)) {
+      const adjusted = toSrgbGamut({ ...last, l });
+      if (legible(adjusted)) return adjusted;
+    }
+    return undefined;
+  };
+  const options = [search(1), search(-1)].filter((c): c is Oklch => c !== undefined);
+  options.sort((a, b) => Math.abs(a.l - last.l) - Math.abs(b.l - last.l));
+  const best = options[0];
+  if (!best) throw new Error("No color can reach AA contrast on all given backgrounds");
+  return best;
 }

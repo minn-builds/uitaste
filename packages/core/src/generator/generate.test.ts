@@ -13,7 +13,7 @@ const ACCENTS = [
   "#111111",
   "oklch(0.58 0.1 280)",
 ];
-const NEUTRALS = ["#1c1917", "#f5f5f4", "#64748b", "oklch(0.5 0.03 250)"];
+const NEUTRALS = ["#000", "#fff", "#1c1917", "#f5f5f4", "#64748b", "oklch(0.5 0.03 250)"];
 
 describe("generateTokens", () => {
   it("matches the snapshot for the editorial fixture", () => {

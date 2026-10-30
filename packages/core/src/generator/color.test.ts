@@ -117,8 +117,23 @@ describe("firstLegible", () => {
   it("returns the first candidate that clears AA on all backgrounds", () => {
     expect(firstLegible([bg], [soft, strong])).toBe(strong);
   });
-  it("returns the last candidate when none passes", () => {
-    expect(firstLegible([bg], [soft, soft])).toBe(soft);
+  it("adjusts lightness until AA passes when no candidate does", () => {
+    const fg = firstLegible([bg], [soft, soft]);
+    expect(contrastRatio(fg, bg)).toBeGreaterThanOrEqual(4.5);
+    expect(fg.l).toBeLessThan(soft.l);
+  });
+  it("clears AA on every background for extreme seeds", () => {
+    for (const seed of ["#000", "#fff"]) {
+      const bgs = [parseOklch("#fff"), parseOklch("#eee"), parseOklch("#ddd")];
+      const fg = firstLegible(bgs, [parseOklch(seed === "#000" ? "#ccc" : seed)]);
+      for (const b of bgs) expect(contrastRatio(fg, b)).toBeGreaterThanOrEqual(4.5);
+    }
+    const darkBgs = [parseOklch("#000"), parseOklch("#111")];
+    const fg = firstLegible(darkBgs, [parseOklch("#000")]);
+    for (const b of darkBgs) expect(contrastRatio(fg, b)).toBeGreaterThanOrEqual(4.5);
+  });
+  it("throws when no color can clear AA on all backgrounds", () => {
+    expect(() => firstLegible([WHITE, BLACK, parseOklch("#777")], [soft])).toThrow();
   });
   it("throws without candidates", () => {
     expect(() => firstLegible([bg], [])).toThrow();
