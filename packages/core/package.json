@@ -21,10 +21,17 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@types/culori": "^4.0.1",
     "tsup": "^8.5.1",
     "vitest": "^4.1.12"
   },
   "dependencies": {
+    "@babel/parser": "^7.29.11",
+    "@babel/types": "^7.29.11",
+    "@tastekit/presets": "workspace:*",
+    "culori": "^4.0.2",
+    "parse5": "^8.0.1",
+    "postcss": "^8.5.32",
     "zod": "^4.6.7"
   }
 }

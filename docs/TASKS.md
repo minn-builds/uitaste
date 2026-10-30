@@ -19,7 +19,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [x] T1.1 · Preset + token schemas · S · T0.1
   - zod schemas: `Preset` (meta, fonts, color seeds, scale ratios, radius, shadow, motion, rules ref), `Tokens` (resolved output)
   - Accept: schema tests for valid/invalid fixtures; inferred types exported
-- [ ] T1.2 · Token generator · M · T1.1
+- [x] T1.2 · Token generator · M · T1.1
   - `generateTokens(preset, overrides?)`: modular type scale, 4/8pt spacing, OKLCH color ramps (11 steps) from seeds with culori, semantic roles (bg, fg, muted, accent, border, ring, destructive), dark mode
   - Accept: deterministic snapshot tests; WCAG AA contrast check for fg/bg and accent/accent-fg pairs passes in tests
   - Note: generator supplies defaults the preset leaves out (mono stack, destructive seed, line-heights, `radius.full`, shadow values per `shadow.style`); `darkMode: false` → omit `color.dark`; parse seeds with culori
