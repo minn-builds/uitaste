@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "id": "soft-utility",
+    "name": "Soft Utility",
+    "description": "Calm product UI for tools and SaaS: a humanist Red Hat Display over Source Sans 3, dense 15px type, sage-tinted neutrals, one muted teal accent, and layered rounded panels built from hairline borders plus a single soft shadow tier.",
+    "tags": ["sans", "humanist", "product", "saas", "dense", "calm", "rounded"]
+  },
+  "fonts": {
+    "display": {
+      "family": "Red Hat Display",
+      "fallback": ["Source Sans 3", "Segoe UI", "Helvetica Neue", "sans-serif"],
+      "weights": [500, 600, 700]
+    },
+    "body": {
+      "family": "Source Sans 3",
+      "fallback": ["Segoe UI", "Helvetica Neue", "Arial", "sans-serif"],
+      "weights": [400, 600]
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "fallback": ["ui-monospace", "Menlo", "Consolas", "monospace"],
+      "weights": [400, 500]
+    }
+  },
+  "colors": {
+    "neutral": "oklch(0.55 0.035 165)",
+    "accent": "oklch(0.55 0.075 178)",
+    "destructive": "oklch(0.52 0.12 28)"
+  },
+  "scale": {
+    "type": { "base": 15, "ratio": 1.2 },
+    "spacing": { "base": 4 }
+  },
+  "radius": { "sm": 6, "md": 8, "lg": 12 },
+  "shadow": { "style": "subtle" },
+  "motion": {
+    "duration": { "fast": 100, "base": 160, "slow": 240 },
+    "easing": "cubic-bezier(0.3, 0, 0.2, 1)"
+  },
+  "rules": "rules.md",
+  "darkMode": true
+}

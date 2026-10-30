@@ -16,3 +16,4 @@
 - T2.2 · editorial + swiss presets (preset.json, rules.md, Hero/Pricing/DashboardCard); playground routes per preset with scoped light/dark tokens · critic editorial 3.6, swiss 3.6 → fixes applied (1 round)
 - T5.2 · rubric shipped as packages/skill/reference/rubric.md (sync test vs docs); shoot prints manifest + rubric path handoff for the agent
 - T4.2 · tastekit lint: core runLint (dep-free glob matcher, config + preset tokens, zero-match error), CLI globs/--json/--fail-on, exit 0/1
+- T2.3 · soft-utility + brutal presets (rules, Hero/Pricing/DashboardCard, playground fonts) · critic soft-utility 3.6 → 4.0, brutal 3.8 → 4.3 (1 fix round)

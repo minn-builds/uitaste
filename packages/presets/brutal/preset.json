@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "id": "brutal",
+    "name": "Brutal",
+    "description": "Neo-brutalist: square slabs with 3px ink borders and hard offset shadows, oversized uppercase Archivo Black over Atkinson Hyperlegible, Space Mono tape labels, one safety-orange flood on off-white.",
+    "tags": ["brutalist", "bold", "boxed", "high-contrast", "hard-shadow", "playful"]
+  },
+  "fonts": {
+    "display": {
+      "family": "Archivo Black",
+      "fallback": ["Arial Black", "Impact", "sans-serif"],
+      "weights": [400]
+    },
+    "body": {
+      "family": "Atkinson Hyperlegible",
+      "fallback": ["Verdana", "Tahoma", "sans-serif"],
+      "weights": [400, 700]
+    },
+    "mono": {
+      "family": "Space Mono",
+      "fallback": ["ui-monospace", "Menlo", "Consolas", "monospace"],
+      "weights": [400, 700]
+    }
+  },
+  "colors": {
+    "neutral": "oklch(0.2 0.02 100)",
+    "accent": "#f75c03",
+    "destructive": "oklch(0.5 0.19 25)"
+  },
+  "scale": {
+    "type": { "base": 18, "ratio": 1.5 },
+    "spacing": { "base": 4 }
+  },
+  "radius": { "sm": 0, "md": 0, "lg": 0 },
+  "shadow": { "style": "hard" },
+  "motion": {
+    "duration": { "fast": 60, "base": 100, "slow": 160 },
+    "easing": "cubic-bezier(0.3, 0, 0, 1)"
+  },
+  "rules": "rules.md",
+  "darkMode": false
+}

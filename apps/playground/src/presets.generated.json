@@ -1,9 +1,21 @@
 [
   {
+    "id": "brutal",
+    "name": "Brutal",
+    "description": "Neo-brutalist: square slabs with 3px ink borders and hard offset shadows, oversized uppercase Archivo Black over Atkinson Hyperlegible, Space Mono tape labels, one safety-orange flood on off-white.",
+    "tags": ["brutalist", "bold", "boxed", "high-contrast", "hard-shadow", "playful"]
+  },
+  {
     "id": "editorial",
     "name": "Editorial",
     "description": "Magazine layout: high-contrast Fraunces display over a Source Serif text face, ink on warm paper, one vermilion accent, asymmetric columns separated by hairline rules instead of cards.",
     "tags": ["serif", "magazine", "editorial", "warm", "print", "content"]
+  },
+  {
+    "id": "soft-utility",
+    "name": "Soft Utility",
+    "description": "Calm product UI for tools and SaaS: a humanist Red Hat Display over Source Sans 3, dense 15px type, sage-tinted neutrals, one muted teal accent, and layered rounded panels built from hairline borders plus a single soft shadow tier.",
+    "tags": ["sans", "humanist", "product", "saas", "dense", "calm", "rounded"]
   },
   {
     "id": "swiss",

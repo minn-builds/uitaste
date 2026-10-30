@@ -28,3 +28,7 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · react + @types/react as devDependencies of packages/presets · Example .tsx components type-check against React without making presets a runtime React dependency
 - 2026-10-30 · Playground `/presets/<id>` renders examples full-bleed (no wrapper) · Each example owns its container so screenshots show the preset's real layout
 - 2026-10-30 · tastekit lint uses a small built-in glob matcher (*, **, ?, {a,b}) instead of a glob dependency · Node 20 lacks fs.glob; keeps core dependency-free; zero matches is an error so typo'd globs can't pass CI
+- 2026-10-30 · @fontsource/red-hat-display, source-sans-3, jetbrains-mono in playground · OFL self-hosted humanist display/body faces and mono for the soft-utility preset; no runtime font network calls
+- 2026-10-30 · @fontsource/archivo-black in playground · OFL self-hosted chunky display face for the brutal preset; no runtime font network calls
+- 2026-10-30 · @fontsource/atkinson-hyperlegible in playground · OFL self-hosted body face for the brutal preset, chosen so the loud direction stays legible
+- 2026-10-30 · @fontsource/space-mono in playground · OFL self-hosted mono for the brutal preset's labels and data
