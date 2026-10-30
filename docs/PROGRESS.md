@@ -6,3 +6,4 @@
 - T2.1 · preset loader: listPresets/getPreset with default root, readable zod errors, path-escape checks
 - T3.1 · lint engine: JSX/CSS/HTML → shared LintFile model, Rule/Finding API, zod config, pretty + JSON reporters
 - T4.3 · tastekit preset list|show (--json, --root), thin citty wrapper over core loader
+- T1.3 · emitters: toCssVars, toTailwindTheme (@theme + @theme inline, dark via .dark/prefers-color-scheme), toJson; playground token-proof page via Vite plugin · critic 2.9 → fixes applied (1 round)

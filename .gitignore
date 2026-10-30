@@ -8,3 +8,5 @@ coverage/
 !.env.example
 .DS_Store
 .claude/autopilot.on
+apps/playground/src/tokens.generated.css
+.tastekit/

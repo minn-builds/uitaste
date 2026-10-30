@@ -23,7 +23,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
   - `generateTokens(preset, overrides?)`: modular type scale, 4/8pt spacing, OKLCH color ramps (11 steps) from seeds with culori, semantic roles (bg, fg, muted, accent, border, ring, destructive), dark mode
   - Accept: deterministic snapshot tests; WCAG AA contrast check for fg/bg and accent/accent-fg pairs passes in tests
   - Note: generator supplies defaults the preset leaves out (mono stack, destructive seed, line-heights, `radius.full`, shadow values per `shadow.style`); `darkMode: false` → omit `color.dark`; parse seeds with culori
-- [ ] T1.3 · Emitters · S · T1.2
+- [x] T1.3 · Emitters · S · T1.2
   - `toCssVars(tokens)`, `toTailwindTheme(tokens)` (v4 `@theme` block), `toJson(tokens)`
   - Accept: snapshot tests; playground imports emitted CSS and renders
 - [ ] T1.4 · Generator: `firstLegible` fallback guarantees AA · S · T1.2

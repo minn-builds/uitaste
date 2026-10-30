@@ -1,0 +1,258 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`emitters > toCssVars snapshot 1`] = `
+":root {
+  --tk-color-bg: oklch(0.975 0.002 56.04);
+  --tk-color-fg: oklch(0.216 0.006 56.04);
+  --tk-color-muted: oklch(0.94 0.004 56.04);
+  --tk-color-muted-fg: oklch(0.46 0.011 56.04);
+  --tk-color-accent: oklch(0.62 0.19 35);
+  --tk-color-accent-fg: oklch(0.21 0.073 35);
+  --tk-color-border: oklch(0.88 0.006 56.04);
+  --tk-color-ring: oklch(0.62 0.19 35);
+  --tk-color-destructive: oklch(0.577 0.215 27);
+  --tk-color-destructive-fg: oklch(1 0 0);
+  --tk-ramp-neutral-50: oklch(0.975 0.002 56.04);
+  --tk-ramp-neutral-100: oklch(0.94 0.004 56.04);
+  --tk-ramp-neutral-200: oklch(0.88 0.006 56.04);
+  --tk-ramp-neutral-300: oklch(0.8 0.009 56.04);
+  --tk-ramp-neutral-400: oklch(0.71 0.011 56.04);
+  --tk-ramp-neutral-500: oklch(0.62 0.011 56.04);
+  --tk-ramp-neutral-600: oklch(0.54 0.011 56.04);
+  --tk-ramp-neutral-700: oklch(0.46 0.011 56.04);
+  --tk-ramp-neutral-800: oklch(0.38 0.009 56.04);
+  --tk-ramp-neutral-900: oklch(0.3 0.008 56.04);
+  --tk-ramp-neutral-950: oklch(0.216 0.006 56.04);
+  --tk-ramp-accent-50: oklch(0.975 0.012 35);
+  --tk-ramp-accent-100: oklch(0.94 0.03 35);
+  --tk-ramp-accent-200: oklch(0.88 0.064 35);
+  --tk-ramp-accent-300: oklch(0.8 0.116 35);
+  --tk-ramp-accent-400: oklch(0.71 0.181 35);
+  --tk-ramp-accent-500: oklch(0.62 0.19 35);
+  --tk-ramp-accent-600: oklch(0.54 0.189 35);
+  --tk-ramp-accent-700: oklch(0.46 0.161 35);
+  --tk-ramp-accent-800: oklch(0.38 0.133 35);
+  --tk-ramp-accent-900: oklch(0.3 0.105 35);
+  --tk-ramp-accent-950: oklch(0.21 0.073 35);
+  --tk-ramp-destructive-50: oklch(0.975 0.012 27);
+  --tk-ramp-destructive-100: oklch(0.94 0.03 27);
+  --tk-ramp-destructive-200: oklch(0.88 0.063 27);
+  --tk-ramp-destructive-300: oklch(0.8 0.114 27);
+  --tk-ramp-destructive-400: oklch(0.71 0.182 27);
+  --tk-ramp-destructive-500: oklch(0.62 0.215 27);
+  --tk-ramp-destructive-600: oklch(0.577 0.215 27);
+  --tk-ramp-destructive-700: oklch(0.46 0.187 27);
+  --tk-ramp-destructive-800: oklch(0.38 0.154 27);
+  --tk-ramp-destructive-900: oklch(0.3 0.122 27);
+  --tk-ramp-destructive-950: oklch(0.21 0.085 27);
+  --tk-font-display: "Fraunces", Georgia, serif;
+  --tk-font-body: "Source Serif 4", Georgia, serif;
+  --tk-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --tk-text-xs: 0.68rem;
+  --tk-text-xs-line-height: 1.5;
+  --tk-text-sm: 0.85rem;
+  --tk-text-sm-line-height: 1.5;
+  --tk-text-base: 1.0625rem;
+  --tk-text-base-line-height: 1.6;
+  --tk-text-lg: 1.3281rem;
+  --tk-text-lg-line-height: 1.5;
+  --tk-text-xl: 1.6602rem;
+  --tk-text-xl-line-height: 1.4;
+  --tk-text-2xl: 2.0752rem;
+  --tk-text-2xl-line-height: 1.3;
+  --tk-text-3xl: 2.594rem;
+  --tk-text-3xl-line-height: 1.2;
+  --tk-text-4xl: 3.2425rem;
+  --tk-text-4xl-line-height: 1.1;
+  --tk-text-5xl: 4.0531rem;
+  --tk-text-5xl-line-height: 1.05;
+  --tk-space-0: 0px;
+  --tk-space-0-5: 0.125rem;
+  --tk-space-1: 0.25rem;
+  --tk-space-1-5: 0.375rem;
+  --tk-space-2: 0.5rem;
+  --tk-space-2-5: 0.625rem;
+  --tk-space-3: 0.75rem;
+  --tk-space-4: 1rem;
+  --tk-space-5: 1.25rem;
+  --tk-space-6: 1.5rem;
+  --tk-space-8: 2rem;
+  --tk-space-10: 2.5rem;
+  --tk-space-12: 3rem;
+  --tk-space-16: 4rem;
+  --tk-space-20: 5rem;
+  --tk-space-24: 6rem;
+  --tk-radius-sm: 2px;
+  --tk-radius-md: 4px;
+  --tk-radius-lg: 8px;
+  --tk-radius-full: 9999px;
+  --tk-shadow-sm: 0 1px 2px oklch(0.216 0.006 56.04 / 0.06);
+  --tk-shadow-md: 0 1px 3px oklch(0.216 0.006 56.04 / 0.08), 0 1px 2px oklch(0.216 0.006 56.04 / 0.04);
+  --tk-shadow-lg: 0 4px 12px oklch(0.216 0.006 56.04 / 0.08), 0 2px 4px oklch(0.216 0.006 56.04 / 0.04);
+  --tk-duration-fast: 120ms;
+  --tk-duration-base: 200ms;
+  --tk-duration-slow: 320ms;
+  --tk-easing: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.dark {
+  --tk-color-bg: oklch(0.216 0.006 56.04);
+  --tk-color-fg: oklch(0.975 0.002 56.04);
+  --tk-color-muted: oklch(0.3 0.008 56.04);
+  --tk-color-muted-fg: oklch(0.71 0.011 56.04);
+  --tk-color-accent: oklch(0.62 0.19 35);
+  --tk-color-accent-fg: oklch(0.21 0.073 35);
+  --tk-color-border: oklch(0.38 0.009 56.04);
+  --tk-color-ring: oklch(0.62 0.19 35);
+  --tk-color-destructive: oklch(0.62 0.215 27);
+  --tk-color-destructive-fg: oklch(0 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --tk-color-bg: oklch(0.216 0.006 56.04);
+    --tk-color-fg: oklch(0.975 0.002 56.04);
+    --tk-color-muted: oklch(0.3 0.008 56.04);
+    --tk-color-muted-fg: oklch(0.71 0.011 56.04);
+    --tk-color-accent: oklch(0.62 0.19 35);
+    --tk-color-accent-fg: oklch(0.21 0.073 35);
+    --tk-color-border: oklch(0.38 0.009 56.04);
+    --tk-color-ring: oklch(0.62 0.19 35);
+    --tk-color-destructive: oklch(0.62 0.215 27);
+    --tk-color-destructive-fg: oklch(0 0 0);
+  }
+}
+"
+`;
+
+exports[`emitters > toTailwindTheme snapshot 1`] = `
+"@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --tk-color-bg: oklch(0.975 0.002 56.04);
+  --tk-color-fg: oklch(0.216 0.006 56.04);
+  --tk-color-muted: oklch(0.94 0.004 56.04);
+  --tk-color-muted-fg: oklch(0.46 0.011 56.04);
+  --tk-color-accent: oklch(0.62 0.19 35);
+  --tk-color-accent-fg: oklch(0.21 0.073 35);
+  --tk-color-border: oklch(0.88 0.006 56.04);
+  --tk-color-ring: oklch(0.62 0.19 35);
+  --tk-color-destructive: oklch(0.577 0.215 27);
+  --tk-color-destructive-fg: oklch(1 0 0);
+  --tk-duration-fast: 120ms;
+  --tk-duration-base: 200ms;
+  --tk-duration-slow: 320ms;
+  --tk-easing: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.dark {
+  --tk-color-bg: oklch(0.216 0.006 56.04);
+  --tk-color-fg: oklch(0.975 0.002 56.04);
+  --tk-color-muted: oklch(0.3 0.008 56.04);
+  --tk-color-muted-fg: oklch(0.71 0.011 56.04);
+  --tk-color-accent: oklch(0.62 0.19 35);
+  --tk-color-accent-fg: oklch(0.21 0.073 35);
+  --tk-color-border: oklch(0.38 0.009 56.04);
+  --tk-color-ring: oklch(0.62 0.19 35);
+  --tk-color-destructive: oklch(0.62 0.215 27);
+  --tk-color-destructive-fg: oklch(0 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --tk-color-bg: oklch(0.216 0.006 56.04);
+    --tk-color-fg: oklch(0.975 0.002 56.04);
+    --tk-color-muted: oklch(0.3 0.008 56.04);
+    --tk-color-muted-fg: oklch(0.71 0.011 56.04);
+    --tk-color-accent: oklch(0.62 0.19 35);
+    --tk-color-accent-fg: oklch(0.21 0.073 35);
+    --tk-color-border: oklch(0.38 0.009 56.04);
+    --tk-color-ring: oklch(0.62 0.19 35);
+    --tk-color-destructive: oklch(0.62 0.215 27);
+    --tk-color-destructive-fg: oklch(0 0 0);
+  }
+}
+
+@theme {
+  --color-*: initial;
+  --color-neutral-50: oklch(0.975 0.002 56.04);
+  --color-neutral-100: oklch(0.94 0.004 56.04);
+  --color-neutral-200: oklch(0.88 0.006 56.04);
+  --color-neutral-300: oklch(0.8 0.009 56.04);
+  --color-neutral-400: oklch(0.71 0.011 56.04);
+  --color-neutral-500: oklch(0.62 0.011 56.04);
+  --color-neutral-600: oklch(0.54 0.011 56.04);
+  --color-neutral-700: oklch(0.46 0.011 56.04);
+  --color-neutral-800: oklch(0.38 0.009 56.04);
+  --color-neutral-900: oklch(0.3 0.008 56.04);
+  --color-neutral-950: oklch(0.216 0.006 56.04);
+  --color-accent-50: oklch(0.975 0.012 35);
+  --color-accent-100: oklch(0.94 0.03 35);
+  --color-accent-200: oklch(0.88 0.064 35);
+  --color-accent-300: oklch(0.8 0.116 35);
+  --color-accent-400: oklch(0.71 0.181 35);
+  --color-accent-500: oklch(0.62 0.19 35);
+  --color-accent-600: oklch(0.54 0.189 35);
+  --color-accent-700: oklch(0.46 0.161 35);
+  --color-accent-800: oklch(0.38 0.133 35);
+  --color-accent-900: oklch(0.3 0.105 35);
+  --color-accent-950: oklch(0.21 0.073 35);
+  --color-destructive-50: oklch(0.975 0.012 27);
+  --color-destructive-100: oklch(0.94 0.03 27);
+  --color-destructive-200: oklch(0.88 0.063 27);
+  --color-destructive-300: oklch(0.8 0.114 27);
+  --color-destructive-400: oklch(0.71 0.182 27);
+  --color-destructive-500: oklch(0.62 0.215 27);
+  --color-destructive-600: oklch(0.577 0.215 27);
+  --color-destructive-700: oklch(0.46 0.187 27);
+  --color-destructive-800: oklch(0.38 0.154 27);
+  --color-destructive-900: oklch(0.3 0.122 27);
+  --color-destructive-950: oklch(0.21 0.085 27);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --text-xs: 0.68rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.85rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.3281rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.6602rem;
+  --text-xl--line-height: 1.4;
+  --text-2xl: 2.0752rem;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 2.594rem;
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 3.2425rem;
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 4.0531rem;
+  --text-5xl--line-height: 1.05;
+  --spacing: 0.25rem;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px oklch(0.216 0.006 56.04 / 0.06);
+  --shadow-md: 0 1px 3px oklch(0.216 0.006 56.04 / 0.08), 0 1px 2px oklch(0.216 0.006 56.04 / 0.04);
+  --shadow-lg: 0 4px 12px oklch(0.216 0.006 56.04 / 0.08), 0 2px 4px oklch(0.216 0.006 56.04 / 0.04);
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@theme inline {
+  --color-bg: var(--tk-color-bg);
+  --color-fg: var(--tk-color-fg);
+  --color-muted: var(--tk-color-muted);
+  --color-muted-fg: var(--tk-color-muted-fg);
+  --color-accent: var(--tk-color-accent);
+  --color-accent-fg: var(--tk-color-accent-fg);
+  --color-border: var(--tk-color-border);
+  --color-ring: var(--tk-color-ring);
+  --color-destructive: var(--tk-color-destructive);
+  --color-destructive-fg: var(--tk-color-destructive-fg);
+}
+"
+`;

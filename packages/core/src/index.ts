@@ -1,3 +1,4 @@
+export * from "./emit/emit.js";
 export { AA_CONTRAST, contrastRatio } from "./generator/color.js";
 export {
   DEFAULT_DESTRUCTIVE_SEED,

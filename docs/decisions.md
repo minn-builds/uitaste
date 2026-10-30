@@ -16,3 +16,5 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · Root `pnpm tastekit` runs the built `packages/cli/dist/main.js` · Exercises the bundle users actually get; requires `pnpm build` first
 - 2026-10-30 · Lint fixtures in `packages/core/src/lint/__fixtures__`, excluded from tsc and Biome · They hold deliberately bad, standalone code that would otherwise fail CI
 - 2026-10-30 · Lint output: pretty reporter for humans, JSON reporter for agents/MCP/CI · One Finding model, two stable formats
+
+- 2026-10-30 · @fontsource/fraunces + @fontsource/source-serif-4 in playground · OFL, self-hosted fonts (no runtime network) so the playground shows the real preset faces; replace with preset-driven loading in T2.2
