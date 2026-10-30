@@ -17,13 +17,17 @@ Read those only when the task needs them.
 ```
 packages/core      schema (preset/tokens), generator (generateTokens), emit (CSS vars, Tailwind v4 @theme, JSON),
                    presets loader (listPresets/getPreset/defaultPresetsRoot), init, lint engine + rules
-                   (lint/rules/), shoot (plan/manifest/runShoot over a structural BrowserLike, no playwright dep)
-packages/presets   one folder per preset: preset.json, rules.md, examples/*.tsx
+                   (lint/rules/), shoot (plan/manifest/runShoot over a structural BrowserLike, no playwright dep;
+                   resolveShootOptions merges args > config.shoot > defaults; resolveInside confines paths)
+packages/presets   editorial, swiss, soft-utility, brutal: preset.json, rules.md, examples/*.tsx
 packages/cli       `tastekit init | lint | shoot | preset`; playwright is an optional peer
-packages/mcp       MCP server wrapping core (get_preset, generate_tokens, lint, shoot)
-packages/skill     SKILL.md shipped to end users' agents (the product's brain)
-apps/playground    Vite + React app for rendering presets and before/after benchmarks
-bench/             before/after screenshots (marketing material)
+packages/mcp       stdio MCP server (bin `tastekit-mcp`) wrapping core: list_presets, get_preset,
+                   generate_tokens, lint, shoot; dir/out args confined to cwd; playwright optional peer
+packages/skill     SKILL.md shipped to end users' agents (the product's brain) + reference/*.md
+apps/playground    Vite + React; routes /presets/<id>, /tokens/<id>, /bench/<id>/<baseline|tastekit>
+                   (baseline loads bench.css = stock Tailwind, no preset tokens)
+bench/             prompts.json (10 prompts -> preset), pages/<id>/{baseline,tastekit}.tsx, scripts/
+                   (run, compose, readme-assets), out/ (committed composites + results.json), shots/ (gitignored)
 ```
 
 ## Commands
@@ -35,6 +39,8 @@ bench/             before/after screenshots (marketing material)
 - pnpm 12 does not support `pnpm -s`
 - CLI tests alias `@tastekit/core` to `packages/core/src` (vitest.config.ts), so no rebuild needed to test
 - `tastekit shoot` writes to `.tastekit/shots/<timestamp>/` (gitignored); needs `npx playwright install chromium`
+- Bench: `pnpm bench [-- <id>...]` (needs `pnpm build` + chromium; imports `packages/core/dist`);
+  README images: `node bench/scripts/readme-assets.mjs`
 
 ## Rules
 
@@ -44,6 +50,7 @@ bench/             before/after screenshots (marketing material)
 - Never use `any`. Validate all external input (preset files, config, CLI args) with zod.
 - Keep the product skill (`packages/skill/SKILL.md`) under 300 lines; move detail into its reference files.
 - The playground uses ONLY tokens from the active preset. No hardcoded colors, fonts, radii or spacing.
+  Exception: `bench/pages/**` (agent-written; excluded from Biome and playground tsc).
 - Lint fixtures live in `packages/core/src/lint/__fixtures__`, excluded from tsc and Biome.
 - Don't edit `pnpm-lock.yaml`, `dist/`, or `.env*` by hand (a hook blocks it).
 - Don't run `git push` or any publish command. The human does releases.

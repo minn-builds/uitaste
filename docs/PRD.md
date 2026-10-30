@@ -22,8 +22,8 @@ Agent-built frontends converge on the same look: shadcn defaults, Inter, indigo/
 
 - `npx tastekit init`: pick a preset (+ optional brand color/font), write tokens, install the agent skill into `.claude/skills/tastekit/` (and `.cursor/rules/` if present)
 - `npx tastekit lint [glob]`: exit 1 on errors; `--json` for agents/CI
-- `npx tastekit shoot <url> [--routes /,/pricing]`: PNGs at 390/768/1440 into `.tastekit/shots/`
-- MCP server `@tastekit/mcp` exposing the same functions as tools
+- `npx tastekit shoot --url <url> [--routes /,/pricing]`: PNGs at 390/768/1440 into `.tastekit/shots/<timestamp>/`
+- MCP server `@tastekit/mcp` exposing the same functions as tools (`list_presets`, `get_preset`, `generate_tokens`, `lint`, `shoot`)
 - `SKILL.md` that teaches the agent: tokens only → lint → shoot → critique → fix (max 2 rounds)
 
 ## Non-goals (v0.1)
