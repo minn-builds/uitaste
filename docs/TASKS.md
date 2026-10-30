@@ -46,7 +46,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
   - Parse .tsx/.jsx/.css/.html (oxc-parser or @babel/parser for JSX className strings; postcss for CSS)
   - Rule interface `{id, severity, check(file, ctx) => Finding[]}`, reporters: pretty + JSON
   - Accept: tests with fixture files
-- [ ] T3.2 · Rules: AI-default tells · M · T3.1
+- [x] T3.2 · Rules: AI-default tells · M · T3.1
   - `no-default-font` (Inter/Roboto/Arial as display font), `no-purple-gradient`, `no-gradient-text-hero`, `no-uniform-card-grid` (3+ identical sibling cards), `no-emoji-icons`, `no-shadow-everywhere`
   - Accept: each rule has a pass fixture and a fail fixture
 - [ ] T3.3 · Rules: token discipline · S · T3.1, T1.3

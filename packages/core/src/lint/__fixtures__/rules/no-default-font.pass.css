@@ -1,0 +1,13 @@
+:root {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+body {
+  font-family: Inter, sans-serif;
+}
+h1 {
+  font-family: "Source Serif 4", Georgia, serif;
+}
+h2 {
+  font-family: "Inter Tight", sans-serif;
+}

@@ -1,0 +1,6 @@
+.hero {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+}
+.cta {
+  background-image: linear-gradient(to right, oklch(0.6 0.2 300), oklch(0.7 0.1 200));
+}

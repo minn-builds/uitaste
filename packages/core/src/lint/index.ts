@@ -4,5 +4,6 @@ export { LineIndex } from "./location.js";
 export { fileKindFromPath, LintParseError, parseFile } from "./parse.js";
 export { CLASS_HELPERS, toKebabCase } from "./parse-jsx.js";
 export * from "./reporters.js";
+export * from "./rules/index.js";
 export { elementChildren, textContent, walkElements } from "./tree.js";
 export type * from "./types.js";

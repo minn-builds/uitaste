@@ -1,0 +1,32 @@
+.modal { box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+.card { box-shadow: none; border: 1px solid var(--border); }
+input:focus { box-shadow: 0 0 0 3px rgba(0,0,255,.3); }
+button:focus-visible { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #00f; }
+button:hover { box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+.well { box-shadow: inset 0 1px 2px rgba(0,0,0,.2); }
+.ring { box-shadow: 0 0 0 1px var(--border); }
+.p1 { box-shadow: 0 4px 8px rgba(0,0,0,.2); }
+.p2 { box-shadow: 0 4px 8px rgba(0,0,0,.2); }
+.p3 { box-shadow: 0 4px 8px rgba(0,0,0,.2); }
+.p4 { box-shadow: 0 4px 8px rgba(0,0,0,.2); }
+.p5 { box-shadow: 0 4px 8px rgba(0,0,0,.2); }
+.r1 { color: red; padding: 4px; }
+.r2 { color: red; padding: 4px; }
+.r3 { color: red; padding: 4px; }
+.r4 { color: red; padding: 4px; }
+.r5 { color: red; padding: 4px; }
+.r6 { color: red; padding: 4px; }
+.r7 { color: red; padding: 4px; }
+.r8 { color: red; padding: 4px; }
+.r9 { color: red; padding: 4px; }
+.r10 { color: red; padding: 4px; }
+.r11 { color: red; padding: 4px; }
+.r12 { color: red; padding: 4px; }
+.r13 { color: red; padding: 4px; }
+.r14 { color: red; padding: 4px; }
+.r15 { color: red; padding: 4px; }
+.r16 { color: red; padding: 4px; }
+.r17 { color: red; padding: 4px; }
+.r18 { color: red; padding: 4px; }
+.r19 { color: red; padding: 4px; }
+.r20 { color: red; padding: 4px; }

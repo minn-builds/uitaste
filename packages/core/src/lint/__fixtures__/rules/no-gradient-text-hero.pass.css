@@ -1,0 +1,7 @@
+.hero h1 {
+  color: var(--foreground);
+}
+.logo {
+  background-clip: text;
+  color: transparent;
+}
