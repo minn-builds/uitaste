@@ -10,11 +10,13 @@
     "types": ["vite/client"]
   },
   "include": [
+    "../../bench/prompts.json",
     "src",
     "../../packages/presets/*/examples",
     "vite.config.ts",
     "tastekit-tokens-plugin.ts",
     "tastekit-tokens-plugin.test.ts",
     "vitest.config.ts"
-  ]
+  ],
+  "exclude": ["../../bench/pages"]
 }

@@ -84,7 +84,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 
 ## Phase 7: Proof
 
-- [ ] T7.1 · Benchmark harness · M · T6.1
+- [x] T7.1 · Benchmark harness · M · T6.1
   - `bench/prompts.json` (10 prompts: SaaS landing, pricing, dashboard, portfolio, restaurant, docs home, ...), script that renders baseline vs tastekit screenshots side by side
   - Accept: 10 comparison PNGs in `bench/out/` (use `/before-after`)
 - [ ] T7.2 · README + demo · S · T7.1

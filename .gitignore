@@ -10,3 +10,4 @@ coverage/
 .claude/autopilot.on
 apps/playground/src/tokens.generated.css
 .tastekit/
+bench/shots/

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import benchPromptsJson from "../../../bench/prompts.json";
+import { Bench } from "./Bench";
 import { loadFonts } from "./fonts";
 import presets from "./presets.generated.json";
 import { TokenProof } from "./TokenProof";
@@ -80,8 +82,15 @@ function Tokens({ id }: { id: string }) {
   return <TokenProof />;
 }
 
+const benchPrompts = benchPromptsJson as { id: string; preset: string }[];
+
 export function App() {
-  const [, kind, id] = window.location.pathname.split("/");
+  const [, kind, id, variant] = window.location.pathname.split("/");
+  if (kind === "bench" && id && (variant === "baseline" || variant === "tastekit")) {
+    return (
+      <Bench id={id} variant={variant} preset={benchPrompts.find((p) => p.id === id)?.preset} />
+    );
+  }
   const known = presets.some((p) => p.id === id);
   if (id && known && kind === "presets") return <PresetPage id={id} />;
   if (id && known && kind === "tokens") return <Tokens id={id} />;

@@ -12,7 +12,10 @@
       "!**/dist",
       "!**/.turbo",
       "!pnpm-lock.yaml",
-      "!packages/core/src/lint/__fixtures__"
+      "!packages/core/src/lint/__fixtures__",
+      "!bench/pages",
+      "!bench/shots",
+      "!bench/out"
     ]
   },
   "formatter": {

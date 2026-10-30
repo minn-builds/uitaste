@@ -2,6 +2,7 @@
 @import "tailwindcss";
 @import "./tokens.generated.css";
 @source "../../../packages/presets/*/examples/*.tsx";
+@source "../../../bench/pages/*/tastekit.tsx";
 
 @layer base {
   body {

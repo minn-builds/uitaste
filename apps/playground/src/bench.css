@@ -1,0 +1,3 @@
+/* Baseline bench pages: stock Tailwind only (no preset tokens, no base overrides). */
+@import "tailwindcss";
+@source "../../../bench/pages/*/baseline.tsx";

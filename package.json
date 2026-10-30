@@ -14,14 +14,18 @@
     "format": "biome check --write .",
     "lint:biome": "biome check .",
     "changeset": "changeset",
-    "tastekit": "node packages/cli/dist/main.js"
+    "tastekit": "node packages/cli/dist/main.js",
+    "bench": "node bench/scripts/run.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.6.4",
     "@changesets/cli": "^3.0.3",
     "@types/node": "^20.19.43",
+    "playwright": "^1.64.1",
+    "sharp": "^0.35.5",
     "turbo": "^2.11.10",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.12"
+    "vitest": "^4.1.12",
+    "zod": "^4.6.7"
   }
 }

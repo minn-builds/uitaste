@@ -1,0 +1,172 @@
+{
+  "saas-landing": {
+    "preset": "soft-utility",
+    "baseline": {
+      "errors": 85,
+      "warnings": 1,
+      "rules": [
+        "max-radius-variants",
+        "no-hardcoded-color",
+        "no-uniform-card-grid"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "pricing": {
+    "preset": "swiss",
+    "baseline": {
+      "errors": 59,
+      "warnings": 1,
+      "rules": [
+        "no-arbitrary-values",
+        "no-hardcoded-color",
+        "no-uniform-card-grid"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "dashboard": {
+    "preset": "soft-utility",
+    "baseline": {
+      "errors": 67,
+      "warnings": 1,
+      "rules": [
+        "no-hardcoded-color",
+        "no-uniform-card-grid"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "portfolio": {
+    "preset": "editorial",
+    "baseline": {
+      "errors": 7,
+      "warnings": 0,
+      "rules": [
+        "no-hardcoded-color"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "restaurant": {
+    "preset": "editorial",
+    "baseline": {
+      "errors": 65,
+      "warnings": 0,
+      "rules": [
+        "font-from-tokens",
+        "no-arbitrary-values",
+        "no-hardcoded-color"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "docs-home": {
+    "preset": "swiss",
+    "baseline": {
+      "errors": 83,
+      "warnings": 1,
+      "rules": [
+        "max-radius-variants",
+        "no-arbitrary-values",
+        "no-hardcoded-color",
+        "no-uniform-card-grid"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "blog-index": {
+    "preset": "editorial",
+    "baseline": {
+      "errors": 66,
+      "warnings": 0,
+      "rules": [
+        "font-from-tokens",
+        "no-hardcoded-color"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "event-conference": {
+    "preset": "brutal",
+    "baseline": {
+      "errors": 70,
+      "warnings": 4,
+      "rules": [
+        "no-arbitrary-values",
+        "no-hardcoded-color",
+        "no-purple-gradient",
+        "no-uniform-card-grid"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "music-release": {
+    "preset": "brutal",
+    "baseline": {
+      "errors": 27,
+      "warnings": 1,
+      "rules": [
+        "no-arbitrary-values",
+        "no-hardcoded-color",
+        "no-purple-gradient"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  },
+  "fintech-app": {
+    "preset": "swiss",
+    "baseline": {
+      "errors": 81,
+      "warnings": 2,
+      "rules": [
+        "max-radius-variants",
+        "no-arbitrary-values",
+        "no-gradient-text-hero",
+        "no-hardcoded-color",
+        "no-uniform-card-grid"
+      ]
+    },
+    "tastekit": {
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  }
+}
