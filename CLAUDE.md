@@ -15,10 +15,11 @@ Read those only when the task needs them.
 ## Layout
 
 ```
-packages/core      schema (preset/tokens), generator (generateTokens), presets loader (listPresets/getPreset/
-                   defaultPresetsRoot), lint engine; planned: emitters, screenshot runner
+packages/core      schema (preset/tokens), generator (generateTokens), emit (CSS vars, Tailwind v4 @theme, JSON),
+                   presets loader (listPresets/getPreset/defaultPresetsRoot), init, lint engine + rules
+                   (lint/rules/), shoot (plan/manifest/runShoot over a structural BrowserLike, no playwright dep)
 packages/presets   one folder per preset: preset.json, rules.md, examples/*.tsx
-packages/cli       `tastekit init | lint | shoot | preset`
+packages/cli       `tastekit init | lint | shoot | preset`; playwright is an optional peer
 packages/mcp       MCP server wrapping core (get_preset, generate_tokens, lint, shoot)
 packages/skill     SKILL.md shipped to end users' agents (the product's brain)
 apps/playground    Vite + React app for rendering presets and before/after benchmarks
@@ -32,6 +33,8 @@ bench/             before/after screenshots (marketing material)
 - Playground: `pnpm --filter playground dev` (port 5173)
 - CLI: `pnpm tastekit <cmd>` runs the built `packages/cli/dist`, so `pnpm build` first
 - pnpm 12 does not support `pnpm -s`
+- CLI tests alias `@tastekit/core` to `packages/core/src` (vitest.config.ts), so no rebuild needed to test
+- `tastekit shoot` writes to `.tastekit/shots/<timestamp>/` (gitignored); needs `npx playwright install chromium`
 
 ## Rules
 

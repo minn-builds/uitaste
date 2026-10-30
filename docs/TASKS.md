@@ -58,7 +58,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [x] T4.1 · `tastekit init` · M · T2.1, T1.3
   - Detect framework (Vite/Next/plain), preset picker (clack), optional brand color + font, write `tastekit.config.json` + tokens CSS, patch global CSS import, install skill into `.claude/skills/tastekit/` and `.cursor/rules/tastekit.mdc` if `.cursor/` exists
   - Accept: e2e test in a temp Vite app (execa); idempotent re-run
-- [ ] T4.2 · `tastekit lint` · S · T3.2, T3.3
+- [x] T4.2 · `tastekit lint` · S · T3.2, T3.3
   - Globs, `--json`, exit codes 0/1, reads config
 - [x] T4.3 · `tastekit preset list|show` · S · T2.1
 - [x] T4.4 · CLI tests resolve `@tastekit/core` from source · S · T4.3

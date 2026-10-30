@@ -27,3 +27,4 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · @fontsource/schibsted-grotesk, hanken-grotesk, ibm-plex-mono in playground · OFL self-hosted faces for the swiss and editorial presets; no runtime font network calls
 - 2026-10-30 · react + @types/react as devDependencies of packages/presets · Example .tsx components type-check against React without making presets a runtime React dependency
 - 2026-10-30 · Playground `/presets/<id>` renders examples full-bleed (no wrapper) · Each example owns its container so screenshots show the preset's real layout
+- 2026-10-30 · tastekit lint uses a small built-in glob matcher (*, **, ?, {a,b}) instead of a glob dependency · Node 20 lacks fs.glob; keeps core dependency-free; zero matches is an error so typo'd globs can't pass CI

@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, isAbsolute, join, posix, relative, sep } from "node:path";
 import { z } from "zod";
 import { type TokenOverrides, TokenOverridesSchema } from "../generator/generate.js";
+import { LintProjectConfigSchema } from "../lint/run-config.js";
 import { type ShootConfig, ShootConfigSchema } from "../shoot/options.js";
 
 export const CONFIG_FILE = "tastekit.config.json";
@@ -23,6 +24,8 @@ export const TastekitConfigSchema = z.strictObject({
   overrides: TokenOverridesSchema.default({}),
   /** Defaults for `tastekit shoot`. */
   shoot: ShootConfigSchema.optional(),
+  /** Defaults for `tastekit lint`: globs, ignores and per-rule severities. */
+  lint: LintProjectConfigSchema.optional(),
 });
 export type TastekitConfig = z.infer<typeof TastekitConfigSchema>;
 
