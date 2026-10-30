@@ -34,7 +34,7 @@ npx uitaste shoot --url http://localhost:5173 --routes /,/pricing   # --breakpoi
 
 Other commands: `uitaste preset list`, `uitaste preset show <id>` (both take `--json`), `uitaste lint --json --fail-on warn`.
 
-**Before the first npm release.** The packages are at 0.0.0 and not published yet; the `npx` forms above work after 0.1.0. Until then, use a clone:
+**Before the first npm release.** 0.1.0 is versioned but not on npm yet; the `npx` forms above work once it is published. Until then, use a clone:
 
 ```sh
 git clone <this repo> && cd uitaste && pnpm i && pnpm build

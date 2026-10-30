@@ -42,3 +42,4 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · bench/pages, bench/shots, bench/out excluded from Biome and playground tsc · Agent-written pages can't break CI; the harness lints them itself and records counts in bench/out/results.json
 - 2026-10-30 · Renamed the product to uitaste; CLI ships as unscoped `uitaste` (bin uitaste), libraries stay under @uitaste/* · `npx uitaste init` works without a scope; v0.1.0 re-cut under the new name before anything was pushed
 - 2026-10-30 · .claude/ excluded from Biome · Agent/skill/hook files are tooling, not product code, and kept breaking root `pnpm lint`
+- 2026-10-30 · MIT LICENSE copied into every package dir · npm only packs a LICENSE from the package folder, not the monorepo root

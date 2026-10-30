@@ -21,4 +21,5 @@
 - T6.2 · MCP server (list_presets, get_preset, generate_tokens, lint, shoot; stdio bin uitaste-mcp); core resolveInside (symlink-safe) + resolveShootOptions; confined shoot only to local http(s)
 - T7.1 · bench harness (prompts.json, /bench route with stock-Tailwind baseline, run.mjs shoot+lint+compose) and 10 before/after PNGs in bench/out; lint errors baseline 7–85 per page vs uitaste 0 on all 10
 - T7.2 · README (pitch, quickstart, pre-release clone commands, 3 before/afters, preset gallery, agent/MCP setup, bench table) + hero.gif and assets via bench/scripts/readme-assets.mjs
+- T8.1 · release prep v0.1.0 (re-cut as uitaste): all 5 packages bumped via changesets, publishConfig public, MIT LICENSE in root and each package, packed-tarball smoke test (uitaste init + lint) green. Not pushed or published.
 - T8.2 · launch drafts in docs/launch/ (X thread, r/ClaudeAI, r/webdev, Show HN), led by before/after images, with benchmark caveats; repo URL left as <REPO_URL>

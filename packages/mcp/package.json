@@ -1,6 +1,6 @@
 {
   "name": "@uitaste/mcp",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -41,5 +41,8 @@
     "playwright": {
       "optional": true
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
