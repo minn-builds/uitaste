@@ -10,3 +10,4 @@
 - T1.4 · firstLegible nudges lightness until AA passes (throws if impossible); #000/#fff seeds tested
 - T3.2 · six AI-tell lint rules (default display font, purple gradient, gradient hero text, uniform card grid, emoji icons, shadow everywhere), tuned for low false positives
 - T4.4 · CLI vitest aliases @tastekit/core to src; turbo test depends on own build for the e2e
+- T4.1 · tastekit init: framework detect, preset picker, tokens CSS + import patch, skill/cursor install, idempotent re-run with merged overrides

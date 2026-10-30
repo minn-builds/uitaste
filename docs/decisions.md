@@ -18,3 +18,7 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · Lint output: pretty reporter for humans, JSON reporter for agents/MCP/CI · One Finding model, two stable formats
 
 - 2026-10-30 · @fontsource/fraunces + @fontsource/source-serif-4 in playground · OFL, self-hosted fonts (no runtime network) so the playground shows the real preset faces; replace with preset-driven loading in T2.2
+- 2026-10-30 · @clack/prompts in packages/cli · The prompt library chosen in the stack for the interactive `tastekit init` preset/accent/font picker
+- 2026-10-30 · execa 9 (devDependency of packages/cli; v10 needs Node 22 Set.union) · e2e test runs the built CLI in a temp Vite app with sane exit/stdout handling
+- 2026-10-30 · @tastekit/skill as workspace dep of packages/cli · `init` copies SKILL.md into user projects; resolved via package.json like presets
+- 2026-10-30 · `init` writes `tastekit.tokens.css` next to the global CSS and adds one `@import` after existing imports (skipped if present) · Generated file is owned by tastekit and overwritten; user CSS is only touched once
