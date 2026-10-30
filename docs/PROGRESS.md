@@ -13,3 +13,4 @@
 - T4.1 · tastekit init: framework detect, preset picker, tokens CSS + import patch, skill/cursor install, idempotent re-run with merged overrides
 - T3.3 · token-discipline lint rules: no-hardcoded-color, no-arbitrary-values, max-radius-variants, font-from-tokens (url()-aware, cross-file radius loc)
 - T5.1 · tastekit shoot: core plan/run (Playwright-free BrowserLike), CLI with optional playwright peer, manifest, query-hashed slugs, leak-free e2e
+- T2.2 · editorial + swiss presets (preset.json, rules.md, Hero/Pricing/DashboardCard); playground routes per preset with scoped light/dark tokens · critic editorial 3.6, swiss 3.6 → fixes applied (1 round)

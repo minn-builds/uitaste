@@ -35,7 +35,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [x] T2.1 · Preset loader + registry · S · T1.1
   - Load `packages/presets/*/preset.json` + `rules.md`; `listPresets()`, `getPreset(id)`
   - Accept: tests; invalid preset gives a readable zod error
-- [ ] T2.2 · Presets: editorial, swiss · M · T2.1, T1.3 (use `/new-preset`)
+- [x] T2.2 · Presets: editorial, swiss · M · T2.1, T1.3 (use `/new-preset`)
 - [ ] T2.3 · Presets: soft-utility, brutal · M · T2.2 (use `/new-preset`)
   - Each preset: preset.json, rules.md (do/don't, layout patterns, signature moves), 3 example components (hero, pricing, dashboard card)
   - Accept: each preset renders in the playground; design-critic scores ≥4/5 average; presets are visibly distinct from each other

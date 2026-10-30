@@ -9,5 +9,12 @@
     "noEmit": true,
     "types": ["vite/client"]
   },
-  "include": ["src", "vite.config.ts", "tastekit-tokens-plugin.ts"]
+  "include": [
+    "src",
+    "../../packages/presets/*/examples",
+    "vite.config.ts",
+    "tastekit-tokens-plugin.ts",
+    "tastekit-tokens-plugin.test.ts",
+    "vitest.config.ts"
+  ]
 }

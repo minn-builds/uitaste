@@ -1,0 +1,14 @@
+[
+  {
+    "id": "editorial",
+    "name": "Editorial",
+    "description": "Magazine layout: high-contrast Fraunces display over a Source Serif text face, ink on warm paper, one vermilion accent, asymmetric columns separated by hairline rules instead of cards.",
+    "tags": ["serif", "magazine", "editorial", "warm", "print", "content"]
+  },
+  {
+    "id": "swiss",
+    "name": "Swiss",
+    "description": "International Typographic Style: a strict 12-column grid, a heavy neo-grotesk set flush-left, steep size jumps, black on off-white and one signal red.",
+    "tags": ["grid", "sans", "high-contrast", "minimal", "flat", "modernist"]
+  }
+]

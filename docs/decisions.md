@@ -24,3 +24,6 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · `init` writes `tastekit.tokens.css` next to the global CSS and adds one `@import` after existing imports (skipped if present) · Generated file is owned by tastekit and overwritten; user CSS is only touched once
 - 2026-10-30 · playwright as optional peer dep + devDependency of packages/cli · Loaded by dynamic import so non-shoot users skip the download; missing package or chromium prints `npm i -D playwright && npx playwright install chromium`. Core stays Playwright-free (structural `BrowserLike`)
 - 2026-10-30 · optional `shoot` section in tastekit.config.json ({url, routes, breakpoints}) · Defaults for `tastekit shoot`; `init` preserves it on re-run
+- 2026-10-30 · @fontsource/schibsted-grotesk, hanken-grotesk, ibm-plex-mono in playground · OFL self-hosted faces for the swiss and editorial presets; no runtime font network calls
+- 2026-10-30 · react + @types/react as devDependencies of packages/presets · Example .tsx components type-check against React without making presets a runtime React dependency
+- 2026-10-30 · Playground `/presets/<id>` renders examples full-bleed (no wrapper) · Each example owns its container so screenshots show the preset's real layout

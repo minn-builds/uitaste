@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "id": "swiss",
+    "name": "Swiss",
+    "description": "International Typographic Style: a strict 12-column grid, a heavy neo-grotesk set flush-left, steep size jumps, black on off-white and one signal red.",
+    "tags": ["grid", "sans", "high-contrast", "minimal", "flat", "modernist"]
+  },
+  "fonts": {
+    "display": {
+      "family": "Schibsted Grotesk",
+      "fallback": ["Hanken Grotesk", "Helvetica Neue", "Arial", "sans-serif"],
+      "weights": [500, 700, 900]
+    },
+    "body": {
+      "family": "Hanken Grotesk",
+      "fallback": ["Helvetica Neue", "Arial", "sans-serif"],
+      "weights": [400, 500, 700]
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "fallback": ["ui-monospace", "Menlo", "Consolas", "monospace"],
+      "weights": [400, 500]
+    }
+  },
+  "colors": {
+    "neutral": "#141414",
+    "accent": "#e2001a",
+    "destructive": "oklch(0.42 0.14 10)"
+  },
+  "scale": {
+    "type": { "base": 17, "ratio": 1.414 },
+    "spacing": { "base": 8 }
+  },
+  "radius": { "sm": 0, "md": 0, "lg": 0 },
+  "shadow": { "style": "none" },
+  "motion": {
+    "duration": { "fast": 80, "base": 120, "slow": 200 },
+    "easing": "cubic-bezier(0.2, 0, 0, 1)"
+  },
+  "rules": "rules.md",
+  "darkMode": true
+}
