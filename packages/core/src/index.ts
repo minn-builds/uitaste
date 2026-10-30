@@ -5,5 +5,6 @@ export {
   type TokenOverrides,
   TokenOverridesSchema,
 } from "./generator/generate.js";
+export * from "./presets/loader.js";
 export * from "./schema/preset.js";
 export * from "./schema/tokens.js";

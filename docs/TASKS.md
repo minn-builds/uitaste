@@ -29,7 +29,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 
 ## Phase 2: Presets
 
-- [ ] T2.1 · Preset loader + registry · S · T1.1
+- [x] T2.1 · Preset loader + registry · S · T1.1
   - Load `packages/presets/*/preset.json` + `rules.md`; `listPresets()`, `getPreset(id)`
   - Accept: tests; invalid preset gives a readable zod error
 - [ ] T2.2 · Presets: editorial, swiss · M · T2.1, T1.3 (use `/new-preset`)
