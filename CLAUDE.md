@@ -8,14 +8,15 @@ Read those only when the task needs them.
 
 ## Stack
 
-- pnpm workspaces + Turborepo, TypeScript strict, ESM only, Node >= 20
+- pnpm 12 workspaces + Turborepo, TypeScript strict, ESM only, Node >= 20
 - tsup (build), vitest (test), Biome (lint + format), zod (schemas), culori (OKLCH color math)
 - Playwright (screenshots), @modelcontextprotocol/sdk (MCP server), citty + @clack/prompts (CLI)
 
 ## Layout
 
 ```
-packages/core      tokens schema, generator, emitters (CSS vars, Tailwind v4 @theme), linter, screenshot runner
+packages/core      schema (preset/tokens), generator (generateTokens), presets loader (listPresets/getPreset/
+                   defaultPresetsRoot), lint engine; planned: emitters, screenshot runner
 packages/presets   one folder per preset: preset.json, rules.md, examples/*.tsx
 packages/cli       `tastekit init | lint | shoot | preset`
 packages/mcp       MCP server wrapping core (get_preset, generate_tokens, lint, shoot)
@@ -29,7 +30,8 @@ bench/             before/after screenshots (marketing material)
 - `pnpm i` · `pnpm build` · `pnpm test` · `pnpm typecheck` · `pnpm lint`
 - Single package: `pnpm --filter @tastekit/core test`
 - Playground: `pnpm --filter playground dev` (port 5173)
-- CLI from source: `pnpm tastekit <cmd>`
+- CLI: `pnpm tastekit <cmd>` runs the built `packages/cli/dist`, so `pnpm build` first
+- pnpm 12 does not support `pnpm -s`
 
 ## Rules
 
@@ -39,6 +41,7 @@ bench/             before/after screenshots (marketing material)
 - Never use `any`. Validate all external input (preset files, config, CLI args) with zod.
 - Keep the product skill (`packages/skill/SKILL.md`) under 300 lines; move detail into its reference files.
 - The playground uses ONLY tokens from the active preset. No hardcoded colors, fonts, radii or spacing.
+- Lint fixtures live in `packages/core/src/lint/__fixtures__`, excluded from tsc and Biome.
 - Don't edit `pnpm-lock.yaml`, `dist/`, or `.env*` by hand (a hook blocks it).
 - Don't run `git push` or any publish command. The human does releases.
 

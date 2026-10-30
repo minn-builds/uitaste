@@ -26,6 +26,9 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [ ] T1.3 · Emitters · S · T1.2
   - `toCssVars(tokens)`, `toTailwindTheme(tokens)` (v4 `@theme` block), `toJson(tokens)`
   - Accept: snapshot tests; playground imports emitted CSS and renders
+- [ ] T1.4 · Generator: `firstLegible` fallback guarantees AA · S · T1.2
+  - Today it silently returns the last candidate when none passes; instead adjust lightness until AA passes (or throw)
+  - Accept: test with a no-pass candidate list yields a color that clears AA on every background
 
 ## Phase 2: Presets
 
@@ -58,6 +61,9 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [ ] T4.2 · `tastekit lint` · S · T3.2, T3.3
   - Globs, `--json`, exit codes 0/1, reads config
 - [x] T4.3 · `tastekit preset list|show` · S · T2.1
+- [ ] T4.4 · CLI tests resolve `@tastekit/core` from source · S · T4.3
+  - Alias `@tastekit/core` to `packages/core/src` in `packages/cli/vitest.config.ts` so tests don't run against a stale dist
+  - Accept: a core change shows up in CLI tests without rebuilding core
 
 ## Phase 5: Critique loop
 

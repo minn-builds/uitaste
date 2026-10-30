@@ -13,3 +13,6 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · @changesets/cli for versioning + changelogs · Standard release flow for pnpm monorepos; human runs publish
 - 2026-10-30 · Lint parsers: @babel/parser 7 (+ @babel/types for AST types) for JSX/TSX, postcss for CSS, parse5 for HTML · Pure JS (no native binaries), precise source offsets, battle-tested; Babel 8 needs Node 22 so pinned to 7
 - 2026-10-30 · citty 0.2 + zod in packages/cli · citty is the CLI framework chosen in the stack (tiny, typed subcommands); zod validates CLI args
+- 2026-10-30 · Root `pnpm tastekit` runs the built `packages/cli/dist/main.js` · Exercises the bundle users actually get; requires `pnpm build` first
+- 2026-10-30 · Lint fixtures in `packages/core/src/lint/__fixtures__`, excluded from tsc and Biome · They hold deliberately bad, standalone code that would otherwise fail CI
+- 2026-10-30 · Lint output: pretty reporter for humans, JSON reporter for agents/MCP/CI · One Finding model, two stable formats
