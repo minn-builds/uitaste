@@ -5,7 +5,8 @@ input=$(cat)
 [ "$(echo "$input" | jq -r '.stop_hook_active // false')" = "true" ] && exit 0
 cd "$CLAUDE_PROJECT_DIR" || exit 0
 git diff --name-only HEAD 2>/dev/null | grep -qE '\.(ts|tsx)$' || exit 0
-out=$(pnpm -s typecheck 2>&1)
+# pnpm 12 rejects -s, so use the plain command and filter the output
+out=$(pnpm typecheck 2>&1)
 if [ $? -ne 0 ]; then
   echo "Typecheck failed. Fix before finishing:" >&2
   echo "$out" | grep -E 'error TS' | head -15 >&2

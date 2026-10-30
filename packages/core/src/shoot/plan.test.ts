@@ -74,7 +74,7 @@ describe("manifest", () => {
   });
   it("names the default out dir by timestamp", () => {
     expect(defaultOutDir(new Date("2026-01-02T03:04:05.678Z"))).toBe(
-      ".tastekit/shots/2026-01-02T03-04-05",
+      ".uitaste/shots/2026-01-02T03-04-05",
     );
   });
 });

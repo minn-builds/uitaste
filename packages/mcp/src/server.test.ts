@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
-import type { BrowserLike } from "@tastekit/core";
+import type { BrowserLike } from "@uitaste/core";
 import { afterEach, describe, expect, it } from "vitest";
 import { z } from "zod";
 import { PLAYWRIGHT_HELP } from "./launch.js";
@@ -37,7 +37,7 @@ function json(text: string | undefined): unknown {
 }
 
 function project(): string {
-  return mkdtempSync(join(tmpdir(), "tastekit-mcp-"));
+  return mkdtempSync(join(tmpdir(), "uitaste-mcp-"));
 }
 
 describe("tools/list", () => {

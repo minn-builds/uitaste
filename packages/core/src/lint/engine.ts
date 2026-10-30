@@ -19,7 +19,7 @@ export const RULE_ERROR_RULE_ID = "rule-error";
 export const RuleSettingSchema = z.enum(["off", "error", "warn", "info"]);
 export type RuleSetting = z.output<typeof RuleSettingSchema>;
 
-/** User-facing lint config (e.g. from `tastekit.config`): per-rule severity overrides. */
+/** User-facing lint config (e.g. from `uitaste.config`): per-rule severity overrides. */
 export const LintConfigSchema = z.strictObject({
   rules: z.record(z.string(), RuleSettingSchema).default({}),
 });

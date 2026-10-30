@@ -19,7 +19,7 @@ import {
   TokenOverridesSchema,
   toCssVars,
   toTailwindTheme,
-} from "@tastekit/core";
+} from "@uitaste/core";
 import { defineCommand } from "citty";
 import { z } from "zod";
 import type { Io } from "./preset.js";
@@ -40,7 +40,7 @@ const stdio: Io = {
 
 function skillRoot(): string {
   const require = createRequire(import.meta.url);
-  return dirname(require.resolve("@tastekit/skill/package.json"));
+  return dirname(require.resolve("@uitaste/skill/package.json"));
 }
 
 /** Returns the process exit code. Prompts only when `--yes` is absent and a value is missing. */
@@ -52,7 +52,7 @@ export async function runInit(input: unknown, io: Io = stdio): Promise<number> {
   }
   const args = parsed.data;
   const cwd = resolve(args.dir);
-  const presetsRoot = args.root ?? process.env.TASTEKIT_PRESETS_ROOT ?? defaultPresetsRoot();
+  const presetsRoot = args.root ?? process.env.UITASTE_PRESETS_ROOT ?? defaultPresetsRoot();
   try {
     const existing = readConfig(cwd);
     const interactive = !args.yes && Boolean(process.stdin.isTTY);
@@ -124,7 +124,7 @@ export async function runInit(input: unknown, io: Io = stdio): Promise<number> {
     });
     const written = applyOps(cwd, plan.ops);
     io.out(
-      `tastekit: ${detection.framework}${detection.tailwind ? " + tailwind" : ""}, preset ${presetId}`,
+      `uitaste: ${detection.framework}${detection.tailwind ? " + tailwind" : ""}, preset ${presetId}`,
     );
     io.out(written.length ? written.map((w) => `  wrote ${w}`).join("\n") : "  already up to date");
     if (!detection.globalCss) {
@@ -138,7 +138,7 @@ export async function runInit(input: unknown, io: Io = stdio): Promise<number> {
 }
 
 export const initCommand = defineCommand({
-  meta: { name: "init", description: "Set up tastekit in this project" },
+  meta: { name: "init", description: "Set up uitaste in this project" },
   args: {
     dir: { type: "positional", description: "Project directory", required: false, default: "." },
     preset: { type: "string", description: "Preset id", required: false },

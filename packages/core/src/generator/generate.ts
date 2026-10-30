@@ -31,7 +31,7 @@ export const DEFAULT_DESTRUCTIVE_SEED = "oklch(0.577 0.215 27)";
 /** A font override: a bare family name (keeps the preset's fallbacks/weights) or a full spec. */
 const FontOverrideSchema = z.union([z.string().trim().min(1), FontSpecSchema]);
 
-/** User-level overrides applied on top of a preset (e.g. brand color/font from `tastekit init`). */
+/** User-level overrides applied on top of a preset (e.g. brand color/font from `uitaste init`). */
 export const TokenOverridesSchema = z.strictObject({
   accent: ColorSeedSchema.optional(),
   fonts: z

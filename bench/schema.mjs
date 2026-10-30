@@ -5,7 +5,7 @@ import { z } from "zod";
 
 export const benchRoot = dirname(fileURLToPath(import.meta.url));
 export const repoRoot = join(benchRoot, "..");
-export const VARIANTS = ["baseline", "tastekit"];
+export const VARIANTS = ["baseline", "uitaste"];
 
 export const PromptsSchema = z
   .array(

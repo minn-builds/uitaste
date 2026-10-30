@@ -62,7 +62,7 @@ const LOCAL_HOSTS: ReadonlySet<string> = new Set(["localhost", "127.0.0.1", "[::
 
 /**
  * For confined (MCP) runs: only http(s), and caller-supplied URLs must point at a local dev
- * server. A URL from tastekit.config.json is trusted for its host, since the project chose it.
+ * server. A URL from uitaste.config.json is trusted for its host, since the project chose it.
  */
 function checkConfinedUrl(url: string, fromArgs: boolean): void {
   let u: URL;
@@ -76,18 +76,18 @@ function checkConfinedUrl(url: string, fromArgs: boolean): void {
   }
   if (fromArgs && !LOCAL_HOSTS.has(u.hostname)) {
     throw new Error(
-      `URL host "${u.hostname}" is not allowed: use localhost, 127.0.0.1 or [::1], or set shoot.url in tastekit.config.json`,
+      `URL host "${u.hostname}" is not allowed: use localhost, 127.0.0.1 or [::1], or set shoot.url in uitaste.config.json`,
     );
   }
 }
 
 export interface ResolveShootInput {
-  /** Project directory: holds tastekit.config.json; relative `out` resolves against it. */
+  /** Project directory: holds uitaste.config.json; relative `out` resolves against it. */
   cwd: string;
   url?: string | undefined;
   routes?: readonly string[] | undefined;
   breakpoints?: readonly number[] | undefined;
-  /** Output directory (default `.tastekit/shots/<timestamp>`). */
+  /** Output directory (default `.uitaste/shots/<timestamp>`). */
   out?: string | undefined;
   /**
    * MCP mode: the output dir must stay inside `cwd`, the URL must be http(s), and a URL passed
@@ -113,7 +113,7 @@ export function resolveShootOptions(input: ResolveShootInput): ShootOptions {
   };
   if (!raw.url) {
     throw new Error(
-      "No URL. Pass --url (e.g. http://localhost:5173) or set shoot.url in tastekit.config.json",
+      "No URL. Pass --url (e.g. http://localhost:5173) or set shoot.url in uitaste.config.json",
     );
   }
   if (input.confine) checkConfinedUrl(raw.url, input.url !== undefined);

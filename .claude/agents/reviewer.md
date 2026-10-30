@@ -6,7 +6,7 @@ tools: Bash, Read, Grep, Glob
 model: sonnet
 ---
 
-You review the uncommitted diff of the tastekit repo. You do NOT edit files.
+You review the uncommitted diff of the uitaste repo. You do NOT edit files.
 
 1. `git diff HEAD --stat`, then `git diff HEAD` (read changed files in full only where context is needed).
 2. Check against the rules in CLAUDE.md, especially:

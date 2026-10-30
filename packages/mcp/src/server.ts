@@ -17,7 +17,7 @@ import {
   TokenOverridesSchema,
   toCssVars,
   toTailwindTheme,
-} from "@tastekit/core";
+} from "@uitaste/core";
 import { z } from "zod";
 import { type Launcher, launchChromium } from "./launch.js";
 
@@ -33,7 +33,7 @@ export interface ServerOptions {
   /** Root every `dir` / `out` argument must stay inside. Default: process.cwd(). */
   projectDir?: string;
   presetsRoot?: string;
-  /** Root of the installed @tastekit/skill package (for the rubric path). */
+  /** Root of the installed @uitaste/skill package (for the rubric path). */
   skillRoot?: string;
   launch?: Launcher;
 }
@@ -47,7 +47,7 @@ function packageVersion(): string {
 }
 
 function defaultSkillRoot(): string {
-  return dirname(require.resolve("@tastekit/skill/package.json"));
+  return dirname(require.resolve("@uitaste/skill/package.json"));
 }
 
 /** Short human summary first, then the machine-readable payload. */
@@ -81,7 +81,7 @@ const DirArg = z
   .optional()
   .describe("Project directory relative to the server's project root (default: the root)");
 
-/** Build the tastekit MCP server. Tools are thin wrappers over @tastekit/core. */
+/** Build the uitaste MCP server. Tools are thin wrappers over @uitaste/core. */
 export function createServer(opts: ServerOptions = {}): McpServer {
   const projectDir = opts.projectDir ?? process.cwd();
   const presetsRoot = () => opts.presetsRoot ?? defaultPresetsRoot();
@@ -89,13 +89,13 @@ export function createServer(opts: ServerOptions = {}): McpServer {
   const projectPath = (dir: string | undefined) =>
     resolveInside(projectDir, dir ?? ".", { allowRoot: true });
 
-  const server = new McpServer({ name: "tastekit", version: packageVersion() });
+  const server = new McpServer({ name: "uitaste", version: packageVersion() });
 
   server.registerTool(
     "list_presets",
     {
       title: "List presets",
-      description: "List the curated tastekit design presets (id, name, description, tags).",
+      description: "List the curated uitaste design presets (id, name, description, tags).",
       inputSchema: {},
       annotations: { readOnlyHint: true },
     },
@@ -150,7 +150,7 @@ export function createServer(opts: ServerOptions = {}): McpServer {
     {
       title: "Design lint",
       description:
-        "Run the tastekit design linter on a project (reads tastekit.config.json). Returns findings JSON.",
+        "Run the uitaste design linter on a project (reads uitaste.config.json). Returns findings JSON.",
       inputSchema: {
         dir: DirArg,
         globs: z
@@ -199,7 +199,7 @@ export function createServer(opts: ServerOptions = {}): McpServer {
           .string()
           .min(1)
           .optional()
-          .describe("Output dir inside the project (default .tastekit/shots/<timestamp>)"),
+          .describe("Output dir inside the project (default .uitaste/shots/<timestamp>)"),
       },
     },
     ({ dir, url, routes, breakpoints, out }) =>

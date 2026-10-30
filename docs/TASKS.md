@@ -55,19 +55,19 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 
 ## Phase 4: CLI
 
-- [x] T4.1 · `tastekit init` · M · T2.1, T1.3
-  - Detect framework (Vite/Next/plain), preset picker (clack), optional brand color + font, write `tastekit.config.json` + tokens CSS, patch global CSS import, install skill into `.claude/skills/tastekit/` and `.cursor/rules/tastekit.mdc` if `.cursor/` exists
+- [x] T4.1 · `uitaste init` · M · T2.1, T1.3
+  - Detect framework (Vite/Next/plain), preset picker (clack), optional brand color + font, write `uitaste.config.json` + tokens CSS, patch global CSS import, install skill into `.claude/skills/uitaste/` and `.cursor/rules/uitaste.mdc` if `.cursor/` exists
   - Accept: e2e test in a temp Vite app (execa); idempotent re-run
-- [x] T4.2 · `tastekit lint` · S · T3.2, T3.3
+- [x] T4.2 · `uitaste lint` · S · T3.2, T3.3
   - Globs, `--json`, exit codes 0/1, reads config
-- [x] T4.3 · `tastekit preset list|show` · S · T2.1
-- [x] T4.4 · CLI tests resolve `@tastekit/core` from source · S · T4.3
-  - Alias `@tastekit/core` to `packages/core/src` in `packages/cli/vitest.config.ts` so tests don't run against a stale dist
+- [x] T4.3 · `uitaste preset list|show` · S · T2.1
+- [x] T4.4 · CLI tests resolve `@uitaste/core` from source · S · T4.3
+  - Alias `@uitaste/core` to `packages/core/src` in `packages/cli/vitest.config.ts` so tests don't run against a stale dist
   - Accept: a core change shows up in CLI tests without rebuilding core
 
 ## Phase 5: Critique loop
 
-- [x] T5.1 · `tastekit shoot` · M · T4.1
+- [x] T5.1 · `uitaste shoot` · M · T4.1
   - Playwright: routes × breakpoints (390/768/1440), full-page PNG, wait for fonts + network idle, output manifest JSON with paths
   - Accept: e2e against playground dev server
 - [x] T5.2 · Rubric packaging · S · T5.1
@@ -85,7 +85,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 ## Phase 7: Proof
 
 - [x] T7.1 · Benchmark harness · M · T6.1
-  - `bench/prompts.json` (10 prompts: SaaS landing, pricing, dashboard, portfolio, restaurant, docs home, ...), script that renders baseline vs tastekit screenshots side by side
+  - `bench/prompts.json` (10 prompts: SaaS landing, pricing, dashboard, portfolio, restaurant, docs home, ...), script that renders baseline vs uitaste screenshots side by side
   - Accept: 10 comparison PNGs in `bench/out/` (use `/before-after`)
 - [x] T7.2 · README + demo · S · T7.1
   - Hero GIF, 3 before/after images, 30-second quickstart, preset gallery

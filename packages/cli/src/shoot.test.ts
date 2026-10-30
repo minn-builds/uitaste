@@ -60,7 +60,7 @@ function killTree(child: ChildProcess): void {
   }
 }
 
-describe.skipIf(!hasChromium)("tastekit shoot e2e", () => {
+describe.skipIf(!hasChromium)("uitaste shoot e2e", () => {
   let server: ChildProcess | undefined;
   let base = "";
   let out = "";
@@ -68,7 +68,7 @@ describe.skipIf(!hasChromium)("tastekit shoot e2e", () => {
   beforeAll(async () => {
     const port = await freePort();
     base = `http://127.0.0.1:${port}`;
-    out = mkdtempSync(join(tmpdir(), "tastekit-shoot-"));
+    out = mkdtempSync(join(tmpdir(), "uitaste-shoot-"));
     const viteBin = join(playground, "node_modules", "vite", "bin", "vite.js");
     server = spawn(
       process.execPath,
@@ -122,7 +122,7 @@ describe.skipIf(!hasChromium)("tastekit shoot e2e", () => {
   }, 60_000);
 });
 
-describe("tastekit shoot args", () => {
+describe("uitaste shoot args", () => {
   it("errors without a url", async () => {
     const lines: string[] = [];
     const code = await runShootCommand(

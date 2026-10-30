@@ -1,6 +1,6 @@
 // Usage: node bench/scripts/readme-assets.mjs
-// Builds the README images in docs/assets from bench/out, bench/shots and .tastekit/shots.
-// Preset thumbnails need the gitignored shots from the preset tasks (.tastekit/shots/T2.2, T2.3).
+// Builds the README images in docs/assets from bench/out, bench/shots and .uitaste/shots.
+// Preset thumbnails need the gitignored shots from the preset tasks (.uitaste/shots/T2.2, T2.3).
 import { existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import sharp from "sharp";
@@ -15,7 +15,7 @@ const PRESET_SHOTS = {
   brutal: "T2.3",
 };
 const HERO = { id: "event-conference", w: 1200, h: 700, crop: 840 };
-const HOLD = [1600, 2200]; // ms on "Default agent", "With tastekit"
+const HOLD = [1600, 2200]; // ms on "Default agent", "With uitaste"
 const STEPS = 4;
 const STEP_MS = 90;
 
@@ -35,7 +35,7 @@ async function comparisons() {
 
 async function thumbnails() {
   for (const [id, dir] of Object.entries(PRESET_SHOTS)) {
-    const src = join(repoRoot, ".tastekit", "shots", dir, `${id}-1440.png`);
+    const src = join(repoRoot, ".uitaste", "shots", dir, `${id}-1440.png`);
     if (!existsSync(src)) {
       console.warn(`skip ${id}: ${src} not found`);
       continue;
@@ -77,7 +77,7 @@ function mix(a, b, t) {
 async function hero() {
   const { w, h, id } = HERO;
   const a = await frame(join(benchRoot, "shots", `${id}-baseline-1440.png`), "Default agent");
-  const b = await frame(join(benchRoot, "shots", `${id}-tastekit-1440.png`), "With tastekit");
+  const b = await frame(join(benchRoot, "shots", `${id}-uitaste-1440.png`), "With uitaste");
   const frames = [a];
   const delay = [HOLD[0]];
   for (let i = 1; i <= STEPS; i++) {

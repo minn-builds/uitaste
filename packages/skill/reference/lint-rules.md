@@ -1,14 +1,14 @@
-# `tastekit lint` rules and how to fix them
+# `uitaste lint` rules and how to fix them
 
-Run `npx tastekit lint --json`. Each finding has `ruleId`, `severity`, `message`, `loc`
+Run `npx uitaste lint --json`. Each finding has `ruleId`, `severity`, `message`, `loc`
 (`start.line`, `start.column`) and a `suggestion`. Exit code 1 means at least one error.
 
 - **error**: token discipline. The build is not done until there are 0.
 - **warn**: AI-default tells. Fix them; keep one only when the user explicitly asked for it,
   and say so in your report.
 
-Fix the UI, not the config: don't set rules to `"off"` in `tastekit.config.json` to pass.
-The generated tokens file (`tastekit.tokens.css`) is never linted for token rules.
+Fix the UI, not the config: don't set rules to `"off"` in `uitaste.config.json` to pass.
+The generated tokens file (`uitaste.tokens.css`) is never linted for token rules.
 
 ## Errors (token discipline)
 
@@ -83,7 +83,7 @@ Triggers: Inter, Roboto or Arial as the display or heading face:
 `--font-display`, `h1`–`h3` `font-family`, or `font-[Inter]` on a heading.
 
 Fix: headings use `font-display`. If the tokens themselves resolve to a default font, the
-config override is the cause: re-run `npx tastekit init --font "<preset display family>" --yes`
+config override is the cause: re-run `npx uitaste init --font "<preset display family>" --yes`
 or remove `overrides.fonts.display`. Inter as body text is fine.
 
 ### `no-purple-gradient`

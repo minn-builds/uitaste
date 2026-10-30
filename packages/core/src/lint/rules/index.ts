@@ -41,5 +41,5 @@ export const tokenRules: readonly Rule[] = [
   fontFromTokens,
 ];
 
-/** The rule set `tastekit lint` runs by default. Grows as later rule families land. */
+/** The rule set `uitaste lint` runs by default. Grows as later rule families land. */
 export const recommendedRules: readonly Rule[] = [...aiTellRules, ...tokenRules];

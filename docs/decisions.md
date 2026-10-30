@@ -13,30 +13,32 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · @changesets/cli for versioning + changelogs · Standard release flow for pnpm monorepos; human runs publish
 - 2026-10-30 · Lint parsers: @babel/parser 7 (+ @babel/types for AST types) for JSX/TSX, postcss for CSS, parse5 for HTML · Pure JS (no native binaries), precise source offsets, battle-tested; Babel 8 needs Node 22 so pinned to 7
 - 2026-10-30 · citty 0.2 + zod in packages/cli · citty is the CLI framework chosen in the stack (tiny, typed subcommands); zod validates CLI args
-- 2026-10-30 · Root `pnpm tastekit` runs the built `packages/cli/dist/main.js` · Exercises the bundle users actually get; requires `pnpm build` first
+- 2026-10-30 · Root `pnpm uitaste` runs the built `packages/cli/dist/main.js` · Exercises the bundle users actually get; requires `pnpm build` first
 - 2026-10-30 · Lint fixtures in `packages/core/src/lint/__fixtures__`, excluded from tsc and Biome · They hold deliberately bad, standalone code that would otherwise fail CI
 - 2026-10-30 · Lint output: pretty reporter for humans, JSON reporter for agents/MCP/CI · One Finding model, two stable formats
 
 - 2026-10-30 · @fontsource/fraunces + @fontsource/source-serif-4 in playground · OFL, self-hosted fonts (no runtime network) so the playground shows the real preset faces; replace with preset-driven loading in T2.2
-- 2026-10-30 · @clack/prompts in packages/cli · The prompt library chosen in the stack for the interactive `tastekit init` preset/accent/font picker
+- 2026-10-30 · @clack/prompts in packages/cli · The prompt library chosen in the stack for the interactive `uitaste init` preset/accent/font picker
 - 2026-10-30 · execa 9 (devDependency of packages/cli; v10 needs Node 22 Set.union) · e2e test runs the built CLI in a temp Vite app with sane exit/stdout handling
-- 2026-10-30 · @tastekit/skill as workspace dep of packages/cli · `init` copies SKILL.md into user projects; resolved via package.json like presets
-- 2026-10-30 · `init` writes `tastekit.tokens.css` next to the global CSS and adds one `@import` after existing imports (skipped if present) · Generated file is owned by tastekit and overwritten; user CSS is only touched once
+- 2026-10-30 · @uitaste/skill as workspace dep of packages/cli · `init` copies SKILL.md into user projects; resolved via package.json like presets
+- 2026-10-30 · `init` writes `uitaste.tokens.css` next to the global CSS and adds one `@import` after existing imports (skipped if present) · Generated file is owned by uitaste and overwritten; user CSS is only touched once
 - 2026-10-30 · playwright as optional peer dep + devDependency of packages/cli · Loaded by dynamic import so non-shoot users skip the download; missing package or chromium prints `npm i -D playwright && npx playwright install chromium`. Core stays Playwright-free (structural `BrowserLike`)
-- 2026-10-30 · optional `shoot` section in tastekit.config.json ({url, routes, breakpoints}) · Defaults for `tastekit shoot`; `init` preserves it on re-run
+- 2026-10-30 · optional `shoot` section in uitaste.config.json ({url, routes, breakpoints}) · Defaults for `uitaste shoot`; `init` preserves it on re-run
 - 2026-10-30 · @fontsource/schibsted-grotesk, hanken-grotesk, ibm-plex-mono in playground · OFL self-hosted faces for the swiss and editorial presets; no runtime font network calls
 - 2026-10-30 · react + @types/react as devDependencies of packages/presets · Example .tsx components type-check against React without making presets a runtime React dependency
 - 2026-10-30 · Playground `/presets/<id>` renders examples full-bleed (no wrapper) · Each example owns its container so screenshots show the preset's real layout
-- 2026-10-30 · tastekit lint uses a small built-in glob matcher (*, **, ?, {a,b}) instead of a glob dependency · Node 20 lacks fs.glob; keeps core dependency-free; zero matches is an error so typo'd globs can't pass CI
+- 2026-10-30 · uitaste lint uses a small built-in glob matcher (*, **, ?, {a,b}) instead of a glob dependency · Node 20 lacks fs.glob; keeps core dependency-free; zero matches is an error so typo'd globs can't pass CI
 - 2026-10-30 · @fontsource/red-hat-display, source-sans-3, jetbrains-mono in playground · OFL self-hosted humanist display/body faces and mono for the soft-utility preset; no runtime font network calls
 - 2026-10-30 · @fontsource/archivo-black in playground · OFL self-hosted chunky display face for the brutal preset; no runtime font network calls
 - 2026-10-30 · @fontsource/atkinson-hyperlegible in playground · OFL self-hosted body face for the brutal preset, chosen so the loud direction stays legible
 - 2026-10-30 · @fontsource/space-mono in playground · OFL self-hosted mono for the brutal preset's labels and data
 - 2026-10-30 · init installs the whole skill bundle (SKILL.md + reference/*) and the chosen preset's rules at a fixed `reference/preset.md` · SKILL.md can name the file without knowing the preset id; switching presets overwrites it (old `reference/presets/<id>/rules.md` from pre-release inits is left in place)
-- 2026-10-30 · @modelcontextprotocol/sdk 1.x (+ zod, @tastekit/core, @tastekit/skill) in packages/mcp; playwright as optional peer + devDependency · Official SDK (McpServer.registerTool with zod shapes, stdio transport, InMemoryTransport for tests); playwright loaded lazily like the CLI
+- 2026-10-30 · @modelcontextprotocol/sdk 1.x (+ zod, @uitaste/core, @uitaste/skill) in packages/mcp; playwright as optional peer + devDependency · Official SDK (McpServer.registerTool with zod shapes, stdio transport, InMemoryTransport for tests); playwright loaded lazily like the CLI
 - 2026-10-30 · MCP `dir`/`out` args confined to the server's cwd via core `resolveInside` (symlink-aware); shoot out dir must be strictly inside the project · Agents can't make the server read or write outside the project; CLI keeps free `--out`
 - 2026-10-30 · Shoot option merging (args > config.shoot > defaults) lives in core `resolveShootOptions`, used by CLI and MCP · One source of truth, no logic in wrappers
 - 2026-10-30 · sharp, playwright, zod as root devDependencies for bench/scripts · sharp composes comparison PNGs, playwright (same version as cli) shoots pages, zod validates bench/prompts.json; scripts import packages/core/dist so `pnpm build` first
-- 2026-10-30 · Bench baseline pages get their own stylesheet (apps/playground/src/bench.css, stock `@import "tailwindcss"`) · Baseline must render with stock Tailwind, not preset tokens; tastekit pages use index.css + data-preset
+- 2026-10-30 · Bench baseline pages get their own stylesheet (apps/playground/src/bench.css, stock `@import "tailwindcss"`) · Baseline must render with stock Tailwind, not preset tokens; uitaste pages use index.css + data-preset
 - 2026-10-30 · "Playground uses only preset tokens" excludes bench/pages/** · Those are agent-written benchmark pages; the baseline deliberately uses stock Tailwind
 - 2026-10-30 · bench/pages, bench/shots, bench/out excluded from Biome and playground tsc · Agent-written pages can't break CI; the harness lints them itself and records counts in bench/out/results.json
+- 2026-10-30 · Renamed the product to uitaste; CLI ships as unscoped `uitaste` (bin uitaste), libraries stay under @uitaste/* · `npx uitaste init` works without a scope; v0.1.0 re-cut under the new name before anything was pushed
+- 2026-10-30 · .claude/ excluded from Biome · Agent/skill/hook files are tooling, not product code, and kept breaking root `pnpm lint`

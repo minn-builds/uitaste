@@ -64,7 +64,7 @@ function listToolsOverStdio(child: ChildProcessWithoutNullStreams): Promise<stri
 describe("stdio bin", () => {
   it("starts and lists the five tools", async () => {
     if (!existsSync(bin)) {
-      throw new Error(`${bin} is missing: run \`pnpm --filter @tastekit/mcp build\` first`);
+      throw new Error(`${bin} is missing: run \`pnpm --filter @uitaste/mcp build\` first`);
     }
     const child = spawn(process.execPath, [bin], { stdio: ["pipe", "pipe", "pipe"] });
     try {

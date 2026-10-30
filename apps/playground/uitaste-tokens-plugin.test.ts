@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { scope } from "./tastekit-tokens-plugin.ts";
+import { scope } from "./uitaste-tokens-plugin.ts";
 
 const css = `:root {
   --tk-color-bg: oklch(0.97 0 0);

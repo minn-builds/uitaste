@@ -26,7 +26,7 @@ const valid = (id: string, extra: Record<string, unknown> = {}) => ({
 
 let root: string;
 beforeEach(() => {
-  root = mkdtempSync(join(tmpdir(), "tastekit-presets-"));
+  root = mkdtempSync(join(tmpdir(), "uitaste-presets-"));
 });
 afterEach(() => rmSync(root, { recursive: true, force: true }));
 

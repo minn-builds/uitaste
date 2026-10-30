@@ -2,7 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(pnpm:*)",
-      "Bash(npx tastekit:*)",
+      "Bash(npx uitaste:*)",
       "Bash(npx playwright:*)",
       "Bash(node:*)",
       "Bash(git status:*)",
@@ -11,7 +11,18 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(ls:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(npx:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(echo:*)",
+      "Bash(rm -f .claude/autopilot.on)",
+      "Bash(python3:*)",
+      "Bash(sed:*)",
+      "Bash(git worktree:*)",
+      "WebSearch",
+      "WebFetch"
     ],
     "deny": [
       "Read(./.env)",
@@ -20,14 +31,18 @@
       "Bash(npm publish:*)",
       "Bash(pnpm publish:*)",
       "Bash(pnpm changeset publish:*)"
-    ]
+    ],
+    "defaultMode": "acceptEdits"
   },
   "hooks": {
     "PreToolUse": [
       {
         "matcher": "Edit|Write|MultiEdit",
         "hooks": [
-          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/guard.sh" }
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/guard.sh"
+          }
         ]
       }
     ],
@@ -35,7 +50,10 @@
       {
         "matcher": "Edit|Write|MultiEdit",
         "hooks": [
-          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/format.sh" }
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/format.sh"
+          }
         ]
       }
     ],
@@ -45,6 +63,10 @@
           {
             "type": "command",
             "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/typecheck-on-stop.sh"
+          },
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/autopilot-continue.sh"
           }
         ]
       }

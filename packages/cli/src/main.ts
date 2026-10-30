@@ -6,7 +6,7 @@ import { presetCommand } from "./commands/preset.js";
 import { shootCommand } from "./commands/shoot.js";
 
 const main = defineCommand({
-  meta: { name: "tastekit", description: "Distinctive, consistent frontends from coding agents" },
+  meta: { name: "uitaste", description: "Distinctive, consistent frontends from coding agents" },
   subCommands: { init: initCommand, lint: lintCommand, preset: presetCommand, shoot: shootCommand },
 });
 

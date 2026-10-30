@@ -1,4 +1,4 @@
-import type { BrowserLike } from "@tastekit/core";
+import type { BrowserLike } from "@uitaste/core";
 
 export const PLAYWRIGHT_HELP =
   "Playwright is required for the shoot tool. Install it and its browser in the project:\n" +

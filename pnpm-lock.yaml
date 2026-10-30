@@ -260,10 +260,10 @@ importers:
       '@clack/prompts':
         specifier: ^1.8.1
         version: 1.8.1
-      '@tastekit/core':
+      '@uitaste/core':
         specifier: workspace:*
         version: link:../core
-      '@tastekit/skill':
+      '@uitaste/skill':
         specifier: workspace:*
         version: link:../skill
       citty:
@@ -291,7 +291,7 @@ importers:
       '@babel/parser':
         specifier: ^7.29.11
         version: 7.29.11
-      '@tastekit/presets':
+      '@uitaste/presets':
         specifier: workspace:*
         version: link:../presets
       culori:
@@ -325,10 +325,10 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.32.2
         version: 1.32.2(zod@4.6.7)
-      '@tastekit/core':
+      '@uitaste/core':
         specifier: workspace:*
         version: link:../core
-      '@tastekit/skill':
+      '@uitaste/skill':
         specifier: workspace:*
         version: link:../skill
       zod:

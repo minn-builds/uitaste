@@ -15,7 +15,7 @@ import {
   readConfig,
   readSkillBundle,
   reuseConfigPaths,
-  TastekitConfigSchema,
+  UitasteConfigSchema,
 } from "./init.js";
 
 function proj(files: Record<string, string>): string {
@@ -57,25 +57,25 @@ describe("detectProject", () => {
 
 describe("patchCssImport", () => {
   it("inserts after existing imports and is idempotent", () => {
-    const once = patchCssImport('@import "tailwindcss";\n\nbody{}\n', "./tastekit.tokens.css");
-    expect(once).toBe('@import "tailwindcss";\n@import "./tastekit.tokens.css";\n\nbody{}\n');
-    expect(patchCssImport(once, "./tastekit.tokens.css")).toBe(once);
+    const once = patchCssImport('@import "tailwindcss";\n\nbody{}\n', "./uitaste.tokens.css");
+    expect(once).toBe('@import "tailwindcss";\n@import "./uitaste.tokens.css";\n\nbody{}\n');
+    expect(patchCssImport(once, "./uitaste.tokens.css")).toBe(once);
   });
   it("prepends when there are no imports", () => {
-    expect(patchCssImport("body{}", "./t.tokens.css".replace("t.", "tastekit."))).toBe(
-      '@import "./tastekit.tokens.css";\nbody{}',
+    expect(patchCssImport("body{}", "./t.tokens.css".replace("t.", "uitaste."))).toBe(
+      '@import "./uitaste.tokens.css";\nbody{}',
     );
   });
   it("keeps @charset first", () => {
-    expect(patchCssImport('@charset "utf-8";\na{}', "./tastekit.tokens.css")).toBe(
-      '@charset "utf-8";\n@import "./tastekit.tokens.css";\na{}',
+    expect(patchCssImport('@charset "utf-8";\na{}', "./uitaste.tokens.css")).toBe(
+      '@charset "utf-8";\n@import "./uitaste.tokens.css";\na{}',
     );
   });
 });
 
 it("cssImportSpecifier", () => {
-  expect(cssImportSpecifier("src/index.css", "src/tastekit.tokens.css")).toBe(
-    "./tastekit.tokens.css",
+  expect(cssImportSpecifier("src/index.css", "src/uitaste.tokens.css")).toBe(
+    "./uitaste.tokens.css",
   );
   expect(cssImportSpecifier("index.css", "src/x.css")).toBe("./src/x.css");
 });
@@ -86,21 +86,21 @@ describe("planInit + applyOps", () => {
     detection: { framework: "vite" as const, tailwind: false, globalCss: "src/index.css" },
     tokensCss: ":root{}\n",
     globalCssContent: "body{}\n",
-    skillMd: "---\nname: tastekit\n---\n# Skill\n",
+    skillMd: "---\nname: uitaste\n---\n# Skill\n",
     rulesMd: "# Rules\n",
     cursor: true,
   };
   it("plans all files and re-apply writes nothing", () => {
     const dir = proj({ "src/index.css": "body{}\n" });
     const plan = planInit(input);
-    expect(TastekitConfigSchema.safeParse(plan.config).success).toBe(true);
+    expect(UitasteConfigSchema.safeParse(plan.config).success).toBe(true);
     expect(plan.ops.map((o) => o.path)).toEqual([
-      "tastekit.config.json",
-      "src/tastekit.tokens.css",
+      "uitaste.config.json",
+      "src/uitaste.tokens.css",
       "src/index.css",
-      ".claude/skills/tastekit/SKILL.md",
-      ".claude/skills/tastekit/reference/preset.md",
-      ".cursor/rules/tastekit.mdc",
+      ".claude/skills/uitaste/SKILL.md",
+      ".claude/skills/uitaste/reference/preset.md",
+      ".cursor/rules/uitaste.mdc",
     ]);
     expect(applyOps(dir, plan.ops)).toHaveLength(6);
     expect(readConfig(dir)?.preset).toBe("demo");
@@ -121,14 +121,14 @@ describe("planInit + applyOps", () => {
     });
     const byPath = new Map(plan.ops.map((o) => [o.path, o.content]));
     expect([...byPath.keys()].filter((p) => p.startsWith(".claude/"))).toEqual([
-      ".claude/skills/tastekit/SKILL.md",
-      ".claude/skills/tastekit/reference/rubric.md",
-      ".claude/skills/tastekit/reference/lint-rules.md",
-      ".claude/skills/tastekit/reference/preset.md",
+      ".claude/skills/uitaste/SKILL.md",
+      ".claude/skills/uitaste/reference/rubric.md",
+      ".claude/skills/uitaste/reference/lint-rules.md",
+      ".claude/skills/uitaste/reference/preset.md",
     ]);
-    const rules = byPath.get(".claude/skills/tastekit/reference/preset.md");
+    const rules = byPath.get(".claude/skills/uitaste/reference/preset.md");
     expect(rules).toBe(presetRulesDoc("demo", "# Rules\n"));
-    expect(rules).toContain("tastekit preset: demo");
+    expect(rules).toContain("uitaste preset: demo");
     expect(rules?.endsWith("# Rules\n")).toBe(true);
   });
   it("re-init with another preset overwrites reference/preset.md", () => {
@@ -141,21 +141,21 @@ describe("planInit + applyOps", () => {
       rulesMd: "# Other\n",
       globalCssContent: css,
     });
-    expect(applyOps(dir, next.ops)).toContain(".claude/skills/tastekit/reference/preset.md");
-    expect(
-      readFileSync(join(dir, ".claude/skills/tastekit/reference/preset.md"), "utf8"),
-    ).toContain("# Other");
+    expect(applyOps(dir, next.ops)).toContain(".claude/skills/uitaste/reference/preset.md");
+    expect(readFileSync(join(dir, ".claude/skills/uitaste/reference/preset.md"), "utf8")).toContain(
+      "# Other",
+    );
   });
   it("cursor rule points at the installed reference dir", () => {
-    const mdc = planInit(input).ops.find((o) => o.path === ".cursor/rules/tastekit.mdc");
-    expect(mdc?.content).toContain(".claude/skills/tastekit/reference/");
-    expect(mdc?.content).not.toContain("name: tastekit");
+    const mdc = planInit(input).ops.find((o) => o.path === ".cursor/rules/uitaste.mdc");
+    expect(mdc?.content).toContain(".claude/skills/uitaste/reference/");
+    expect(mdc?.content).not.toContain("name: uitaste");
   });
   it("skips skill without source and cursor when disabled", () => {
     const plan = planInit({ ...input, skillMd: null, cursor: false });
     expect(plan.ops.map((o) => o.path)).toEqual([
-      "tastekit.config.json",
-      "src/tastekit.tokens.css",
+      "uitaste.config.json",
+      "src/uitaste.tokens.css",
       "src/index.css",
     ]);
   });
@@ -189,7 +189,7 @@ describe("readSkillBundle", () => {
   it("bundles the shipped skill package", () => {
     const shipped = join(import.meta.dirname, "..", "..", "..", "skill");
     const { skillMd, files } = readSkillBundle(shipped);
-    expect(skillMd).toMatch(/^---\n\n?name: tastekit\n/);
+    expect(skillMd).toMatch(/^---\n\n?name: uitaste\n/);
     expect(files.map((f) => f.path)).toContain("reference/rubric.md");
     expect(files.map((f) => f.path)).not.toContain(PRESET_RULES_FILE);
   });
@@ -198,14 +198,14 @@ describe("readSkillBundle", () => {
 describe("readConfig", () => {
   it("returns null when absent and throws on invalid", () => {
     expect(readConfig(proj({}))).toBeNull();
-    expect(() => readConfig(proj({ "tastekit.config.json": "{}" }))).toThrow(/invalid/);
+    expect(() => readConfig(proj({ "uitaste.config.json": "{}" }))).toThrow(/invalid/);
   });
 });
 
 describe("patchCssImport CRLF", () => {
   it("keeps CRLF line endings", () => {
-    expect(patchCssImport('@import "a";\r\nbody{}\r\n', "./tastekit.tokens.css")).toBe(
-      '@import "a";\r\n@import "./tastekit.tokens.css";\r\nbody{}\r\n',
+    expect(patchCssImport('@import "a";\r\nbody{}\r\n', "./uitaste.tokens.css")).toBe(
+      '@import "a";\r\n@import "./uitaste.tokens.css";\r\nbody{}\r\n',
     );
   });
 });
@@ -235,17 +235,17 @@ describe("FontFamilyInputSchema", () => {
 
 describe("reuseConfigPaths", () => {
   const det = { framework: "vite" as const, tailwind: false, globalCss: "src/index.css" };
-  const cfg = TastekitConfigSchema.parse({
+  const cfg = UitasteConfigSchema.parse({
     preset: "demo",
     framework: "vite",
     tailwind: false,
-    tokensCss: "styles/tastekit.tokens.css",
+    tokensCss: "styles/uitaste.tokens.css",
     globalCss: "styles/app.css",
   });
   it("reuses existing files only", () => {
-    const d = proj({ "styles/tastekit.tokens.css": "", "styles/app.css": "" });
+    const d = proj({ "styles/uitaste.tokens.css": "", "styles/app.css": "" });
     const r = reuseConfigPaths(d, cfg, det);
-    expect(r.tokensCssPath).toBe("styles/tastekit.tokens.css");
+    expect(r.tokensCssPath).toBe("styles/uitaste.tokens.css");
     expect(r.detection.globalCss).toBe("styles/app.css");
     expect(reuseConfigPaths(proj({}), cfg, det)).toEqual({ detection: det });
   });

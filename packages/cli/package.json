@@ -1,5 +1,5 @@
 {
-  "name": "@tastekit/cli",
+  "name": "uitaste",
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
@@ -28,13 +28,13 @@
   },
   "dependencies": {
     "@clack/prompts": "^1.8.1",
-    "@tastekit/core": "workspace:*",
-    "@tastekit/skill": "workspace:*",
+    "@uitaste/core": "workspace:*",
+    "@uitaste/skill": "workspace:*",
     "citty": "^0.2.2",
     "zod": "^4.6.7"
   },
   "bin": {
-    "tastekit": "./dist/main.js"
+    "uitaste": "./dist/main.js"
   },
   "peerDependencies": {
     "playwright": ">=1.40"

@@ -95,8 +95,8 @@ export function getPreset(id: string, presetsRoot: string = defaultPresetsRoot()
   return loadPresetDir(dir);
 }
 
-/** Directory of the `@tastekit/presets` package (works from src and dist). */
+/** Directory of the `@uitaste/presets` package (works from src and dist). */
 export function defaultPresetsRoot(): string {
   const require = createRequire(import.meta.url);
-  return dirname(require.resolve("@tastekit/presets/package.json"));
+  return dirname(require.resolve("@uitaste/presets/package.json"));
 }

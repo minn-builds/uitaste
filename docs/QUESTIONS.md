@@ -4,10 +4,10 @@
 
 Please look at the four presets (render with `pnpm --filter playground dev` → `/presets/<id>`):
 
-- `.tastekit/shots/T2.2/editorial-{390,1440}.png` · critic 3.6 after fixes
-- `.tastekit/shots/T2.2/swiss-{390,1440}.png` · critic 3.6 after fixes
-- `.tastekit/shots/T2.3/soft-utility-{390,1440}.png` · critic 4.0
-- `.tastekit/shots/T2.3/brutal-{390,1440}.png` · critic 4.3
+- `.uitaste/shots/T2.2/editorial-{390,1440}.png` · critic 3.6 after fixes
+- `.uitaste/shots/T2.2/swiss-{390,1440}.png` · critic 3.6 after fixes
+- `.uitaste/shots/T2.3/soft-utility-{390,1440}.png` · critic 4.0
+- `.uitaste/shots/T2.3/brutal-{390,1440}.png` · critic 4.3
 
 Open critic notes:
 
@@ -24,6 +24,6 @@ Please look at:
 - all 10 comparisons in `bench/out/*.png`
 - `README.md`
 
-Lint errors per page are 7–85 for the baseline and 0 for tastekit. Note that most baseline errors come from stock palette classes (`no-hardcoded-color`), so this metric favors tastekit by construction. The screenshots are the real evidence.
+Lint errors per page are 7–85 for the baseline and 0 for uitaste. Note that most baseline errors come from stock palette classes (`no-hardcoded-color`), so this metric favors uitaste by construction. The screenshots are the real evidence.
 
-The tastekit bench pages were written by agents that knew they were being benchmarked, and the baseline agents got only the raw prompt. Worth an honest disclosure in launch posts.
+The uitaste bench pages were written by agents that knew they were being benchmarked, and the baseline agents got only the raw prompt. Worth an honest disclosure in launch posts.

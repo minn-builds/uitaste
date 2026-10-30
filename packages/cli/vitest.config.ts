@@ -5,7 +5,7 @@ export default defineProject({
   resolve: {
     alias: {
       // Resolve core from source so tests never run against a stale dist.
-      "@tastekit/core": fileURLToPath(new URL("../core/src/index.ts", import.meta.url)),
+      "@uitaste/core": fileURLToPath(new URL("../core/src/index.ts", import.meta.url)),
     },
   },
   test: {

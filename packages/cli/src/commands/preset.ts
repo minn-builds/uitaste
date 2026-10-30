@@ -1,4 +1,4 @@
-import { getPreset, listPresets } from "@tastekit/core";
+import { getPreset, listPresets } from "@uitaste/core";
 import { defineCommand } from "citty";
 import { z } from "zod";
 
@@ -19,7 +19,7 @@ const stdio: Io = {
 };
 
 function rootOf(root: string | undefined): string | undefined {
-  return root ?? process.env.TASTEKIT_PRESETS_ROOT ?? undefined;
+  return root ?? process.env.UITASTE_PRESETS_ROOT ?? undefined;
 }
 
 /** Returns the process exit code. */

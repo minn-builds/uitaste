@@ -1,5 +1,5 @@
 {
-  "name": "@tastekit/core",
+  "name": "@uitaste/core",
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@babel/parser": "^7.29.11",
-    "@tastekit/presets": "workspace:*",
+    "@uitaste/presets": "workspace:*",
     "culori": "^4.0.2",
     "parse5": "^8.0.1",
     "postcss": "^8.5.32",

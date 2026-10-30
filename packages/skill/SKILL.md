@@ -1,30 +1,30 @@
 ---
 
-name: tastekit
-description: Use whenever building or restyling any UI (pages, components, layouts) in a project that has tastekit.config.json. Produces distinctive, consistent frontends using the project's preset and tokens, then lints and visually critiques the result.
+name: uitaste
+description: Use whenever building or restyling any UI (pages, components, layouts) in a project that has uitaste.config.json. Produces distinctive, consistent frontends using the project's preset and tokens, then lints and visually critiques the result.
 ---
 
-# tastekit: design with taste, not defaults
+# uitaste: design with taste, not defaults
 
-This project uses a tastekit preset: a curated style direction with generated design tokens.
+This project uses a uitaste preset: a curated style direction with generated design tokens.
 Your job is to build UI that expresses that preset, not your usual defaults. Lint and screenshots
 check the result, so following this file is faster than fixing it afterwards.
 
-If there is no `tastekit.config.json` in the project root, suggest `npx tastekit init` and stop.
+If there is no `uitaste.config.json` in the project root, suggest `npx uitaste init` and stop.
 
 ## Files (paths relative to this skill folder)
 
-| File                       | What it is                                                    | When to read           |
-| -------------------------- | ------------------------------------------------------------- | ---------------------- |
-| `reference/preset.md`      | The active preset's rules: signature moves, do/don't, recipes | Always, before any UI  |
-| `reference/tokens.md`      | Every token and the exact class or CSS var to use for it      | Always, before any UI  |
-| `reference/lint-rules.md`  | Each `tastekit lint` rule id and how to fix it                | When lint reports      |
-| `reference/composition.md` | Section patterns that replace the AI-default page             | When planning a page   |
-| `reference/rubric.md`      | The 8-category critique rubric and output format              | After `tastekit shoot` |
+| File                       | What it is                                                    | When to read          |
+| -------------------------- | ------------------------------------------------------------- | --------------------- |
+| `reference/preset.md`      | The active preset's rules: signature moves, do/don't, recipes | Always, before any UI |
+| `reference/tokens.md`      | Every token and the exact class or CSS var to use for it      | Always, before any UI |
+| `reference/lint-rules.md`  | Each `uitaste lint` rule id and how to fix it                 | When lint reports     |
+| `reference/composition.md` | Section patterns that replace the AI-default page             | When planning a page  |
+| `reference/rubric.md`      | The 8-category critique rubric and output format              | After `uitaste shoot` |
 
 ## 1. Read before writing
 
-1. `tastekit.config.json`: note `preset`, `tailwind` (true = use classes, false = use CSS vars)
+1. `uitaste.config.json`: note `preset`, `tailwind` (true = use classes, false = use CSS vars)
    and `tokensCss` (the generated tokens file; never edit it by hand).
 2. `reference/preset.md`, all of it. Pick at least 2 **signature moves** for this page and say
    which ones you picked. Treat every **Don't** as a hard rule.
@@ -91,8 +91,8 @@ Do instead:
 ## 4. Lint until clean
 
 ```bash
-npx tastekit lint --json            # default: src/**/*.{tsx,jsx,ts,css,html}
-npx tastekit lint "src/pages/**/*.tsx"   # or only what you changed
+npx uitaste lint --json            # default: src/**/*.{tsx,jsx,ts,css,html}
+npx uitaste lint "src/pages/**/*.tsx"   # or only what you changed
 ```
 
 - Exit code 1 means at least one **error**. Fix every error, then re-run until the exit code
@@ -100,14 +100,14 @@ npx tastekit lint "src/pages/**/*.tsx"   # or only what you changed
   `suggestion`; `reference/lint-rules.md` has the fix for each rule.
 - **Warnings** are AI-default tells. Fix them too unless the user explicitly asked for that
   pattern; if you keep one, say why in your final message.
-- Do not silence rules in `tastekit.config.json` (`lint.rules`) to get to zero. Change the UI.
+- Do not silence rules in `uitaste.config.json` (`lint.rules`) to get to zero. Change the UI.
 
 ## 5. Shoot, critique, fix
 
 Start the dev server if it is not running (Vite: `npm run dev`, usually port 5173), then:
 
 ```bash
-npx tastekit shoot --url http://localhost:5173 --routes /,/pricing
+npx uitaste shoot --url http://localhost:5173 --routes /,/pricing
 ```
 
 It writes PNGs at 390, 768 and 1440 wide plus a `manifest.json`, and ends with a
@@ -118,7 +118,7 @@ It writes PNGs at 390, 768 and 1440 wide plus a `manifest.json`, and ends with a
    output format: `SCORES`, `TOP FIXES`, `TELLS FOUND`. Judge against `reference/preset.md`.
 3. Every category under 4 needs a fix that names the element and the token or change. Apply
    the top fixes (at most 5, highest impact first).
-4. Run `tastekit lint` again (fixes must not add errors), then shoot again.
+4. Run `uitaste lint` again (fixes must not add errors), then shoot again.
 5. Stop after 2 critique rounds, even if a score is still under 4.
 
 If Playwright is missing, `shoot` prints the install command; run it once
@@ -134,7 +134,7 @@ Tell the user, in a few lines:
 
 ## Changing the look
 
-The tokens come from the preset and `tastekit.config.json`. To change the accent or the display
-font, re-run `npx tastekit init --preset <id> --accent <color> --font "<Family>" --yes` instead
+The tokens come from the preset and `uitaste.config.json`. To change the accent or the display
+font, re-run `npx uitaste init --preset <id> --accent <color> --font "<Family>" --yes` instead
 of hardcoding values. To switch presets, re-run init with another `--preset`; it rewrites the
-tokens and `reference/preset.md`. `npx tastekit preset list` shows the available presets.
+tokens and `reference/preset.md`. `npx uitaste preset list` shows the available presets.

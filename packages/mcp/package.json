@@ -1,5 +1,5 @@
 {
-  "name": "@tastekit/mcp",
+  "name": "@uitaste/mcp",
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
@@ -27,12 +27,12 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
-    "@tastekit/core": "workspace:*",
-    "@tastekit/skill": "workspace:*",
+    "@uitaste/core": "workspace:*",
+    "@uitaste/skill": "workspace:*",
     "zod": "^4.6.7"
   },
   "bin": {
-    "tastekit-mcp": "./dist/main.js"
+    "uitaste-mcp": "./dist/main.js"
   },
   "peerDependencies": {
     "playwright": ">=1.40"

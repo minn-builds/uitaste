@@ -9,5 +9,5 @@ coverage/
 .DS_Store
 .claude/autopilot.on
 apps/playground/src/tokens.generated.css
-.tastekit/
+.uitaste/
 bench/shots/

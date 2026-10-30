@@ -54,7 +54,7 @@ function Index() {
   useTokensReady(first);
   return (
     <main className="mx-auto max-w-4xl p-6 md:p-12">
-      <h1 className="font-display text-5xl leading-tight">tastekit playground</h1>
+      <h1 className="font-display text-5xl leading-tight">uitaste playground</h1>
       <ul className="mt-8 divide-y divide-border border-y border-border">
         {presets.map((p) => (
           <li key={p.id} className="flex flex-wrap items-baseline justify-between gap-4 py-4">
@@ -86,7 +86,7 @@ const benchPrompts = benchPromptsJson as { id: string; preset: string }[];
 
 export function App() {
   const [, kind, id, variant] = window.location.pathname.split("/");
-  if (kind === "bench" && id && (variant === "baseline" || variant === "tastekit")) {
+  if (kind === "bench" && id && (variant === "baseline" || variant === "uitaste")) {
     return (
       <Bench id={id} variant={variant} preset={benchPrompts.find((p) => p.id === id)?.preset} />
     );

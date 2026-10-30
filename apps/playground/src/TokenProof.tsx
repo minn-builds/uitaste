@@ -65,13 +65,13 @@ function Swatches({ title, items }: { title: string; items: { name: string; cls:
 export function TokenProof() {
   return (
     <main className="mx-auto max-w-4xl p-6 md:p-12">
-      <h1 className="font-display text-5xl leading-tight">tastekit playground</h1>
+      <h1 className="font-display text-5xl leading-tight">uitaste playground</h1>
       <p className="mt-4 text-lg text-muted-fg">Rendered from preset tokens only.</p>
 
       <div className="mt-8 rounded-lg border border-border p-6">
         <h2 className="font-display text-2xl">Card</h2>
         <p className="mt-2 text-base">Body copy in the preset body font.</p>
-        <code className="mt-2 block font-mono text-sm">const tone = "tastekit";</code>
+        <code className="mt-2 block font-mono text-sm">const tone = "uitaste";</code>
         <button
           type="button"
           className="mt-4 min-h-11 rounded-sm bg-accent-700 px-6 text-bg transition-colors hover:bg-accent-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"

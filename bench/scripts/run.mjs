@@ -103,7 +103,7 @@ function lint() {
     const path = pageFile(w.id, w.variant);
     const report = lintSources([{ path, source: readFileSync(path, "utf8") }], {
       rules: recommendedRules,
-      ...(w.variant === "tastekit" ? { tokens: tokensFor(w.preset) } : {}),
+      ...(w.variant === "uitaste" ? { tokens: tokensFor(w.preset) } : {}),
     });
     const findings = report.files.flatMap((f) => f.findings);
     results[w.id] ??= { preset: w.preset };
@@ -159,7 +159,7 @@ for (const [id, entry] of Object.entries(fresh)) results[id] = { ...previous[id]
 writeFileSync(resultsFile, `${JSON.stringify(results, null, 2)}\n`);
 for (const [id, r] of Object.entries(results).filter(([id]) => selected.some((p) => p.id === id))) {
   const f = (v) => (r[v] ? `${r[v].errors}E/${r[v].warnings}W` : "-");
-  console.log(`lint ${id}: baseline ${f("baseline")} · tastekit ${f("tastekit")}`);
+  console.log(`lint ${id}: baseline ${f("baseline")} · uitaste ${f("uitaste")}`);
 }
 
 for (const p of selected) {

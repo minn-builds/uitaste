@@ -86,25 +86,23 @@ const run = () =>
     root,
   ]);
 
-describe("tastekit init (e2e, minimal Vite app fixture)", () => {
+describe("uitaste init (e2e, minimal Vite app fixture)", () => {
   it("writes config, tokens, css import, skill and cursor rule; re-run is idempotent", async () => {
     const first = await run();
     expect(first.stdout).toContain("vite");
-    const cfg = JSON.parse(readFileSync(join(app, "tastekit.config.json"), "utf8"));
+    const cfg = JSON.parse(readFileSync(join(app, "uitaste.config.json"), "utf8"));
     expect(cfg).toMatchObject({
       preset: "demo",
       framework: "vite",
-      tokensCss: "src/tastekit.tokens.css",
+      tokensCss: "src/uitaste.tokens.css",
     });
-    expect(readFileSync(join(app, "src/tastekit.tokens.css"), "utf8")).toContain("--");
+    expect(readFileSync(join(app, "src/uitaste.tokens.css"), "utf8")).toContain("--");
     const css = readFileSync(join(app, "src/style.css"), "utf8");
-    expect(css.match(/tastekit\.tokens\.css/g)).toHaveLength(1);
+    expect(css.match(/uitaste\.tokens\.css/g)).toHaveLength(1);
     expect(css).toContain("body { margin: 0; }");
-    expect(readFileSync(join(app, ".cursor/rules/tastekit.mdc"), "utf8")).toContain("Demo rules");
-    expect(readFileSync(join(app, ".claude/skills/tastekit/SKILL.md"), "utf8")).toContain(
-      "tastekit",
-    );
-    const skillDir = join(app, ".claude/skills/tastekit");
+    expect(readFileSync(join(app, ".cursor/rules/uitaste.mdc"), "utf8")).toContain("Demo rules");
+    expect(readFileSync(join(app, ".claude/skills/uitaste/SKILL.md"), "utf8")).toContain("uitaste");
+    const skillDir = join(app, ".claude/skills/uitaste");
     expect(readFileSync(join(skillDir, "reference/preset.md"), "utf8")).toContain("Demo rules");
     expect(existsSync(join(skillDir, "reference/rubric.md"))).toBe(true);
     expect(existsSync(join(skillDir, "reference/lint-rules.md"))).toBe(true);
@@ -113,7 +111,7 @@ describe("tastekit init (e2e, minimal Vite app fixture)", () => {
     const second = await run();
     expect(second.stdout).toContain("already up to date");
     const css2 = readFileSync(join(app, "src/style.css"), "utf8");
-    expect(css2.match(/tastekit\.tokens\.css/g)).toHaveLength(1);
+    expect(css2.match(/uitaste\.tokens\.css/g)).toHaveLength(1);
     expect(css2).toContain("user edit");
   });
 
@@ -125,7 +123,7 @@ describe("tastekit init (e2e, minimal Vite app fixture)", () => {
   });
 
   it("re-run keeps hand-edited config overrides", async () => {
-    const cfgPath = join(app, "tastekit.config.json");
+    const cfgPath = join(app, "uitaste.config.json");
     const cfg = JSON.parse(readFileSync(cfgPath, "utf8"));
     cfg.overrides.fonts = { display: "Inter", body: "Georgia" };
     writeFileSync(cfgPath, JSON.stringify(cfg));
@@ -135,7 +133,7 @@ describe("tastekit init (e2e, minimal Vite app fixture)", () => {
       accent: "#3355ff",
       fonts: { display: "Lora", body: "Georgia" },
     });
-    expect(after.tokensCss).toBe("src/tastekit.tokens.css");
+    expect(after.tokensCss).toBe("src/uitaste.tokens.css");
   });
 
   it("errors listing presets with --yes and no --preset on a fresh project", async () => {

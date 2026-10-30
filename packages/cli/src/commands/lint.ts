@@ -1,5 +1,5 @@
 import { resolve } from "node:path";
-import { formatJson, formatPretty, runLint } from "@tastekit/core";
+import { formatJson, formatPretty, runLint } from "@uitaste/core";
 import { defineCommand } from "citty";
 import { z } from "zod";
 import type { Io } from "./preset.js";
@@ -53,7 +53,7 @@ export const lintCommand = defineCommand({
     },
     dir: {
       type: "string",
-      description: "Project directory (for tastekit.config.json)",
+      description: "Project directory (for uitaste.config.json)",
       default: ".",
     },
     json: { type: "boolean", description: "Print the report as JSON", default: false },

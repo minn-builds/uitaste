@@ -46,7 +46,7 @@ export function isDefaultFont(family: string): boolean {
 
 /** Generated token stylesheets may define raw colors; token rules skip them. */
 export function isGeneratedTokensFile(path: string): boolean {
-  return /(?:^|[\\/])(?:tokens\.generated|tastekit\.tokens)\.css$/.test(path);
+  return /(?:^|[\\/])(?:tokens\.generated|uitaste\.tokens)\.css$/.test(path);
 }
 
 /** Keywords that are never a hardcoded color. */

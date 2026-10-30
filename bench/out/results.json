@@ -10,7 +10,7 @@
         "no-uniform-card-grid"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -27,7 +27,7 @@
         "no-uniform-card-grid"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -43,7 +43,7 @@
         "no-uniform-card-grid"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -58,7 +58,7 @@
         "no-hardcoded-color"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -75,7 +75,7 @@
         "no-hardcoded-color"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -93,7 +93,7 @@
         "no-uniform-card-grid"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -109,7 +109,7 @@
         "no-hardcoded-color"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -127,7 +127,7 @@
         "no-uniform-card-grid"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -144,7 +144,7 @@
         "no-purple-gradient"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []
@@ -163,7 +163,7 @@
         "no-uniform-card-grid"
       ]
     },
-    "tastekit": {
+    "uitaste": {
       "errors": 0,
       "warnings": 0,
       "rules": []

@@ -1,5 +1,5 @@
 {
-  "name": "tastekit-monorepo",
+  "name": "uitaste-monorepo",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@12.4.2",
@@ -14,7 +14,7 @@
     "format": "biome check --write .",
     "lint:biome": "biome check .",
     "changeset": "changeset",
-    "tastekit": "node packages/cli/dist/main.js",
+    "uitaste": "node packages/cli/dist/main.js",
     "bench": "node bench/scripts/run.mjs"
   },
   "devDependencies": {

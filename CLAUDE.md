@@ -1,4 +1,4 @@
-# tastekit
+# uitaste
 
 Open-source toolkit that makes coding agents (Claude Code, Cursor, Codex) produce distinctive, consistent frontends instead of default "AI-looking" UI.
 Three levers: **design tokens from curated presets**, a **design linter** that flags AI-default patterns, and a **screenshot → critique → fix loop**.
@@ -20,25 +20,25 @@ packages/core      schema (preset/tokens), generator (generateTokens), emit (CSS
                    (lint/rules/), shoot (plan/manifest/runShoot over a structural BrowserLike, no playwright dep;
                    resolveShootOptions merges args > config.shoot > defaults; resolveInside confines paths)
 packages/presets   editorial, swiss, soft-utility, brutal: preset.json, rules.md, examples/*.tsx
-packages/cli       `tastekit init | lint | shoot | preset`; playwright is an optional peer
-packages/mcp       stdio MCP server (bin `tastekit-mcp`) wrapping core: list_presets, get_preset,
+packages/cli       `uitaste init | lint | shoot | preset`; playwright is an optional peer
+packages/mcp       stdio MCP server (bin `uitaste-mcp`) wrapping core: list_presets, get_preset,
                    generate_tokens, lint, shoot; dir/out args confined to cwd; playwright optional peer
 packages/skill     SKILL.md shipped to end users' agents (the product's brain) + reference/*.md
-apps/playground    Vite + React; routes /presets/<id>, /tokens/<id>, /bench/<id>/<baseline|tastekit>
+apps/playground    Vite + React; routes /presets/<id>, /tokens/<id>, /bench/<id>/<baseline|uitaste>
                    (baseline loads bench.css = stock Tailwind, no preset tokens)
-bench/             prompts.json (10 prompts -> preset), pages/<id>/{baseline,tastekit}.tsx, scripts/
+bench/             prompts.json (10 prompts -> preset), pages/<id>/{baseline,uitaste}.tsx, scripts/
                    (run, compose, readme-assets), out/ (committed composites + results.json), shots/ (gitignored)
 ```
 
 ## Commands
 
 - `pnpm i` · `pnpm build` · `pnpm test` · `pnpm typecheck` · `pnpm lint`
-- Single package: `pnpm --filter @tastekit/core test`
+- Single package: `pnpm --filter @uitaste/core test`
 - Playground: `pnpm --filter playground dev` (port 5173)
-- CLI: `pnpm tastekit <cmd>` runs the built `packages/cli/dist`, so `pnpm build` first
+- CLI: `pnpm uitaste <cmd>` runs the built `packages/cli/dist`, so `pnpm build` first
 - pnpm 12 does not support `pnpm -s`
-- CLI tests alias `@tastekit/core` to `packages/core/src` (vitest.config.ts), so no rebuild needed to test
-- `tastekit shoot` writes to `.tastekit/shots/<timestamp>/` (gitignored); needs `npx playwright install chromium`
+- CLI tests alias `@uitaste/core` to `packages/core/src` (vitest.config.ts), so no rebuild needed to test
+- `uitaste shoot` writes to `.uitaste/shots/<timestamp>/` (gitignored); needs `npx playwright install chromium`
 - Bench: `pnpm bench [-- <id>...]` (needs `pnpm build` + chromium; imports `packages/core/dist`);
   README images: `node bench/scripts/readme-assets.mjs`
 

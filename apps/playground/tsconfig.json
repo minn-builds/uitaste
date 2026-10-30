@@ -14,8 +14,8 @@
     "src",
     "../../packages/presets/*/examples",
     "vite.config.ts",
-    "tastekit-tokens-plugin.ts",
-    "tastekit-tokens-plugin.test.ts",
+    "uitaste-tokens-plugin.ts",
+    "uitaste-tokens-plugin.test.ts",
     "vitest.config.ts"
   ],
   "exclude": ["../../bench/pages"]

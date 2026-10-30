@@ -9,7 +9,7 @@ const file = (path: string) => files.find((f) => f.path === path)?.content ?? ""
 
 describe("shipped skill", () => {
   it("has valid frontmatter and stays under 300 lines", () => {
-    expect(skillMd).toMatch(/^---\n\n?name: tastekit\ndescription: .+\n---\n/);
+    expect(skillMd).toMatch(/^---\n\n?name: uitaste\ndescription: .+\n---\n/);
     expect(skillMd?.split("\n").length).toBeLessThan(300);
   });
 
@@ -30,8 +30,8 @@ describe("shipped skill", () => {
   });
 
   it("teaches the lint and shoot commands the CLI actually has", () => {
-    expect(skillMd).toContain("npx tastekit lint --json");
-    expect(skillMd).toContain("npx tastekit shoot --url");
+    expect(skillMd).toContain("npx uitaste lint --json");
+    expect(skillMd).toContain("npx uitaste shoot --url");
     expect(skillMd).toContain("--- for the agent ---");
   });
 });

@@ -11,7 +11,7 @@ const MOBILE_W = 390;
 const GAP = 48;
 const PAD = 48;
 const LABEL_H = 96;
-const LABELS = { baseline: "Default agent", tastekit: "With tastekit" };
+const LABELS = { baseline: "Default agent", uitaste: "With uitaste" };
 const BG = "#f4f4f5";
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");

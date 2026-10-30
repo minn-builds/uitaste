@@ -7,7 +7,7 @@ const RouteSchema = z
   .min(1)
   .refine((r) => r.startsWith("/"), { message: "route must start with '/'" });
 
-/** Optional `shoot` section of tastekit.config.json. */
+/** Optional `shoot` section of uitaste.config.json. */
 export const ShootConfigSchema = z.strictObject({
   url: z.url().optional(),
   routes: z.array(RouteSchema).min(1).optional(),

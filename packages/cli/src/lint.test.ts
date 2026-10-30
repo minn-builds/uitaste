@@ -1,7 +1,7 @@
 import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { listPresets } from "@tastekit/core";
+import { listPresets } from "@uitaste/core";
 import { describe, expect, it } from "vitest";
 import { runLintCommand } from "./commands/lint.js";
 
@@ -45,7 +45,7 @@ describe("runLintCommand", () => {
   it("--fail-on warn fails on warnings only", async () => {
     const d = proj(`export const A = () => <div className="bg-[#ff0000]">hi</div>;\n`);
     writeFileSync(
-      join(d, "tastekit.config.json"),
+      join(d, "uitaste.config.json"),
       JSON.stringify({
         preset: listPresets()[0]?.preset.meta.id,
         framework: "vite",
@@ -63,7 +63,7 @@ describe("runLintCommand", () => {
   it("exits 1 with a message on invalid config", async () => {
     const c = capture();
     const d = proj(`export const A = 1;\n`);
-    writeFileSync(join(d, "tastekit.config.json"), "{}");
+    writeFileSync(join(d, "uitaste.config.json"), "{}");
     expect(await runLintCommand({ dir: d }, c.io)).toBe(1);
     expect(c.err.join("\n")).toMatch(/invalid/);
   });

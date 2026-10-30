@@ -9,7 +9,7 @@ import {
   resolveShootOptions,
   rubricPath,
   runShoot,
-} from "@tastekit/core";
+} from "@uitaste/core";
 import { defineCommand } from "citty";
 import { z } from "zod";
 import type { Io } from "./preset.js";
@@ -29,12 +29,12 @@ const stdio: Io = {
 };
 
 export const PLAYWRIGHT_HELP =
-  "Playwright is required for `tastekit shoot`. Install it and its browser:\n" +
+  "Playwright is required for `uitaste shoot`. Install it and its browser:\n" +
   "  npm i -D playwright && npx playwright install chromium";
 
 function skillRoot(): string {
   const require = createRequire(import.meta.url);
-  return dirname(require.resolve("@tastekit/skill/package.json"));
+  return dirname(require.resolve("@uitaste/skill/package.json"));
 }
 
 /** Launches headless chromium; the caller closes it. */
@@ -122,12 +122,12 @@ export const shootCommand = defineCommand({
     },
     out: {
       type: "string",
-      description: "Output directory (default .tastekit/shots/<timestamp>)",
+      description: "Output directory (default .uitaste/shots/<timestamp>)",
       required: false,
     },
     dir: {
       type: "string",
-      description: "Project directory (for tastekit.config.json)",
+      description: "Project directory (for uitaste.config.json)",
       default: ".",
     },
     json: { type: "boolean", description: "Print the manifest as JSON", default: false },

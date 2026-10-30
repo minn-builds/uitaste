@@ -1,8 +1,8 @@
 # Tokens: what exists and how to use it
 
-`tastekit init` generates the tokens file named by `tokensCss` in `tastekit.config.json`
-(usually `src/tastekit.tokens.css`) and imports it from the global CSS. Never edit it by hand;
-change the preset or `overrides` in the config and re-run `npx tastekit init --yes`.
+`uitaste init` generates the tokens file named by `tokensCss` in `uitaste.config.json`
+(usually `src/uitaste.tokens.css`) and imports it from the global CSS. Never edit it by hand;
+change the preset or `overrides` in the config and re-run `npx uitaste init --yes`.
 
 With Tailwind (`"tailwind": true`) the file is a Tailwind v4 `@theme`. Without Tailwind it is
 plain CSS custom properties, all prefixed `--tk-`. The values differ per preset; the names don't.

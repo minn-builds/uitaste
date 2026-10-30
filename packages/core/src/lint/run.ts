@@ -141,7 +141,7 @@ export interface RunLintResult {
 }
 
 /**
- * Lint a project: reads tastekit.config.json (if any), generates tokens for its preset so
+ * Lint a project: reads uitaste.config.json (if any), generates tokens for its preset so
  * token-aware rules work, collects files and runs the recommended rules.
  */
 export async function runLint(opts: RunLintOptions): Promise<RunLintResult> {
@@ -157,7 +157,7 @@ export async function runLint(opts: RunLintOptions): Promise<RunLintResult> {
   const files = collectFiles(opts.cwd, include, ignore);
   if (files.length === 0) {
     throw new Error(
-      `No files matched ${include.join(", ")} in ${opts.cwd}. Pass globs or set lint.include in tastekit.config.json.`,
+      `No files matched ${include.join(", ")} in ${opts.cwd}. Pass globs or set lint.include in uitaste.config.json.`,
     );
   }
   const report = await lintFiles(

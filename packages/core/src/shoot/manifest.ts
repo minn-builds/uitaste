@@ -53,11 +53,11 @@ export function buildManifest(input: {
   };
 }
 
-/** Default output dir: `.tastekit/shots/2026-01-02T03-04-05`. */
+/** Default output dir: `.uitaste/shots/2026-01-02T03-04-05`. */
 export function defaultOutDir(now: Date = new Date()): string {
   const stamp = now
     .toISOString()
     .replace(/\.\d+Z$/, "")
     .replace(/:/g, "-");
-  return `.tastekit/shots/${stamp}`;
+  return `.uitaste/shots/${stamp}`;
 }

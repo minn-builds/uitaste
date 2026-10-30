@@ -70,12 +70,12 @@ describe("resolveShootOptions", () => {
   it("falls back to config, then defaults", () => {
     const cwd = tmp();
     writeFileSync(
-      join(cwd, "tastekit.config.json"),
+      join(cwd, "uitaste.config.json"),
       JSON.stringify({
         preset: "editorial",
         framework: "vite",
         tailwind: true,
-        tokensCss: "src/tastekit.tokens.css",
+        tokensCss: "src/uitaste.tokens.css",
         globalCss: null,
         shoot: { url: "http://localhost:5173", routes: ["/a"], breakpoints: [500] },
       }),
@@ -85,7 +85,7 @@ describe("resolveShootOptions", () => {
       url: "http://localhost:5173",
       routes: ["/a"],
       breakpoints: [500],
-      outDir: join(cwd, ".tastekit", "shots", "2026-01-02T03-04-05"),
+      outDir: join(cwd, ".uitaste", "shots", "2026-01-02T03-04-05"),
     });
     const o2 = resolveShootOptions({
       cwd,
@@ -139,12 +139,12 @@ describe("resolveShootOptions", () => {
     const write = (url: string) => {
       const cwd = tmp();
       writeFileSync(
-        join(cwd, "tastekit.config.json"),
+        join(cwd, "uitaste.config.json"),
         JSON.stringify({
           preset: "editorial",
           framework: "vite",
           tailwind: true,
-          tokensCss: "src/tastekit.tokens.css",
+          tokensCss: "src/uitaste.tokens.css",
           globalCss: null,
           shoot: { url },
         }),

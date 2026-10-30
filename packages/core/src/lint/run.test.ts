@@ -71,11 +71,11 @@ describe("runLint", () => {
   });
   it("reads config, honours lint.include and rule overrides", async () => {
     const d = proj({
-      "tastekit.config.json": JSON.stringify({
+      "uitaste.config.json": JSON.stringify({
         preset: listPresets()[0]?.preset.meta.id,
         framework: "vite",
         tailwind: true,
-        tokensCss: "src/tastekit.tokens.css",
+        tokensCss: "src/uitaste.tokens.css",
         globalCss: null,
         lint: { include: ["app/**/*.tsx"] },
       }),
@@ -88,7 +88,7 @@ describe("runLint", () => {
   });
   it("throws on unknown preset", async () => {
     const d = proj({
-      "tastekit.config.json": JSON.stringify({
+      "uitaste.config.json": JSON.stringify({
         preset: "nope",
         framework: "vite",
         tailwind: true,
@@ -170,7 +170,7 @@ describe("runLint errors and config ignore", () => {
     });
   it("honours lint.ignore", async () => {
     const d = proj({
-      "tastekit.config.json": cfg({ ignore: ["src/gen/**"] }),
+      "uitaste.config.json": cfg({ ignore: ["src/gen/**"] }),
       "src/gen/a.tsx": "export const A = 1;\n",
       "src/b.tsx": "export const B = 1;\n",
     });

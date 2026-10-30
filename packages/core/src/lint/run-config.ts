@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { LintConfigSchema } from "./engine.js";
 
-/** `lint` section of tastekit.config.json. */
+/** `lint` section of uitaste.config.json. */
 export const LintProjectConfigSchema = LintConfigSchema.extend({
   /** Globs relative to the project dir. Defaults to {@link DEFAULT_LINT_GLOBS}. */
   include: z.array(z.string().min(1)).optional(),

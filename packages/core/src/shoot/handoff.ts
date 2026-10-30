@@ -3,12 +3,12 @@ import { MANIFEST_FILE } from "./manifest.js";
 
 export const RUBRIC_RELATIVE = join("reference", "rubric.md");
 
-/** Path of the critique rubric inside the installed @tastekit/skill package. */
+/** Path of the critique rubric inside the installed @uitaste/skill package. */
 export function rubricPath(skillRoot: string): string {
   return join(skillRoot, RUBRIC_RELATIVE);
 }
 
-/** Agent-facing closing block for `tastekit shoot`: where the manifest and rubric are, and what to do. */
+/** Agent-facing closing block for `uitaste shoot`: where the manifest and rubric are, and what to do. */
 export function agentHandoff(outDir: string, rubric: string): string {
   return [
     "",
