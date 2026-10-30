@@ -2,10 +2,11 @@
 import { defineCommand, runMain } from "citty";
 import { initCommand } from "./commands/init.js";
 import { presetCommand } from "./commands/preset.js";
+import { shootCommand } from "./commands/shoot.js";
 
 const main = defineCommand({
   meta: { name: "tastekit", description: "Distinctive, consistent frontends from coding agents" },
-  subCommands: { init: initCommand, preset: presetCommand },
+  subCommands: { init: initCommand, preset: presetCommand, shoot: shootCommand },
 });
 
 void runMain(main);

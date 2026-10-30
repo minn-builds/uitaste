@@ -112,6 +112,7 @@ export async function runInit(input: unknown, io: Io = stdio): Promise<number> {
       ...(tokensCssPath ? { tokensCssPath } : {}),
       detection,
       overrides,
+      shoot: existing?.shoot,
       tokensCss,
       globalCssContent: globalAbs ? readFileSync(globalAbs, "utf8") : null,
       skillMd,

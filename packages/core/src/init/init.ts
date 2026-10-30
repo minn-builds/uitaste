@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, isAbsolute, join, posix, relative, sep } from "node:path";
 import { z } from "zod";
 import { type TokenOverrides, TokenOverridesSchema } from "../generator/generate.js";
+import { type ShootConfig, ShootConfigSchema } from "../shoot/options.js";
 
 export const CONFIG_FILE = "tastekit.config.json";
 export const TOKENS_FILE = "tastekit.tokens.css";
@@ -20,6 +21,8 @@ export const TastekitConfigSchema = z.strictObject({
   /** Project-relative POSIX path of the global CSS that imports the tokens (null if none found). */
   globalCss: z.string().min(1).nullable(),
   overrides: TokenOverridesSchema.default({}),
+  /** Defaults for `tastekit shoot`. */
+  shoot: ShootConfigSchema.optional(),
 });
 export type TastekitConfig = z.infer<typeof TastekitConfigSchema>;
 
@@ -125,6 +128,8 @@ export interface PlanInput {
   tokensCssPath?: string;
   detection: Detection;
   overrides?: TokenOverrides;
+  /** Existing `shoot` config section, preserved on re-init. */
+  shoot?: ShootConfig | undefined;
   /** Tokens CSS content (already emitted for the right target). */
   tokensCss: string;
   /** Current content of the global CSS, if any. */
@@ -159,6 +164,7 @@ export function planInit(input: PlanInput): InitPlan {
     tokensCss,
     globalCss: d.globalCss,
     overrides: input.overrides ?? {},
+    ...(input.shoot ? { shoot: input.shoot } : {}),
   });
   const ops: FileOp[] = [
     { path: CONFIG_FILE, content: `${JSON.stringify(config, null, 2)}\n` },

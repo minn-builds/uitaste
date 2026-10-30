@@ -22,3 +22,5 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · execa 9 (devDependency of packages/cli; v10 needs Node 22 Set.union) · e2e test runs the built CLI in a temp Vite app with sane exit/stdout handling
 - 2026-10-30 · @tastekit/skill as workspace dep of packages/cli · `init` copies SKILL.md into user projects; resolved via package.json like presets
 - 2026-10-30 · `init` writes `tastekit.tokens.css` next to the global CSS and adds one `@import` after existing imports (skipped if present) · Generated file is owned by tastekit and overwritten; user CSS is only touched once
+- 2026-10-30 · playwright as optional peer dep + devDependency of packages/cli · Loaded by dynamic import so non-shoot users skip the download; missing package or chromium prints `npm i -D playwright && npx playwright install chromium`. Core stays Playwright-free (structural `BrowserLike`)
+- 2026-10-30 · optional `shoot` section in tastekit.config.json ({url, routes, breakpoints}) · Defaults for `tastekit shoot`; `init` preserves it on re-run
