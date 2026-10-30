@@ -57,7 +57,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
   - Accept: e2e test in a temp Vite app (execa); idempotent re-run
 - [ ] T4.2 · `tastekit lint` · S · T3.2, T3.3
   - Globs, `--json`, exit codes 0/1, reads config
-- [ ] T4.3 · `tastekit preset list|show` · S · T2.1
+- [x] T4.3 · `tastekit preset list|show` · S · T2.1
 
 ## Phase 5: Critique loop
 
