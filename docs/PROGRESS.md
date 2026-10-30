@@ -20,3 +20,4 @@
 - T6.1 · product skill: SKILL.md (140 lines) + reference/{tokens,lint-rules,composition}.md; init installs the bundle + preset.md; proxy acceptance: hand-built landing page in a fresh Vite app lints 0 errors
 - T6.2 · MCP server (list_presets, get_preset, generate_tokens, lint, shoot; stdio bin tastekit-mcp); core resolveInside (symlink-safe) + resolveShootOptions; confined shoot only to local http(s)
 - T7.1 · bench harness (prompts.json, /bench route with stock-Tailwind baseline, run.mjs shoot+lint+compose) and 10 before/after PNGs in bench/out; lint errors baseline 7–85 per page vs tastekit 0 on all 10
+- T7.2 · README (pitch, quickstart, pre-release clone commands, 3 before/afters, preset gallery, agent/MCP setup, bench table) + hero.gif and assets via bench/scripts/readme-assets.mjs
