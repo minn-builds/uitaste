@@ -21,7 +21,25 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "playwright": "^1.64.1",
     "tsup": "^8.5.1",
     "vitest": "^4.1.12"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@tastekit/core": "workspace:*",
+    "@tastekit/skill": "workspace:*",
+    "zod": "^4.6.7"
+  },
+  "bin": {
+    "tastekit-mcp": "./dist/main.js"
+  },
+  "peerDependencies": {
+    "playwright": ">=1.40"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": true
+    }
   }
 }

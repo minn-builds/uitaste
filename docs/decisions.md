@@ -33,3 +33,6 @@ One line per decision: `YYYY-MM-DD · decision · why`. Newest at the bottom.
 - 2026-10-30 · @fontsource/atkinson-hyperlegible in playground · OFL self-hosted body face for the brutal preset, chosen so the loud direction stays legible
 - 2026-10-30 · @fontsource/space-mono in playground · OFL self-hosted mono for the brutal preset's labels and data
 - 2026-10-30 · init installs the whole skill bundle (SKILL.md + reference/*) and the chosen preset's rules at a fixed `reference/preset.md` · SKILL.md can name the file without knowing the preset id; switching presets overwrites it (old `reference/presets/<id>/rules.md` from pre-release inits is left in place)
+- 2026-10-30 · @modelcontextprotocol/sdk 1.x (+ zod, @tastekit/core, @tastekit/skill) in packages/mcp; playwright as optional peer + devDependency · Official SDK (McpServer.registerTool with zod shapes, stdio transport, InMemoryTransport for tests); playwright loaded lazily like the CLI
+- 2026-10-30 · MCP `dir`/`out` args confined to the server's cwd via core `resolveInside` (symlink-aware); shoot out dir must be strictly inside the project · Agents can't make the server read or write outside the project; CLI keeps free `--out`
+- 2026-10-30 · Shoot option merging (args > config.shoot > defaults) lives in core `resolveShootOptions`, used by CLI and MCP · One source of truth, no logic in wrappers

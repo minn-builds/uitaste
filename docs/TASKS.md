@@ -78,7 +78,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
 - [x] T6.1 · Product skill · M · T4.2, T5.1
   - Finish `packages/skill/SKILL.md` + `reference/` (per-preset rules copied at init)
   - Accept: in a fresh Vite app, Claude Code with the skill builds a landing page that passes lint with 0 errors
-- [ ] T6.2 · MCP server · M · T4.2, T5.1
+- [x] T6.2 · MCP server · M · T4.2, T5.1
   - Tools: `list_presets`, `get_preset`, `generate_tokens`, `lint`, `shoot`; stdio transport
   - Accept: MCP inspector lists the tools; each tool has a test
 

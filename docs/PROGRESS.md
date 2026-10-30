@@ -18,3 +18,4 @@
 - T4.2 · tastekit lint: core runLint (dep-free glob matcher, config + preset tokens, zero-match error), CLI globs/--json/--fail-on, exit 0/1
 - T2.3 · soft-utility + brutal presets (rules, Hero/Pricing/DashboardCard, playground fonts) · critic soft-utility 3.6 → 4.0, brutal 3.8 → 4.3 (1 fix round)
 - T6.1 · product skill: SKILL.md (140 lines) + reference/{tokens,lint-rules,composition}.md; init installs the bundle + preset.md; proxy acceptance: hand-built landing page in a fresh Vite app lints 0 errors
+- T6.2 · MCP server (list_presets, get_preset, generate_tokens, lint, shoot; stdio bin tastekit-mcp); core resolveInside (symlink-safe) + resolveShootOptions; confined shoot only to local http(s)

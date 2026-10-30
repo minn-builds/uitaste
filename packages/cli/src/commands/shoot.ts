@@ -3,15 +3,12 @@ import { dirname, resolve } from "node:path";
 import {
   agentHandoff,
   type BrowserLike,
-  defaultOutDir,
   type Manifest,
   parseBreakpoints,
   parseList,
-  readConfig,
+  resolveShootOptions,
   rubricPath,
   runShoot,
-  type ShootOptionsInput,
-  ShootOptionsSchema,
 } from "@tastekit/core";
 import { defineCommand } from "citty";
 import { z } from "zod";
@@ -74,29 +71,18 @@ export async function runShootCommand(
   }
   const args = parsed.data;
   try {
-    const cwd = resolve(args.dir);
-    const cfg = readConfig(cwd)?.shoot;
-    const raw: ShootOptionsInput = {
-      url: args.url ?? cfg?.url ?? "",
-      routes: args.routes !== undefined ? parseList(args.routes) : (cfg?.routes ?? ["/"]),
-      outDir: resolve(cwd, args.out ?? defaultOutDir()),
-      ...(args.breakpoints !== undefined
-        ? { breakpoints: parseBreakpoints(args.breakpoints) }
-        : cfg?.breakpoints
-          ? { breakpoints: cfg.breakpoints }
-          : {}),
-    };
-    if (!raw.url)
-      throw new Error(
-        "No URL. Pass --url (e.g. http://localhost:5173) or set shoot.url in tastekit.config.json",
-      );
-    const opts = ShootOptionsSchema.safeParse(raw);
-    if (!opts.success) throw new Error(z.prettifyError(opts.error));
+    const opts = resolveShootOptions({
+      cwd: resolve(args.dir),
+      url: args.url,
+      routes: args.routes !== undefined ? parseList(args.routes) : undefined,
+      breakpoints: args.breakpoints !== undefined ? parseBreakpoints(args.breakpoints) : undefined,
+      out: args.out,
+    });
 
     const browser = await launch();
     let manifest: Manifest;
     try {
-      manifest = await runShoot(browser, opts.data);
+      manifest = await runShoot(browser, opts);
     } finally {
       await browser.close();
     }
