@@ -9,7 +9,7 @@ Each task is one Claude Code session. `/next` picks the first unchecked task who
   - pnpm workspaces, turbo.json (build/test/typecheck/lint pipelines), root tsconfig (strict, ESM), Biome config, vitest workspace
   - empty packages: core, presets, cli, mcp, skill; app: playground (Vite + React + Tailwind v4)
   - Accept: `pnpm build && pnpm test && pnpm typecheck && pnpm lint` pass on empty packages
-- [ ] T0.2 · CI · S · T0.1
+- [x] T0.2 · CI · S · T0.1
   - GitHub Actions: install (pnpm cache), typecheck, lint, test, build on PR + main
   - Changesets initialized
   - Accept: workflow file valid (`actionlint` if available); changeset config present
