@@ -4,11 +4,11 @@ HN doesn't render images in text posts, so the before/after goes first as a link
 
 **Title:** Show HN: uitaste – Design tokens and a linter that keep coding agents off the default AI look
 
-**URL:** https://github.com/uitaste/uitaste
+**URL:** https://github.com/minn-builds/uitaste
 
 ---
 
-Before/after, same prompt, same agent (left: default, right: with uitaste): https://github.com/uitaste/uitaste/blob/main/docs/assets/before-after-event-conference.png
+Before/after, same prompt, same agent (left: default, right: with uitaste): https://github.com/minn-builds/uitaste/blob/main/docs/assets/before-after-event-conference.png
 
 Hi HN. I kept seeing the same frontend come out of Claude Code and Cursor: Inter, an indigo-to-purple gradient, a centered hero, three identical rounded cards. Prompting for "distinctive" works for a component or two, then the model drifts back, and it never looks at what it rendered.
 

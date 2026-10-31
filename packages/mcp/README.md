@@ -1,6 +1,6 @@
 # @uitaste/mcp
 
-Stdio MCP server for [uitaste](https://github.com/uitaste/uitaste). Tools: `list_presets`, `get_preset`, `generate_tokens`, `lint`, `shoot`. Paths are confined to the working directory, and `shoot` only accepts local http(s) URLs unless `shoot.url` is set in `uitaste.config.json`.
+Stdio MCP server for [uitaste](https://github.com/minn-builds/uitaste). Tools: `list_presets`, `get_preset`, `generate_tokens`, `lint`, `shoot`. Paths are confined to the working directory, and `shoot` only accepts local http(s) URLs unless `shoot.url` is set in `uitaste.config.json`.
 
 ```json
 {
@@ -10,6 +10,6 @@ Stdio MCP server for [uitaste](https://github.com/uitaste/uitaste). Tools: `list
 }
 ```
 
-`shoot` needs Playwright in your project. Docs: https://github.com/uitaste/uitaste
+`shoot` needs Playwright in your project. Docs: https://github.com/minn-builds/uitaste
 
 MIT

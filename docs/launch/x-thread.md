@@ -55,4 +55,4 @@ Honest caveats: the bench (10 prompts) shows 7–85 lint errors for baseline vs 
 v0.1.0, MIT, React only for now (the CSS-variable output works anywhere). No image generation, no Figma sync.
 
 Try it: `npx uitaste init`
-All 10 before/afters and the prompts are in the repo: https://github.com/uitaste/uitaste
+All 10 before/afters and the prompts are in the repo: https://github.com/minn-builds/uitaste

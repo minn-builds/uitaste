@@ -37,7 +37,7 @@ Other commands: `uitaste preset list`, `uitaste preset show <id>` (both take `--
 **From source.** To run an unreleased build:
 
 ```sh
-git clone https://github.com/uitaste/uitaste.git && cd uitaste && pnpm i && pnpm build
+git clone https://github.com/minn-builds/uitaste.git && cd uitaste && pnpm i && pnpm build
 node /path/to/uitaste/packages/cli/dist/main.js init --preset editorial   # run from your project
 ```
 

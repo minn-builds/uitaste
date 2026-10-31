@@ -65,6 +65,6 @@ Tools: `list_presets`, `get_preset`, `generate_tokens`, `lint`, `shoot`. `shoot`
 - **Every page in the comparison was written by an agent**, from the prompts in `bench/prompts.json`. The uitaste runs knew they were being benchmarked, and the baseline runs got only the raw prompt. There's no blind preference test yet.
 - **What it doesn't do:** it doesn't generate images or copy, doesn't sync with Figma, has no hosted service or accounts, and the skill/init flow targets React for now (the CSS-variable output works anywhere). Four presets is a small palette; it won't produce your brand from nothing, though `--accent` and `--font` let you override the accent color and display font.
 
-Repo, all 10 before/afters, the prompts and the bench harness: https://github.com/uitaste/uitaste
+Repo, all 10 before/afters, the prompts and the bench harness: https://github.com/minn-builds/uitaste
 
 I'd like to hear where the skill instructions break down in longer sessions, and which preset you'd want next.

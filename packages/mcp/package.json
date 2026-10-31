@@ -6,12 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uitaste/uitaste.git",
+    "url": "git+https://github.com/minn-builds/uitaste.git",
     "directory": "packages/mcp"
   },
-  "homepage": "https://github.com/uitaste/uitaste#readme",
+  "homepage": "https://github.com/minn-builds/uitaste#readme",
   "bugs": {
-    "url": "https://github.com/uitaste/uitaste/issues"
+    "url": "https://github.com/minn-builds/uitaste/issues"
   },
   "keywords": [
     "mcp",
