@@ -52,6 +52,6 @@ The reason I built it: coding agents (Claude Code, Cursor, Codex) produce the te
 
 I built 10 pages from the same prompts with and without uitaste and linted both: 7–85 errors for the baseline vs 0 for uitaste. That comparison is rigged in uitaste's favor by construction, because stock palette classes count as errors and the baseline uses stock Tailwind. Both sets of pages were written by agents, and the uitaste runs knew they were being benchmarked. Look at the screenshots (`docs/assets/before-after-pricing.png`, `docs/assets/before-after-event-conference.png` and all 10 in `bench/out`) and decide for yourself.
 
-MIT, v0.1.0: <REPO_URL>
+MIT, v0.1.0: https://github.com/uitaste/uitaste
 
 I'd like feedback on the rules, especially false positives and patterns I'm missing.

@@ -1,6 +1,6 @@
 # X thread (draft)
 
-Seven posts. Attach the listed image to each post. Character counts are for the post text only (X counts a URL as 23 characters; `<REPO_URL>` is a placeholder until the repo is public). X shows backticks literally, so remove them when posting; every post stays under 280 with or without them.
+Seven posts. Attach the listed image to each post. Character counts are for the post text only (X counts a URL as 23 characters). X shows backticks literally, so remove them when posting; every post stays under 280 with or without them.
 
 ---
 
@@ -55,4 +55,4 @@ Honest caveats: the bench (10 prompts) shows 7–85 lint errors for baseline vs 
 v0.1.0, MIT, React only for now (the CSS-variable output works anywhere). No image generation, no Figma sync.
 
 Try it: `npx uitaste init`
-All 10 before/afters and the prompts are in the repo: <REPO_URL>
+All 10 before/afters and the prompts are in the repo: https://github.com/uitaste/uitaste

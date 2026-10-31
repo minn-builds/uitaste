@@ -154,7 +154,7 @@ export default function Hero() {
 
           <figure
             aria-labelledby="queue-title"
-            className="overflow-hidden rounded-lg border border-border bg-bg shadow-sm md:col-span-7 md:self-stretch flex flex-col"
+            className="overflow-hidden rounded-lg border border-border bg-bg shadow-sm md:col-span-7 md:self-start"
           >
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-muted px-4 py-2">
               <p id="queue-title" className="font-display font-semibold text-base">
@@ -182,7 +182,7 @@ export default function Hero() {
                 ))}
               </fieldset>
             </div>
-            <div className="flex-1">
+            <div>
               <table className="w-full border-collapse text-left">
                 <caption className="sr-only">Five most recent requests</caption>
                 <thead>

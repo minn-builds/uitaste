@@ -34,15 +34,12 @@ npx uitaste shoot --url http://localhost:5173 --routes /,/pricing   # --breakpoi
 
 Other commands: `uitaste preset list`, `uitaste preset show <id>` (both take `--json`), `uitaste lint --json --fail-on warn`.
 
-**Before the first npm release.** 0.1.0 is versioned but not on npm yet; the `npx` forms above work once it is published. Until then, use a clone:
+**From source.** To run an unreleased build:
 
 ```sh
-git clone <this repo> && cd uitaste && pnpm i && pnpm build
+git clone https://github.com/uitaste/uitaste.git && cd uitaste && pnpm i && pnpm build
 node /path/to/uitaste/packages/cli/dist/main.js init --preset editorial   # run from your project
-node /path/to/uitaste/packages/cli/dist/main.js lint
 ```
-
-For MCP, point the client at `node /path/to/uitaste/packages/mcp/dist/main.js` instead of the `npx` command.
 
 ## Before and after
 
@@ -147,4 +144,4 @@ Core logic lives in `packages/core`; the CLI and MCP server are thin wrappers. N
 
 ## License
 
-MIT (see the `license` field in each package; there is no root LICENSE file yet).
+MIT, see [LICENSE](LICENSE).

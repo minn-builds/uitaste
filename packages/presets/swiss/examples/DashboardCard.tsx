@@ -8,17 +8,20 @@ const ROWS = [
 
 export default function DashboardCard() {
   return (
-    <section className="bg-bg px-3 md:px-6 py-8 md:py-16">
+    <section className="bg-bg px-3 md:px-6 pt-8 md:pt-12 pb-8 md:pb-12">
       <article
         aria-labelledby="throughput-title"
         className="bg-bg text-fg font-body border-t-4 border-fg pt-2 pb-3"
       >
         <header className="grid grid-cols-12 gap-x-3 items-baseline">
-          <p className="col-span-2 font-mono text-sm text-muted-fg">07</p>
-          <h3 id="throughput-title" className="col-span-7 font-display font-bold text-base">
+          <p className="col-span-12 md:col-span-2 font-mono text-sm text-muted-fg">03 / Usage</p>
+          <h3
+            id="throughput-title"
+            className="col-span-8 md:col-span-7 font-display font-bold text-base"
+          >
             Rendered frames
           </h3>
-          <p className="col-span-3 text-right text-sm text-muted-fg">This week</p>
+          <p className="col-span-4 md:col-span-3 text-right text-sm text-muted-fg">This week</p>
         </header>
 
         <div className="grid grid-cols-12 gap-x-3 pt-3">

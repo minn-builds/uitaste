@@ -4,16 +4,12 @@
 
 Please look at the four presets (render with `pnpm --filter playground dev` → `/presets/<id>`):
 
-- `.uitaste/shots/T2.2/editorial-{390,1440}.png` · critic 3.6 after fixes
-- `.uitaste/shots/T2.2/swiss-{390,1440}.png` · critic 3.6 after fixes
-- `.uitaste/shots/T2.3/soft-utility-{390,1440}.png` · critic 4.0
-- `.uitaste/shots/T2.3/brutal-{390,1440}.png` · critic 4.3
+- `.uitaste/shots/T2.2/editorial-{390,1440}.png` · critic 4.3 (re-scored 2026-10-31)
+- `.uitaste/shots/T2.2/swiss-{390,1440}.png` · critic 4.1 (re-scored 2026-10-31)
+- `.uitaste/shots/T2.3/soft-utility-{390,1440}.png` · critic 4.3
+- `.uitaste/shots/T2.3/brutal-{390,1440}.png` · critic 4.6
 
-Open critic notes:
-
-- Editorial and swiss were not re-scored after their fix round.
-- Soft-utility's hero frame still has a ~100px gap under its table.
-- Brutal's "Choose Crew" button reads peach on the orange slab.
+Open critic notes: resolved 2026-10-31 (editorial and swiss re-scored; soft-utility hero gap and brutal Crew button fixed). Shots refreshed from `.uitaste/shots/post-*`.
 
 ## FYI · Phase 7 done (proof)
 

@@ -1,11 +1,31 @@
 {
   "name": "@uitaste/skill",
   "version": "0.1.0",
+  "description": "The uitaste agent skill: instructions that make coding agents build with preset tokens and critique their own UI.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uitaste/uitaste.git",
+    "directory": "packages/skill"
+  },
+  "homepage": "https://github.com/uitaste/uitaste#readme",
+  "bugs": {
+    "url": "https://github.com/uitaste/uitaste/issues"
+  },
+  "keywords": [
+    "claude-code",
+    "cursor",
+    "codex",
+    "agent-skill",
+    "design-system",
+    "ui"
+  ],
   "files": [
     "SKILL.md",
-    "reference"
+    "reference",
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"

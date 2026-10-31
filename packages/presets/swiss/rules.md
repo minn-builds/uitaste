@@ -32,6 +32,7 @@ International Typographic Style for screens: a heavy neo-grotesk set flush-left 
 - Never use a second accent hue or tints of red for decoration. `accent-*` ramps are for hover and pressed states only.
 - Never use `text-xs` (8.5px) for anything a person must read.
 - Never put icons in colored circles, use emoji, or set three equal cards in a row.
+- Never set a sentence in `text-sm` (12px). It is for labels of four words or fewer; prose uses `text-base`.
 - Never italicise or letter-space for emphasis; use weight or size.
 - Do not use `destructive` and `accent` side by side; errors also carry a text label.
 

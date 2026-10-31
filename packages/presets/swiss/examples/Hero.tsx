@@ -7,19 +7,16 @@ const NAV = [
 
 const FACTS = [
   {
-    index: "01",
     value: "12",
     label: "Columns, 24px gutters",
     className: "col-span-12 md:col-span-5 border-t border-border py-2",
   },
   {
-    index: "02",
     value: "1",
     label: "Accent color",
     className: "col-span-12 md:col-span-3 border-t border-border py-2",
   },
   {
-    index: "03",
     value: "0",
     label: "Corner radius",
     className: "col-span-12 md:col-span-4 border-t border-border py-2",
@@ -30,14 +27,14 @@ export default function Hero() {
   return (
     <div className="bg-bg text-fg font-body">
       <header className="border-b border-border">
-        <nav aria-label="Primary" className="grid grid-cols-12 gap-x-3 px-3 md:px-6 items-baseline">
+        <nav aria-label="Primary" className="grid grid-cols-12 gap-x-3 px-3 md:px-6 items-center">
           <a
             href="/"
-            className="col-span-12 md:col-span-3 py-2 font-display font-bold text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            className="col-span-12 md:col-span-2 inline-flex items-center min-h-6 font-display font-bold text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
             Raster Studio
           </a>
-          <ul className="col-span-12 md:col-span-9 flex flex-wrap gap-x-4">
+          <ul className="col-span-12 md:col-start-3 md:col-span-10 flex flex-wrap gap-x-4">
             {NAV.map((item) => (
               <li key={item.href}>
                 <a
@@ -45,8 +42,8 @@ export default function Hero() {
                   aria-current={item.current ? "page" : undefined}
                   className={
                     item.current
-                      ? "inline-block py-2 text-sm font-medium border-b-2 border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                      : "inline-block py-2 text-sm font-medium text-muted-fg border-b-2 border-bg hover:text-fg transition-colors ease-standard focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      ? "inline-flex items-center min-h-6 text-sm font-medium border-b-2 border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      : "inline-flex items-center min-h-6 text-sm font-medium text-muted-fg border-b-2 border-bg hover:text-fg transition-colors ease-standard focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   }
                 >
                   {item.label}
@@ -58,7 +55,7 @@ export default function Hero() {
       </header>
 
       <main>
-        <section aria-labelledby="hero-title" className="px-3 md:px-6 pt-6 md:pt-12 pb-8 md:pb-8">
+        <section aria-labelledby="hero-title" className="px-3 md:px-6 pt-8 md:pt-12">
           <div className="grid grid-cols-12 gap-x-3 gap-y-3 border-t-4 border-fg pt-3">
             <p className="col-span-12 md:col-span-2 font-mono text-sm text-muted-fg">01 / Studio</p>
             <div className="col-span-12 md:col-span-10">
@@ -92,10 +89,8 @@ export default function Hero() {
 
           <dl className="grid grid-cols-12 gap-x-3 mt-8 md:mt-12">
             {FACTS.map((fact) => (
-              <div key={fact.index} className={fact.className}>
-                <dt className="text-sm text-muted-fg">
-                  <span className="font-mono">{fact.index}</span> {fact.label}
-                </dt>
+              <div key={fact.label} className={fact.className}>
+                <dt className="text-sm text-muted-fg">{fact.label}</dt>
                 <dd className="font-mono text-2xl md:text-3xl">{fact.value}</dd>
               </div>
             ))}

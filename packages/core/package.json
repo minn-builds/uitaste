@@ -1,8 +1,27 @@
 {
   "name": "@uitaste/core",
   "version": "0.1.0",
+  "description": "Core of uitaste: preset schema, OKLCH token generator, CSS/Tailwind v4/JSON emitters, design linter and screenshot planner.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uitaste/uitaste.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/uitaste/uitaste#readme",
+  "bugs": {
+    "url": "https://github.com/uitaste/uitaste/issues"
+  },
+  "keywords": [
+    "design-tokens",
+    "tailwind",
+    "oklch",
+    "design-system",
+    "lint",
+    "ai",
+    "coding-agent"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -10,7 +29,9 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=20"

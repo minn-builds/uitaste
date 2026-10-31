@@ -30,7 +30,7 @@ const PLANS = [
       ["Rollbacks", "Any deploy"],
     ],
     slab: "order-first lg:order-none lg:col-span-5 border-3 border-fg bg-accent text-accent-fg shadow-lg",
-    cta: `flex items-center justify-center min-h-12 px-6 border-3 border-fg bg-bg text-fg font-bold shadow-md transition ease-standard hover:translate-x-1 hover:translate-y-1 hover:shadow-none motion-reduce:transition-none ${FOCUS}`,
+    cta: `flex items-center justify-center min-h-12 px-6 border-3 border-fg bg-fg text-bg font-bold transition ease-standard hover:bg-bg hover:text-fg motion-reduce:transition-none ${FOCUS}`,
     recommended: true,
   },
   {

@@ -1,12 +1,31 @@
 {
   "name": "@uitaste/presets",
   "version": "0.1.0",
+  "description": "Curated uitaste style presets (editorial, swiss, soft-utility, brutal): tokens, rules and example components.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uitaste/uitaste.git",
+    "directory": "packages/presets"
+  },
+  "homepage": "https://github.com/uitaste/uitaste#readme",
+  "bugs": {
+    "url": "https://github.com/uitaste/uitaste/issues"
+  },
+  "keywords": [
+    "design-tokens",
+    "presets",
+    "tailwind",
+    "design-system",
+    "ui"
+  ],
   "files": [
     "*/preset.json",
     "*/rules.md",
-    "*/examples"
+    "*/examples/*.tsx",
+    "README.md",
+    "LICENSE"
   ],
   "devDependencies": {
     "@types/react": "^19.3.0",

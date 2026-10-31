@@ -36,7 +36,7 @@ Calm, friendly product UI for tools and SaaS: Red Hat Display headings over Sour
 
 ## Component recipes
 
-**Hero.** `bg-muted` canvas, `md:grid-cols-12`. Left `col-span-5`: status line with dot, `text-3xl md:text-4xl` headline, `text-muted-fg` paragraph at `max-w-120`, one teal button plus an underlined text link, and a 3-row property list. Right `col-span-7`: a `rounded-lg border bg-bg shadow-sm` app frame stretched to the row (`self-stretch flex flex-col`, table wrapper `flex-1`) with a toolbar strip (title plus segmented control), a compact table and a `bg-muted` footer strip with a `kbd` hint.
+**Hero.** `bg-muted` canvas, `md:grid-cols-12`. Left `col-span-5`: status line with dot, `text-3xl md:text-4xl` headline, `text-muted-fg` paragraph at `max-w-120`, one teal button plus an underlined text link, and a 3-row property list. Right `col-span-7`: a `rounded-lg border bg-bg shadow-sm` app frame that hugs its content (`md:self-start`, never stretched to the row, so no empty band under the table) with a toolbar strip (title plus segmented control), a compact table and a `bg-muted` footer strip with a `kbd` hint.
 
 **Nav.** `bg-bg border-b`, one row at `py-2`: wordmark with a small `rounded-sm bg-accent` mark, links as `rounded-sm px-3` items where the current one is `bg-muted font-semibold`, and a bordered neutral button on the right. Links wrap to a scrollable second row on mobile.
 

@@ -62,11 +62,11 @@ export default function Hero() {
           <div className="md:col-span-9">
             <h1
               id="hero-title"
-              className="font-display font-light text-3xl text-fg break-words hyphens-auto sm:text-4xl md:text-5xl"
+              className="font-display font-light text-3xl text-fg break-words hyphens-manual sm:text-4xl md:text-5xl"
             >
               The last cartographers of the <em className="italic">North Sea</em> coast
             </h1>
-            <p className="mt-6 max-w-160 font-display italic text-xl text-muted-fg">
+            <p className="mt-6 max-w-160 font-display font-light italic text-lg text-muted-fg md:text-xl">
               The shoreline moves a little every winter. A handful of surveyors still walk it with
               chains and notebooks, redrawing the map by hand.
             </p>

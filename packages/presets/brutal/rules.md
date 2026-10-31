@@ -41,7 +41,7 @@ Neo-brutalism with manners: oversized uppercase Archivo Black, Atkinson Hyperleg
 
 **Nav.** One bordered bar (`border-b-3 border-fg`): wordmark in `font-display uppercase` left in its own cell (`border-r-3`), links as mono uppercase cells divided by `divide-x-3 divide-fg`. The current link is a `bg-fg text-bg` cell.
 
-**Pricing.** Plans are slabs in an uneven row (`lg:grid-cols-12`, spans 4/5/3, stacked below `lg`). The recommended plan is the orange flood with `shadow-lg`, sits higher and comes first on mobile (`order-first lg:order-none`); the others are flat. Price in `font-display text-2xl`, the period in mono. Features are a `divide-y` list with values spelled out in mono ("6,000 / mo", "Any deploy"), never check icons.
+**Pricing.** Plans are slabs in an uneven row (`lg:grid-cols-12`, spans 4/5/3, stacked below `lg`). The recommended plan is the orange flood with `shadow-lg`, sits higher and comes first on mobile (`order-first lg:order-none`); the others are flat. Price in `font-display text-2xl`, the period in mono. The CTA on the orange slab is an ink button (`bg-fg text-bg border-3 border-fg`, hover inverts to `bg-bg text-fg`), never a pale off-white block on orange; flat plans use the outlined bg button. Features are a `divide-y` list with values spelled out in mono ("6,000 / mo", "Any deploy"), never check icons.
 
 **Card.** A slab with a tape label overlapping its top border, split 5/7 inside by a 3px divider: the giant display number and its delta on one side, the chart on the other. Charts are vertical ink columns standing on a 3px baseline with mono values on top; the current period is the orange column. Never horizontal bar tables.
 

@@ -16,10 +16,10 @@ export default function Pricing() {
   return (
     <section
       aria-labelledby="pricing-title"
-      className="bg-bg text-fg font-body px-3 md:px-6 py-8 md:py-16"
+      className="bg-bg text-fg font-body px-3 md:px-6 pt-8 md:pt-12"
     >
       <div className="grid grid-cols-12 gap-x-3 gap-y-3 border-t-4 border-fg pt-3">
-        <p className="col-span-12 md:col-span-2 font-mono text-sm text-muted-fg">04 / Pricing</p>
+        <p className="col-span-12 md:col-span-2 font-mono text-sm text-muted-fg">02 / Pricing</p>
         <div className="col-span-12 md:col-span-6">
           <h2 id="pricing-title" className="font-display font-bold text-xl md:text-2xl">
             Three plans. One grid.
@@ -47,7 +47,9 @@ export default function Pricing() {
               <dl className="mt-2 divide-y divide-border border-y border-border">
                 {FEATURES.map((feature) => (
                   <div key={feature.label} className="grid grid-cols-12 gap-x-3 py-1.5">
-                    <dt className="col-span-5 text-sm text-muted-fg">{feature.label}</dt>
+                    <dt className="col-span-5 text-sm font-medium text-muted-fg">
+                      {feature.label}
+                    </dt>
                     <dd className="col-span-7">{feature.values[planIndex]}</dd>
                   </div>
                 ))}
@@ -77,12 +79,12 @@ export default function Pricing() {
                 <th key={plan.id} scope="col" className="align-top p-0">
                   {plan.recommended ? (
                     <div className="pl-3 pr-2 py-2 bg-fg text-bg border-t-4 border-fg">
-                      <span className="block text-sm font-medium">{plan.name}</span>
+                      <span className="block font-display font-bold text-base">{plan.name}</span>
                       <span className="block font-mono text-sm">Recommended</span>
                     </div>
                   ) : (
                     <div className="pl-3 pr-2 py-2 border-t-4 border-bg">
-                      <span className="block text-sm font-medium">{plan.name}</span>
+                      <span className="block font-display font-bold text-base">{plan.name}</span>
                     </div>
                   )}
                 </th>

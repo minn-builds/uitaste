@@ -6,7 +6,7 @@ export default function Pricing() {
   return (
     <section aria-labelledby="pricing-title" className="bg-bg text-fg font-body">
       <div className="mx-auto max-w-320 px-6 py-24 md:px-12">
-        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-12">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-6 border-t-2 border-fg pt-6 md:grid-cols-12">
           <p
             aria-hidden="true"
             className="font-display font-light italic text-5xl text-muted-fg md:col-span-3"
@@ -67,7 +67,7 @@ export default function Pricing() {
               <p className="font-display italic text-lg text-muted-fg">
                 The quarterly, posted to your door, plus everything in Digital.
               </p>
-              <ul className="mt-4 flex flex-col gap-1 text-sm text-fg">
+              <ul className="mt-4 flex flex-col gap-2 text-sm text-fg">
                 <li>Uncoated 200-page edition, sewn binding</li>
                 <li>Free shipping worldwide</li>
                 <li>Two gift issues a year</li>
